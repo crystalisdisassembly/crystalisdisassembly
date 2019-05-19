@@ -1,6 +1,6 @@
 ;PRG Bank $F
 .segment "PRG_0xF"
-.org $8000
+.org $C000
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0000 --
 .byte $01,  $02,  $04,  $08,  $10,  $20,  $40,  $80
