@@ -6112,8 +6112,4 @@ SBC $F6, X			;Offset: 0x1FF8, Byte Code: 0xF5 0xF6
 .byte $F4				;Offset: 0x1FFA, Byte Code: 0xF4 .. Illegal Opcode!!
 CPX $E8E8			;Offset: 0x1FFB, Byte Code: 0xEC 0xE8 0xE8
 INX					;Offset: 0x1FFE, Byte Code: 0xE8 
-
-.byte $EC
-
-;this is invalid because the instruction already starts at 0x1FFF so a word operand will be overflow (the $6000 is just reading past the end of the CHR array into the remainder from the PRG buffer)
-;CPX $6000			;Offset: 0x1FFF, Byte Code: 0xEC 0x00 0x60
+.byte $EC			;Offset: 0x1FFF, Byte Code: 0xEC - ERROR: CPX instruction as code, but end of buffer reached before operand
