@@ -8420,8 +8420,18 @@
 
 
 ;---- Start CDL Unknown Block: Offset 0x2879 --
-.byte $7E,  $0D,  $26,  $0D
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
+.byte $7E
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x287A --
+.byte $0D
+;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x287B --
+.byte $26,  $0D
+;---- End CDL Unknown Block: Total Bytes 0x02 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x287D --
@@ -8831,8 +8841,18 @@
 
 
 ;---- Start CDL Unknown Block: Offset 0x2A79 --
-.byte $06,  $0D,  $7E,  $0D
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
+.byte $06
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x2A7A --
+.byte $0D
+;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x2A7B --
+.byte $7E,  $0D
+;---- End CDL Unknown Block: Total Bytes 0x02 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x2A7D --

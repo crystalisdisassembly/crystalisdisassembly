@@ -3170,39 +3170,30 @@
 .byte $28,  $B3,  $2F,  $B3,  $33,  $B3,  $3C,  $B3
 .byte $16,  $00,  $00,  $00,  $00,  $46,  $50,  $5C
 .byte $5D,  $A0,  $BB,  $34,  $36,  $80,  $00,  $AF
-.byte $00,  $07,  $0B
-;---- End CDL Confirmed Data Block: Total Bytes 0x33 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x3335 --
-.byte $02,  $04
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x3337 --
-.byte $08,  $0B,  $02,  $04,  $FF,  $FF,  $47,  $B3
-.byte $4D,  $B3,  $54,  $B3,  $58,  $B3,  $61,  $B3
-.byte $16,  $00,  $00,  $00,  $00,  $45,  $6A,  $6B
-.byte $6C,  $A0,  $BB,  $34,  $36,  $80,  $00,  $AF
-.byte $00,  $07,  $0B,  $18,  $02,  $08,  $0B,  $18
-.byte $02,  $FF,  $FF,  $6C,  $B3,  $72,  $B3,  $79
-.byte $B3,  $7D,  $B3,  $82,  $B3,  $16,  $00,  $00
-.byte $00,  $80,  $01,  $64,  $65,  $66,  $A0,  $BB
-.byte $34,  $36,  $68,  $00,  $94,  $00,  $06,  $08
-.byte $18,  $03,  $FF,  $FF,  $8D,  $B3,  $93,  $B3
-.byte $9A,  $B3,  $9E,  $B3,  $A3,  $B3,  $16,  $00
-.byte $00,  $00,  $80,  $00,  $5F,  $3D,  $61,  $A0
-.byte $BB,  $34,  $36,  $68,  $00,  $94,  $00,  $06
-.byte $08,  $18,  $04,  $FF,  $FF,  $AE,  $B3,  $B4
-.byte $B3,  $BB,  $B3,  $BF,  $B3,  $C4,  $B3,  $16
-.byte $00,  $00,  $00,  $80,  $02,  $5F,  $3D,  $61
+.byte $00,  $07,  $0B,  $02,  $04,  $08,  $0B,  $02
+.byte $04,  $FF,  $FF,  $47,  $B3,  $4D,  $B3,  $54
+.byte $B3,  $58,  $B3,  $61,  $B3,  $16,  $00,  $00
+.byte $00,  $00,  $45,  $6A,  $6B,  $6C,  $A0,  $BB
+.byte $34,  $36,  $80,  $00,  $AF,  $00,  $07,  $0B
+.byte $18,  $02,  $08,  $0B,  $18,  $02,  $FF,  $FF
+.byte $6C,  $B3,  $72,  $B3,  $79,  $B3,  $7D,  $B3
+.byte $82,  $B3,  $16,  $00,  $00,  $00,  $80,  $01
+.byte $64,  $65,  $66,  $A0,  $BB,  $34,  $36,  $68
+.byte $00,  $94,  $00,  $06,  $08,  $18,  $03,  $FF
 ;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x33B7 --
-.byte $A0,  $BB,  $34,  $36,  $68,  $00,  $94,  $00
-.byte $06,  $08,  $18,  $05,  $FF,  $FF
-;---- End CDL Confirmed Data Block: Total Bytes 0x0E ----
+;---- Start CDL Confirmed Data Block: Offset 0x3382 --
+.byte $FF,  $8D,  $B3,  $93,  $B3,  $9A,  $B3,  $9E
+.byte $B3,  $A3,  $B3,  $16,  $00,  $00,  $00,  $80
+.byte $00,  $5F,  $3D,  $61,  $A0,  $BB,  $34,  $36
+.byte $68,  $00,  $94,  $00,  $06,  $08,  $18,  $04
+.byte $FF,  $FF,  $AE,  $B3,  $B4,  $B3,  $BB,  $B3
+.byte $BF,  $B3,  $C4,  $B3,  $16,  $00,  $00,  $00
+.byte $80,  $02,  $5F,  $3D,  $61,  $A0,  $BB,  $34
+.byte $36,  $68,  $00,  $94,  $00,  $06,  $08,  $18
+.byte $05,  $FF,  $FF
+;---- End CDL Confirmed Data Block: Total Bytes 0x43 ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x33C5 --

@@ -1,3 +1,6 @@
+
+.include "_crystalis_defines_constants.asm"
+
 .segment "HEADER"
 
 .byte $4E, $45, $53, $1A, $10, $10, $42, $00

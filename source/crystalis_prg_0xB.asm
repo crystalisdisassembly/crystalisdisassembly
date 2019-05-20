@@ -617,243 +617,205 @@
 .byte $AC,  $02,  $73,  $74,  $72,  $6F,  $6E,  $67
 .byte $FF,  $FC,  $D5,  $02,  $6E,  $65,  $77,  $20
 .byte $74,  $79,  $70,  $65,  $20,  $CF,  $6D,  $65
-.byte $74,  $61,  $6C,  $5F,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x5D ----
+.byte $74,  $61,  $6C,  $5F,  $00,  $01,  $41,  $66
+.byte $74,  $65,  $72,  $20,  $05,  $07,  $CF,  $06
+.byte $17,  $02,  $83,  $9C,  $2C,  $20,  $DA,  $75
+.byte $74,  $6D,  $6F,  $73,  $74,  $20,  $66,  $65
+.byte $61,  $72,  $02,  $CF,  $DA,  $05,  $07,  $AD
+;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Unknown Block: Offset 0x0DBB --
-.byte $01,  $41,  $66,  $74,  $65,  $72,  $20,  $05
-.byte $07,  $CF,  $06,  $17,  $02,  $83,  $9C,  $2C
-.byte $20,  $DA,  $75,  $74,  $6D,  $6F,  $73,  $74
-.byte $20,  $66,  $65,  $61,  $72,  $02,  $CF,  $DA
-.byte $05,  $07,  $AD,  $72,  $65,  $6C,  $65,  $61
-.byte $73,  $86,  $2E,  $00
-;---- End CDL Unknown Block: Total Bytes 0x2C ----
+;---- Start CDL Confirmed Data Block: Offset 0x0DDE --
+.byte $72,  $65,  $6C,  $65,  $61,  $73,  $86,  $2E
+.byte $00,  $01,  $FB,  $68,  $65,  $61,  $72,  $20
+.byte $DA,  $05,  $07,  $61,  $67,  $61,  $69,  $6E
+.byte $73,  $74,  $02,  $06,  $17,  $83,  $6B,  $69
+.byte $6C,  $6C,  $86,  $5F,  $20,  $CE,  $02,  $66
+.byte $6F,  $72,  $63,  $65,  $64,  $20,  $D8,  $6C
+.byte $65,  $61,  $76,  $65,  $5F,  $20,  $54,  $A9
+.byte $83,  $02,  $BE,  $68,  $69,  $64,  $AC,  $F0
+.byte $06,  $03,  $5F,  $5F,  $00,  $01,  $06,  $17
+.byte $FD,  $73,  $6F,  $6F,  $6E,  $20,  $87,  $02
+.byte $64,  $65,  $73,  $74,  $72,  $6F,  $79,  $86
+.byte $21,  $00,  $01,  $54,  $68,  $65,  $79,  $20
+.byte $73,  $61,  $79,  $20,  $06,  $17,  $27,  $73
+.byte $20,  $6E,  $65,  $77,  $02,  $6D,  $65,  $74
+.byte $61,  $6C,  $20,  $61,  $72,  $6D,  $CE,  $F8
+.byte $65,  $76,  $65,  $6E,  $02,  $77,  $69,  $74
+;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x0DE7 --
-.byte $01,  $FB,  $68,  $65,  $61,  $72,  $20,  $DA
-.byte $05,  $07,  $61,  $67,  $61,  $69,  $6E,  $73
-.byte $74,  $02,  $06,  $17,  $83,  $6B,  $69,  $6C
-.byte $6C,  $86,  $5F,  $20,  $CE,  $02,  $66,  $6F
-.byte $72,  $63,  $65,  $64,  $20,  $D8,  $6C,  $65
-.byte $61,  $76,  $65,  $5F,  $20,  $54,  $A9,  $83
-.byte $02,  $BE,  $68,  $69,  $64,  $AC,  $F0,  $06
-.byte $03,  $5F,  $5F,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x3C ----
+;---- Start CDL Confirmed Data Block: Offset 0x0E5E --
+.byte $68,  $73,  $74,  $61,  $6E,  $64,  $20,  $65
+.byte $61,  $72,  $74,  $68,  $27,  $73,  $20,  $6D
+.byte $61,  $67,  $6D,  $61,  $5F,  $03,  $01,  $20
+.byte $54,  $68,  $81,  $6D,  $65,  $61,  $6E,  $73
+.byte $20,  $DC,  $F8,  $65,  $61,  $73,  $69,  $6C
+.byte $79,  $02,  $61,  $74,  $74,  $61,  $63,  $6B
+.byte $20,  $06,  $23,  $66,  $6F,  $72,  $74,  $5F
+.byte $20,  $4E,  $6F,  $74,  $02,  $9B,  $81,  $61
+.byte $6C,  $6C,  $2E,  $00,  $01,  $57,  $68,  $65
+.byte $6E,  $20,  $FB,  $68,  $65,  $61,  $72,  $64
+.byte $20,  $06,  $23,  $E8,  $02,  $64,  $65,  $73
+.byte $74,  $72,  $6F,  $79,  $86,  $2C,  $20,  $FB
+.byte $74,  $68,  $6F,  $75,  $67,  $68,  $74,  $20
+.byte $FE,  $02,  $73,  $75,  $72,  $65,  $20,  $B1
+.byte $E8,  $6F,  $76,  $FF,  $5F,  $00,  $01,  $9F
+.byte $05,  $07,  $CF,  $06,  $17,  $02,  $83,  $77
+;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Unknown Block: Offset 0x0E23 --
-.byte $01,  $06,  $17,  $FD,  $73,  $6F,  $6F,  $6E
-.byte $20,  $87,  $02,  $64,  $65,  $73,  $74,  $72
-.byte $6F,  $79,  $86,  $21,  $00
-;---- End CDL Unknown Block: Total Bytes 0x15 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x0E38 --
-.byte $01,  $54,  $68,  $65,  $79,  $20,  $73,  $61
-.byte $79,  $20,  $06,  $17,  $27,  $73,  $20,  $6E
-.byte $65,  $77,  $02,  $6D,  $65,  $74,  $61,  $6C
-.byte $20,  $61,  $72,  $6D,  $CE,  $F8,  $65,  $76
-.byte $65,  $6E,  $02,  $77,  $69,  $74,  $68,  $73
-.byte $74,  $61,  $6E,  $64,  $20,  $65,  $61,  $72
-.byte $74,  $68,  $27,  $73,  $20,  $6D,  $61,  $67
-.byte $6D,  $61,  $5F,  $03,  $01,  $20,  $54,  $68
-.byte $81,  $6D,  $65,  $61,  $6E,  $73,  $20,  $DC
-.byte $F8,  $65,  $61,  $73,  $69,  $6C,  $79,  $02
-.byte $61,  $74,  $74,  $61,  $63,  $6B,  $20,  $06
-.byte $23,  $66,  $6F,  $72,  $74,  $5F,  $20,  $4E
-.byte $6F,  $74,  $02,  $9B,  $81,  $61,  $6C,  $6C
-.byte $2E,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x6A ----
-
-
-;---- Start CDL Unknown Block: Offset 0x0EA2 --
-.byte $01,  $57,  $68,  $65,  $6E,  $20,  $FB,  $68
-.byte $65,  $61,  $72,  $64,  $20,  $06,  $23,  $E8
-.byte $02,  $64,  $65,  $73,  $74,  $72,  $6F,  $79
-.byte $86,  $2C,  $20,  $FB,  $74,  $68,  $6F,  $75
-.byte $67,  $68,  $74,  $20,  $FE,  $02,  $73,  $75
-.byte $72,  $65,  $20,  $B1,  $E8,  $6F,  $76,  $FF
-.byte $5F,  $00
-;---- End CDL Unknown Block: Total Bytes 0x32 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x0ED4 --
-.byte $01,  $9F,  $05,  $07,  $CF,  $06,  $17,  $02
-.byte $83,  $77,  $6F,  $6E,  $64,  $65,  $72,  $66
-.byte $75,  $6C,  $2E,  $20,  $48,  $61,  $20,  $68
-.byte $61,  $20,  $68,  $61,  $2E,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x1E ----
-
-
-;---- Start CDL Unknown Block: Offset 0x0EF2 --
-.byte $01,  $50,  $65,  $6F,  $70,  $6C,  $65,  $20
-.byte $73,  $61,  $79,  $AC,  $62,  $61,  $64,  $20
-.byte $74,  $68,  $69
-;---- End CDL Unknown Block: Total Bytes 0x13 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x0F05 --
-.byte $6E
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x0F06 --
+;---- Start CDL Confirmed Data Block: Offset 0x0EDE --
+.byte $6F,  $6E,  $64,  $65,  $72,  $66,  $75,  $6C
+.byte $2E,  $20,  $48,  $61,  $20,  $68,  $61,  $20
+.byte $68,  $61,  $2E,  $00,  $01,  $50,  $65,  $6F
+.byte $70,  $6C,  $65,  $20,  $73,  $61,  $79,  $AC
+.byte $62,  $61,  $64,  $20,  $74,  $68,  $69,  $6E
 .byte $67,  $73,  $02,  $61,  $67,  $61,  $69,  $6E
-.byte $73,  $74,  $20,  $06
-;---- End CDL Unknown Block: Total Bytes 0x0C ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x0F12 --
-.byte $17
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x0F13 --
-.byte $EE,  $02,  $65,  $78,  $65,  $63,  $75,  $74
-.byte $86,  $5F,  $20,  $4D,  $79,  $20,  $68,  $75
-.byte $73,  $62,  $61,  $6E,  $64,  $5F,  $5F,  $00
-;---- End CDL Unknown Block: Total Bytes 0x18 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x0F2B --
-.byte $01,  $06,  $11,  $3A,  $22,  $49,  $20,  $AA
-.byte $73,  $65,  $65,  $6E,  $20,  $F3,  $02,  $FE
-.byte $61,  $20,  $77,  $68,  $69,  $6C,  $65,  $2E
-.byte $20,  $FB,  $63,  $61,  $BD,  $D8,  $02,  $9E
-.byte $F3,  $61,  $20,  $6D,  $65,  $73,  $73,  $61
-.byte $67,  $65,  $5F,  $22,  $03,  $01,  $22,  $05
-.byte $00,  $A0,  $06,  $0A,  $85,  $DF,  $02,  $68
-.byte $69,  $6D,  $20,  $D8,  $53,  $68,  $79,  $72
-.byte $6F,  $6E,  $2E,  $20,  $57,  $65,  $20,  $C9
-.byte $68,  $AD,  $02,  $05,  $03,  $2E,  $20,  $B0
-.byte $63,  $6F,  $75,  $6E,  $74,  $AC,  $CD,  $02
-.byte $F3,  $21,  $22,  $00,  $01,  $06,  $17,  $5F
-.byte $20,  $57,  $69,  $73,  $65,  $20,  $6D,  $65
-.byte $6E,  $5F,  $20,  $77,  $68,  $6F,  $02,  $63
-.byte $61,  $72,  $65,  $73,  $2E,  $20,  $4C,  $65
-.byte $74,  $27,  $73,  $20,  $70,  $61,  $72,  $74
+.byte $73,  $74,  $20,  $06,  $17,  $EE,  $02,  $65
+.byte $78,  $65,  $63,  $75,  $74,  $86,  $5F,  $20
+.byte $4D,  $79,  $20,  $68,  $75,  $73,  $62,  $61
+.byte $6E,  $64,  $5F,  $5F,  $00,  $01,  $06,  $11
+.byte $3A,  $22,  $49,  $20,  $AA,  $73,  $65,  $65
+.byte $6E,  $20,  $F3,  $02,  $FE,  $61,  $20,  $77
+.byte $68,  $69,  $6C,  $65,  $2E,  $20,  $FB,  $63
+.byte $61,  $BD,  $D8,  $02,  $9E,  $F3,  $61,  $20
+.byte $6D,  $65,  $73,  $73,  $61,  $67,  $65,  $5F
+.byte $22,  $03,  $01,  $22,  $05,  $00,  $A0,  $06
 ;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x0FAB --
-.byte $79,  $21,  $00,  $01,  $56,  $65,  $72,  $79
-.byte $20,  $6E,  $69,  $63,  $65,  $21,  $00,  $01
-.byte $59,  $61,  $68,  $20,  $6D,  $61,  $6E,  $2C
-.byte $20,  $6C,  $65,  $74,  $27,  $73,  $20,  $62
-.byte $6F,  $6F,  $67,  $69,  $65,  $21,  $00,  $01
-.byte $57,  $68,  $65,  $72,  $65,  $76,  $FF,  $F3
-.byte $97,  $2C,  $20,  $DA,  $02,  $62,  $72,  $69
-.byte $67,  $68,  $74,  $CA,  $CF,  $F4,  $73,  $77
-.byte $6F,  $72,  $64,  $02,  $FD,  $A7,  $F3,  $2E
-.byte $00,  $01,  $48,  $6F,  $77,  $20,  $64,  $61
-.byte $72,  $65,  $20,  $F3,  $8D,  $A9,  $21,  $02
-.byte $4C,  $65,  $61,  $76,  $65,  $20,  $69,  $6D
-.byte $6D,  $65,  $64,  $69,  $61,  $74,  $65,  $6C
-.byte $79,  $21,  $00,  $01,  $56,  $65,  $72,  $79
-.byte $20,  $ED,  $5F,  $20,  $4F,  $6E,  $20,  $F4
-.byte $77,  $61,  $79,  $2E,  $00,  $01,  $54,  $68
+;---- Start CDL Confirmed Data Block: Offset 0x0F5E --
+.byte $0A,  $85,  $DF,  $02,  $68,  $69,  $6D,  $20
+.byte $D8,  $53,  $68,  $79,  $72,  $6F,  $6E,  $2E
+.byte $20,  $57,  $65,  $20,  $C9,  $68,  $AD,  $02
+.byte $05,  $03,  $2E,  $20,  $B0,  $63,  $6F,  $75
+.byte $6E,  $74,  $AC,  $CD,  $02,  $F3,  $21,  $22
+.byte $00,  $01,  $06,  $17,  $5F,  $20,  $57,  $69
+.byte $73,  $65,  $20,  $6D,  $65,  $6E,  $5F,  $20
+.byte $77,  $68,  $6F,  $02,  $63,  $61,  $72,  $65
+.byte $73,  $2E,  $20,  $4C,  $65,  $74,  $27,  $73
+.byte $20,  $70,  $61,  $72,  $74,  $79,  $21,  $00
+.byte $01,  $56,  $65,  $72,  $79,  $20,  $6E,  $69
+.byte $63,  $65,  $21,  $00,  $01,  $59,  $61,  $68
+.byte $20,  $6D,  $61,  $6E,  $2C,  $20,  $6C,  $65
+.byte $74,  $27,  $73,  $20,  $62,  $6F,  $6F,  $67
+.byte $69,  $65,  $21,  $00,  $01,  $57,  $68,  $65
+.byte $72,  $65,  $76,  $FF,  $F3,  $97,  $2C,  $20
 ;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x102B --
-.byte $AD,  $AD,  $06,  $23,  $66,  $6F,  $72,  $74
-.byte $2E,  $20,  $49,  $02,  $63,  $61,  $92,  $6C
-.byte $65,  $74,  $20,  $73,  $74,  $72,  $61,  $6E
-.byte $67,  $65,  $20,  $05,  $07,  $02,  $AB,  $2E
-.byte $00,  $01,  $48,  $65,  $6C,  $6C,  $6F,  $20
-.byte $06,  $11,  $2E,  $20,  $05,  $00,  $65,  $6E
-.byte $74,  $FF,  $2E,  $00,  $01,  $A1,  $21,  $20
-.byte $06,  $17,  $AD,  $02,  $61,  $74,  $74,  $61
-.byte $63,  $6B,  $AC,  $21,  $00,  $01,  $9A,  $6C
-.byte $75,  $63,  $6B,  $2E,  $00,  $01,  $54,  $68
-.byte $AD,  $AD,  $06,  $23,  $2E,  $20,  $50,  $65
-.byte $6F,  $70,  $6C,  $65,  $02,  $8D,  $A9,  $D8
-.byte $74,  $72,  $61,  $AB,  $D8,  $87,  $02,  $05
-.byte $09,  $85,  $68,  $69,  $64,  $65,  $20,  $D1
-.byte $FC,  $03,  $01,  $20,  $06,  $17,  $80,  $ED
-.byte $2E,  $20,  $88,  $02,  $65,  $76,  $65,  $6E
+;---- Start CDL Confirmed Data Block: Offset 0x0FDE --
+.byte $DA,  $02,  $62,  $72,  $69,  $67,  $68,  $74
+.byte $CA,  $CF,  $F4,  $73,  $77,  $6F,  $72,  $64
+.byte $02,  $FD,  $A7,  $F3,  $2E,  $00,  $01,  $48
+.byte $6F,  $77,  $20,  $64,  $61,  $72,  $65,  $20
+.byte $F3,  $8D,  $A9,  $21,  $02,  $4C,  $65,  $61
+.byte $76,  $65,  $20,  $69,  $6D,  $6D,  $65,  $64
+.byte $69,  $61,  $74,  $65,  $6C,  $79,  $21,  $00
+.byte $01,  $56,  $65,  $72,  $79,  $20,  $ED,  $5F
+.byte $20,  $4F,  $6E,  $20,  $F4,  $77,  $61,  $79
+.byte $2E,  $00,  $01,  $54,  $68,  $AD,  $AD,  $06
+.byte $23,  $66,  $6F,  $72,  $74,  $2E,  $20,  $49
+.byte $02,  $63,  $61,  $92,  $6C,  $65,  $74,  $20
+.byte $73,  $74,  $72,  $61,  $6E,  $67,  $65,  $20
+.byte $05,  $07,  $02,  $AB,  $2E,  $00,  $01,  $48
+.byte $65,  $6C,  $6C,  $6F,  $20,  $06,  $11,  $2E
+.byte $20,  $05,  $00,  $65,  $6E,  $74,  $FF,  $2E
 ;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x10AB --
-.byte $20,  $E0,  $70,  $6C,  $61,  $63,  $65,  $20
-.byte $69,  $73,  $92,  $73,  $61,  $66,  $65,  $02
-.byte $61,  $6E,  $79,  $C0,  $2E,  $00,  $01,  $4F
-.byte $6E,  $20,  $DA,  $E9,  $A9,  $2C,  $20,  $FB
-.byte $6C,  $6F,  $73,  $74,  $20,  $FA,  $02,  $77
-.byte $69,  $66,  $65,  $20,  $85,  $63,  $68,  $69
-.byte $6C,  $64,  $72,  $65,  $6E,  $5F,  $00,  $01
-.byte $06,  $01,  $3A,  $22,  $48,  $69,  $2C,  $20
-.byte $8F,  $F3,  $02,  $72,  $65,  $6D,  $65,  $6D
-.byte $62,  $FF,  $BD,  $3F,  $20,  $FB,  $6C,  $69
-.byte $76,  $65,  $20,  $A9,  $02,  $62,  $65,  $63
-.byte $61,  $E5,  $DA,  $05,  $07,  $FC,  $03,  $01
-.byte $20,  $FA,  $A5,  $74,  $6F,  $77,  $6E,  $20
-.byte $CF,  $06,  $18,  $02,  $A4,  $63,  $68,  $61
-.byte $6E,  $67,  $86,  $5F,  $20,  $FB,  $66,  $65
-.byte $6C,  $74,  $20,  $76,  $65,  $72,  $79,  $02
+;---- Start CDL Confirmed Data Block: Offset 0x105E --
+.byte $00,  $01,  $A1,  $21,  $20,  $06,  $17,  $AD
+.byte $02,  $61,  $74,  $74,  $61,  $63,  $6B,  $AC
+.byte $21,  $00,  $01,  $9A,  $6C,  $75,  $63,  $6B
+.byte $2E,  $00,  $01,  $54,  $68,  $AD,  $AD,  $06
+.byte $23,  $2E,  $20,  $50,  $65,  $6F,  $70,  $6C
+.byte $65,  $02,  $8D,  $A9,  $D8,  $74,  $72,  $61
+.byte $AB,  $D8,  $87,  $02,  $05,  $09,  $85,  $68
+.byte $69,  $64,  $65,  $20,  $D1,  $FC,  $03,  $01
+.byte $20,  $06,  $17,  $80,  $ED,  $2E,  $20,  $88
+.byte $02,  $65,  $76,  $65,  $6E,  $20,  $E0,  $70
+.byte $6C,  $61,  $63,  $65,  $20,  $69,  $73,  $92
+.byte $73,  $61,  $66,  $65,  $02,  $61,  $6E,  $79
+.byte $C0,  $2E,  $00,  $01,  $4F,  $6E,  $20,  $DA
+.byte $E9,  $A9,  $2C,  $20,  $FB,  $6C,  $6F,  $73
+.byte $74,  $20,  $FA,  $02,  $77,  $69,  $66,  $65
+.byte $20,  $85,  $63,  $68,  $69,  $6C,  $64,  $72
 ;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x112B --
-.byte $75,  $6E,  $63,  $6F,  $6D,  $66,  $6F,  $72
-.byte $74,  $61,  $62,  $6C,  $65,  $20,  $E2,  $2E
-.byte $22,  $00,  $01,  $06,  $01,  $3A,  $22,  $57
-.byte $68,  $65,  $6E,  $20,  $FB,  $EF,  $A5,  $02
-.byte $65,  $76,  $65,  $72,  $79,  $05,  $02,  $68
-.byte $61,  $64,  $20,  $63,  $68,  $61,  $6E,  $67
-.byte $86,  $2C,  $20,  $49,  $02,  $66,  $65,  $6C
-.byte $74,  $20,  $C5,  $6C,  $6F,  $6E,  $67,  $FF
-.byte $77,  $65,  $6C,  $8D,  $2E,  $22,  $00,  $01
-.byte $06,  $01,  $3A,  $22,  $05,  $08,  $2E,  $22
-.byte $00,  $01,  $06,  $12,  $3A,  $22,  $9A,  $2C
-.byte $20,  $F3,  $66,  $69,  $6E,  $61,  $6C,  $6C
-.byte $79,  $02,  $C2,  $B1,  $2E,  $20,  $57,  $65
-.byte $27,  $72,  $65,  $20,  $74,  $72,  $61,  $69
-.byte $6E,  $AC,  $02,  $74,  $68,  $65,  $73,  $65
-.byte $20,  $05,  $07,  $A9,  $2E,  $22,  $03,  $01
+;---- Start CDL Confirmed Data Block: Offset 0x10DE --
+.byte $65,  $6E,  $5F,  $00,  $01,  $06,  $01,  $3A
+.byte $22,  $48,  $69,  $2C,  $20,  $8F,  $F3,  $02
+.byte $72,  $65,  $6D,  $65,  $6D,  $62,  $FF,  $BD
+.byte $3F,  $20,  $FB,  $6C,  $69,  $76,  $65,  $20
+.byte $A9,  $02,  $62,  $65,  $63,  $61,  $E5,  $DA
+.byte $05,  $07,  $FC,  $03,  $01,  $20,  $FA,  $A5
+.byte $74,  $6F,  $77,  $6E,  $20,  $CF,  $06,  $18
+.byte $02,  $A4,  $63,  $68,  $61,  $6E,  $67,  $86
+.byte $5F,  $20,  $FB,  $66,  $65,  $6C,  $74,  $20
+.byte $76,  $65,  $72,  $79,  $02,  $75,  $6E,  $63
+.byte $6F,  $6D,  $66,  $6F,  $72,  $74,  $61,  $62
+.byte $6C,  $65,  $20,  $E2,  $2E,  $22,  $00,  $01
+.byte $06,  $01,  $3A,  $22,  $57,  $68,  $65,  $6E
+.byte $20,  $FB,  $EF,  $A5,  $02,  $65,  $76,  $65
+.byte $72,  $79,  $05,  $02,  $68,  $61,  $64,  $20
+.byte $63,  $68,  $61,  $6E,  $67,  $86,  $2C,  $20
 ;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x11AB --
-.byte $22,  $57,  $65,  $20,  $A4,  $61,  $20,  $6C
-.byte $61,  $63,  $6B,  $20,  $CF,  $6D,  $65,  $6E
-.byte $20,  $85,  $02,  $83,  $68,  $61,  $76,  $AC
-.byte $74,  $72,  $6F,  $75,  $62,  $6C,  $65,  $73
-.byte $2E,  $02,  $42,  $65,  $63,  $61,  $E5,  $CF
-.byte $E1,  $61,  $72,  $6D,  $CE,  $5F,  $03,  $01
-.byte $22,  $5F,  $98,  $83,  $6C,  $6F,  $73,  $AC
-.byte $DA,  $8B,  $2E,  $02,  $4F,  $75,  $72,  $20
-.byte $6D,  $65,  $64,  $69,  $63,  $61,  $6C,  $20
-.byte $73,  $74,  $61,  $66,  $66,  $20,  $63,  $61
-.byte $92,  $02,  $B2,  $E4,  $F0,  $DA,  $77,  $6F
-.byte $75,  $6E,  $64,  $86,  $2E,  $22,  $00,  $01
-.byte $06,  $12,  $3A,  $22,  $9F,  $65,  $6E,  $65
-.byte $FA,  $AD,  $73,  $6F,  $02,  $63,  $6C,  $6F
-.byte $73,  $65,  $2E,  $20,  $05,  $08,  $21,  $22
-.byte $00,  $01,  $06,  $11,  $3A,  $22,  $9F,  $05
+;---- Start CDL Confirmed Data Block: Offset 0x115E --
+.byte $49,  $02,  $66,  $65,  $6C,  $74,  $20,  $C5
+.byte $6C,  $6F,  $6E,  $67,  $FF,  $77,  $65,  $6C
+.byte $8D,  $2E,  $22,  $00,  $01,  $06,  $01,  $3A
+.byte $22,  $05,  $08,  $2E,  $22,  $00,  $01,  $06
+.byte $12,  $3A,  $22,  $9A,  $2C,  $20,  $F3,  $66
+.byte $69,  $6E,  $61,  $6C,  $6C,  $79,  $02,  $C2
+.byte $B1,  $2E,  $20,  $57,  $65,  $27,  $72,  $65
+.byte $20,  $74,  $72,  $61,  $69,  $6E,  $AC,  $02
+.byte $74,  $68,  $65,  $73,  $65,  $20,  $05,  $07
+.byte $A9,  $2E,  $22,  $03,  $01,  $22,  $57,  $65
+.byte $20,  $A4,  $61,  $20,  $6C,  $61,  $63,  $6B
+.byte $20,  $CF,  $6D,  $65,  $6E,  $20,  $85,  $02
+.byte $83,  $68,  $61,  $76,  $AC,  $74,  $72,  $6F
+.byte $75,  $62,  $6C,  $65,  $73,  $2E,  $02,  $42
+.byte $65,  $63,  $61,  $E5,  $CF,  $E1,  $61,  $72
+.byte $6D,  $CE,  $5F,  $03,  $01,  $22,  $5F,  $98
 ;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x122B --
-.byte $07,  $74,  $72,  $61,  $69,  $6E,  $AC,  $02
-.byte $A9,  $83,  $61,  $6C,  $6C,  $20,  $66,  $6F
-.byte $6F,  $6C,  $73,  $2E,  $20,  $B0,  $02,  $77
-.byte $6F,  $72,  $72,  $69,  $86,  $2E,  $22,  $00
-.byte $01,  $06,  $11,  $3A,  $22,  $41,  $66,  $74
-.byte $FF,  $06,  $17,  $AD,  $02,  $64,  $65,  $73
-.byte $74,  $72,  $6F,  $79,  $86,  $2C,  $20,  $98
-.byte $27,  $6C,  $6C,  $20,  $A4,  $61,  $02,  $72
-.byte $65,  $6D,  $61,  $74,  $63,  $68,  $2E,  $20
-.byte $54,  $68,  $AD,  $74,  $69,  $BD,  $FB,  $F2
-.byte $02,  $6C,  $6F,  $73,  $65,  $2E,  $22,  $00
-.byte $01,  $45,  $79,  $61,  $61,  $68,  $21,  $20
-.byte $48,  $65,  $65,  $79,  $21,  $20,  $59,  $6F
-.byte $77,  $77,  $21,  $00,  $01,  $45,  $69,  $79
-.byte $61,  $61,  $61,  $68,  $21,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x76 ----
+;---- Start CDL Confirmed Data Block: Offset 0x11DE --
+.byte $83,  $6C,  $6F,  $73,  $AC,  $DA,  $8B,  $2E
+.byte $02,  $4F,  $75,  $72,  $20,  $6D,  $65,  $64
+.byte $69,  $63,  $61,  $6C,  $20,  $73,  $74,  $61
+.byte $66,  $66,  $20,  $63,  $61,  $92,  $02,  $B2
+.byte $E4,  $F0,  $DA,  $77,  $6F,  $75,  $6E,  $64
+.byte $86,  $2E,  $22,  $00,  $01,  $06,  $12,  $3A
+.byte $22,  $9F,  $65,  $6E,  $65,  $FA,  $AD,  $73
+.byte $6F,  $02,  $63,  $6C,  $6F,  $73,  $65,  $2E
+.byte $20,  $05,  $08,  $21,  $22,  $00,  $01,  $06
+.byte $11,  $3A,  $22,  $9F,  $05,  $07,  $74,  $72
+.byte $61,  $69,  $6E,  $AC,  $02,  $A9,  $83,  $61
+.byte $6C,  $6C,  $20,  $66,  $6F,  $6F,  $6C,  $73
+.byte $2E,  $20,  $B0,  $02,  $77,  $6F,  $72,  $72
+.byte $69,  $86,  $2E,  $22,  $00,  $01,  $06,  $11
+.byte $3A,  $22,  $41,  $66,  $74,  $FF,  $06,  $17
+.byte $AD,  $02,  $64,  $65,  $73,  $74,  $72,  $6F
+;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x125E --
+.byte $79,  $86,  $2C,  $20,  $98,  $27,  $6C,  $6C
+.byte $20,  $A4,  $61,  $02,  $72,  $65,  $6D,  $61
+.byte $74,  $63,  $68,  $2E,  $20,  $54,  $68,  $AD
+.byte $74,  $69,  $BD,  $FB,  $F2,  $02,  $6C,  $6F
+.byte $73,  $65,  $2E,  $22,  $00,  $01,  $45,  $79
+.byte $61,  $61,  $68,  $21,  $20,  $48,  $65,  $65
+.byte $79,  $21,  $20,  $59,  $6F,  $77,  $77,  $21
+.byte $00,  $01,  $45,  $69,  $79,  $61,  $61,  $61
+.byte $68,  $21,  $00
+;---- End CDL Confirmed Data Block: Total Bytes 0x43 ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x12A1 --
@@ -2632,268 +2594,268 @@
 .byte $8C,  $FF,  $A9,  $08,  $85
 ;---- End CDL Unknown Block: Total Bytes 0x2D ----
 
-JMP $BC09			;Offset: 0x3C00, Byte Code: 0x4C 0x09 0xBC
-JMP $BC8E			;Offset: 0x3C03, Byte Code: 0x4C 0x8E 0xBC
-JMP $BCDA			;Offset: 0x3C06, Byte Code: 0x4C 0xDA 0xBC
-PHA					;Offset: 0x3C09, Byte Code: 0x48 
-TXA					;Offset: 0x3C0A, Byte Code: 0x8A 
-PHA					;Offset: 0x3C0B, Byte Code: 0x48 
-TYA					;Offset: 0x3C0C, Byte Code: 0x98 
-PHA					;Offset: 0x3C0D, Byte Code: 0x48 
-LDA $0710			;Offset: 0x3C0E, Byte Code: 0xAD 0x10 0x07
-PHA					;Offset: 0x3C11, Byte Code: 0x48 
-AND #$F0			;Offset: 0x3C12, Byte Code: 0x29 0xF0
-STA $0710			;Offset: 0x3C14, Byte Code: 0x8D 0x10 0x07
-LDX #$00			;Offset: 0x3C17, Byte Code: 0xA2 0x00
+JMP $BC09						;Offset: 0x3C00, Byte Code: 0x4C 0x09 0xBC
+JMP $BC8E						;Offset: 0x3C03, Byte Code: 0x4C 0x8E 0xBC
+JMP $BCDA						;Offset: 0x3C06, Byte Code: 0x4C 0xDA 0xBC
+PHA								;Offset: 0x3C09, Byte Code: 0x48 
+TXA								;Offset: 0x3C0A, Byte Code: 0x8A 
+PHA								;Offset: 0x3C0B, Byte Code: 0x48 
+TYA								;Offset: 0x3C0C, Byte Code: 0x98 
+PHA								;Offset: 0x3C0D, Byte Code: 0x48 
+LDA $0710						;Offset: 0x3C0E, Byte Code: 0xAD 0x10 0x07
+PHA								;Offset: 0x3C11, Byte Code: 0x48 
+AND #$F0						;Offset: 0x3C12, Byte Code: 0x29 0xF0
+STA $0710						;Offset: 0x3C14, Byte Code: 0x8D 0x10 0x07
+LDX #$00						;Offset: 0x3C17, Byte Code: 0xA2 0x00
 
 L_PRG_0xB_0x3C19:
 
-LDA $10, X			;Offset: 0x3C19, Byte Code: 0xB5 0x10
-STA $6000, X		;Offset: 0x3C1B, Byte Code: 0x9D 0x00 0x60
-INX					;Offset: 0x3C1E, Byte Code: 0xE8 
-CPX #$20			;Offset: 0x3C1F, Byte Code: 0xE0 0x20
-BNE L_PRG_0xB_0x3C19			;Offset: 0x3C21, Byte Code: 0xD0 0xF6 (computed address for relative mode instruction 0x3C19)
-JSR $BDF6			;Offset: 0x3C23, Byte Code: 0x20 0xF6 0xBD
-BCC L_PRG_0xB_0x3C65			;Offset: 0x3C26, Byte Code: 0x90 0x3D (computed address for relative mode instruction 0x3C65)
-LDA #$00			;Offset: 0x3C28, Byte Code: 0xA9 0x00
-TAX					;Offset: 0x3C2A, Byte Code: 0xAA 
+LDA $10, X						;Offset: 0x3C19, Byte Code: 0xB5 0x10
+STA $6000, X					;Offset: 0x3C1B, Byte Code: 0x9D 0x00 0x60
+INX								;Offset: 0x3C1E, Byte Code: 0xE8 
+CPX #$20						;Offset: 0x3C1F, Byte Code: 0xE0 0x20
+BNE L_PRG_0xB_0x3C19						;Offset: 0x3C21, Byte Code: 0xD0 0xF6 (computed address for relative mode instruction 0x3C19)
+JSR $BDF6						;Offset: 0x3C23, Byte Code: 0x20 0xF6 0xBD
+BCC L_PRG_0xB_0x3C65						;Offset: 0x3C26, Byte Code: 0x90 0x3D (computed address for relative mode instruction 0x3C65)
+LDA #$00						;Offset: 0x3C28, Byte Code: 0xA9 0x00
+TAX								;Offset: 0x3C2A, Byte Code: 0xAA 
 
 L_PRG_0xB_0x3C2B:
 
-STA $7D00, X		;Offset: 0x3C2B, Byte Code: 0x9D 0x00 0x7D
-STA $7E00, X		;Offset: 0x3C2E, Byte Code: 0x9D 0x00 0x7E
-STA $7F00, X		;Offset: 0x3C31, Byte Code: 0x9D 0x00 0x7F
-INX					;Offset: 0x3C34, Byte Code: 0xE8 
-BNE L_PRG_0xB_0x3C2B			;Offset: 0x3C35, Byte Code: 0xD0 0xF4 (computed address for relative mode instruction 0x3C2B)
-JSR $BD1F			;Offset: 0x3C37, Byte Code: 0x20 0x1F 0xBD
-LDA #$00			;Offset: 0x3C3A, Byte Code: 0xA9 0x00
-STA $17				;Offset: 0x3C3C, Byte Code: 0x85 0x17 
+STA $7D00, X					;Offset: 0x3C2B, Byte Code: 0x9D 0x00 0x7D
+STA $7E00, X					;Offset: 0x3C2E, Byte Code: 0x9D 0x00 0x7E
+STA $7F00, X					;Offset: 0x3C31, Byte Code: 0x9D 0x00 0x7F
+INX								;Offset: 0x3C34, Byte Code: 0xE8 
+BNE L_PRG_0xB_0x3C2B						;Offset: 0x3C35, Byte Code: 0xD0 0xF4 (computed address for relative mode instruction 0x3C2B)
+JSR $BD1F						;Offset: 0x3C37, Byte Code: 0x20 0x1F 0xBD
+LDA #$00						;Offset: 0x3C3A, Byte Code: 0xA9 0x00
+STA $17							;Offset: 0x3C3C, Byte Code: 0x85 0x17 
 
 L_PRG_0xB_0x3C3E:
 
-LDA $17				;Offset: 0x3C3E, Byte Code: 0xA5 0x17 
-ASL A				;Offset: 0x3C40, Byte Code: 0x0A
-STA $10				;Offset: 0x3C41, Byte Code: 0x85 0x10 
-ASL A				;Offset: 0x3C43, Byte Code: 0x0A
-CLC					;Offset: 0x3C44, Byte Code: 0x18 
-ADC $10				;Offset: 0x3C45, Byte Code: 0x65 0x10 
-TAY					;Offset: 0x3C47, Byte Code: 0xA8 
-LDX #$00			;Offset: 0x3C48, Byte Code: 0xA2 0x00
+LDA $17							;Offset: 0x3C3E, Byte Code: 0xA5 0x17 
+ASL A							;Offset: 0x3C40, Byte Code: 0x0A
+STA $10							;Offset: 0x3C41, Byte Code: 0x85 0x10 
+ASL A							;Offset: 0x3C43, Byte Code: 0x0A
+CLC								;Offset: 0x3C44, Byte Code: 0x18 
+ADC $10							;Offset: 0x3C45, Byte Code: 0x65 0x10 
+TAY								;Offset: 0x3C47, Byte Code: 0xA8 
+LDX #$00						;Offset: 0x3C48, Byte Code: 0xA2 0x00
 
 L_PRG_0xB_0x3C4A:
 
-LDA $BDC0, Y		;Offset: 0x3C4A, Byte Code: 0xB9 0xC0 0xBD
-STA $10, X			;Offset: 0x3C4D, Byte Code: 0x95 0x10
-INY					;Offset: 0x3C4F, Byte Code: 0xC8 
-INX					;Offset: 0x3C50, Byte Code: 0xE8 
-CPX #$06			;Offset: 0x3C51, Byte Code: 0xE0 0x06
-BNE L_PRG_0xB_0x3C4A			;Offset: 0x3C53, Byte Code: 0xD0 0xF5 (computed address for relative mode instruction 0x3C4A)
-JSR $BCF7			;Offset: 0x3C55, Byte Code: 0x20 0xF7 0xBC
-INC $17				;Offset: 0x3C58, Byte Code: 0xE6 0x17 
-LDA $17				;Offset: 0x3C5A, Byte Code: 0xA5 0x17 
-CMP #$05			;Offset: 0x3C5C, Byte Code: 0xC9 0x05
-BNE L_PRG_0xB_0x3C3E			;Offset: 0x3C5E, Byte Code: 0xD0 0xDE (computed address for relative mode instruction 0x3C3E)
-JSR $BD92			;Offset: 0x3C60, Byte Code: 0x20 0x92 0xBD
-LDX #$00			;Offset: 0x3C63, Byte Code: 0xA2 0x00
+LDA $BDC0, Y					;Offset: 0x3C4A, Byte Code: 0xB9 0xC0 0xBD
+STA $10, X						;Offset: 0x3C4D, Byte Code: 0x95 0x10
+INY								;Offset: 0x3C4F, Byte Code: 0xC8 
+INX								;Offset: 0x3C50, Byte Code: 0xE8 
+CPX #$06						;Offset: 0x3C51, Byte Code: 0xE0 0x06
+BNE L_PRG_0xB_0x3C4A						;Offset: 0x3C53, Byte Code: 0xD0 0xF5 (computed address for relative mode instruction 0x3C4A)
+JSR $BCF7						;Offset: 0x3C55, Byte Code: 0x20 0xF7 0xBC
+INC $17							;Offset: 0x3C58, Byte Code: 0xE6 0x17 
+LDA $17							;Offset: 0x3C5A, Byte Code: 0xA5 0x17 
+CMP #$05						;Offset: 0x3C5C, Byte Code: 0xC9 0x05
+BNE L_PRG_0xB_0x3C3E						;Offset: 0x3C5E, Byte Code: 0xD0 0xDE (computed address for relative mode instruction 0x3C3E)
+JSR $BD92						;Offset: 0x3C60, Byte Code: 0x20 0x92 0xBD
+LDX #$00						;Offset: 0x3C63, Byte Code: 0xA2 0x00
 
 L_PRG_0xB_0x3C65:
 
-LDA $7D00, X		;Offset: 0x3C65, Byte Code: 0xBD 0x00 0x7D
-STA $6D00, X		;Offset: 0x3C68, Byte Code: 0x9D 0x00 0x6D
-LDA $7E00, X		;Offset: 0x3C6B, Byte Code: 0xBD 0x00 0x7E
-STA $6E00, X		;Offset: 0x3C6E, Byte Code: 0x9D 0x00 0x6E
-LDA $7F00, X		;Offset: 0x3C71, Byte Code: 0xBD 0x00 0x7F
-STA $6F00, X		;Offset: 0x3C74, Byte Code: 0x9D 0x00 0x6F
-INX					;Offset: 0x3C77, Byte Code: 0xE8 
-BNE L_PRG_0xB_0x3C65			;Offset: 0x3C78, Byte Code: 0xD0 0xEB (computed address for relative mode instruction 0x3C65)
+LDA $7D00, X					;Offset: 0x3C65, Byte Code: 0xBD 0x00 0x7D
+STA $6D00, X					;Offset: 0x3C68, Byte Code: 0x9D 0x00 0x6D
+LDA $7E00, X					;Offset: 0x3C6B, Byte Code: 0xBD 0x00 0x7E
+STA $6E00, X					;Offset: 0x3C6E, Byte Code: 0x9D 0x00 0x6E
+LDA $7F00, X					;Offset: 0x3C71, Byte Code: 0xBD 0x00 0x7F
+STA $6F00, X					;Offset: 0x3C74, Byte Code: 0x9D 0x00 0x6F
+INX								;Offset: 0x3C77, Byte Code: 0xE8 
+BNE L_PRG_0xB_0x3C65						;Offset: 0x3C78, Byte Code: 0xD0 0xEB (computed address for relative mode instruction 0x3C65)
 
 L_PRG_0xB_0x3C7A:
 
-LDA $6000, X		;Offset: 0x3C7A, Byte Code: 0xBD 0x00 0x60
-STA $10, X			;Offset: 0x3C7D, Byte Code: 0x95 0x10
-INX					;Offset: 0x3C7F, Byte Code: 0xE8 
-CPX #$20			;Offset: 0x3C80, Byte Code: 0xE0 0x20
-BNE L_PRG_0xB_0x3C7A			;Offset: 0x3C82, Byte Code: 0xD0 0xF6 (computed address for relative mode instruction 0x3C7A)
-PLA					;Offset: 0x3C84, Byte Code: 0x68 
-STA $0710			;Offset: 0x3C85, Byte Code: 0x8D 0x10 0x07
-PLA					;Offset: 0x3C88, Byte Code: 0x68 
-TAY					;Offset: 0x3C89, Byte Code: 0xA8 
-PLA					;Offset: 0x3C8A, Byte Code: 0x68 
-TAX					;Offset: 0x3C8B, Byte Code: 0xAA 
-PLA					;Offset: 0x3C8C, Byte Code: 0x68 
-RTS					;Offset: 0x3C8D, Byte Code: 0x60 
-PHA					;Offset: 0x3C8E, Byte Code: 0x48 
-TXA					;Offset: 0x3C8F, Byte Code: 0x8A 
-PHA					;Offset: 0x3C90, Byte Code: 0x48 
-TYA					;Offset: 0x3C91, Byte Code: 0x98 
-PHA					;Offset: 0x3C92, Byte Code: 0x48 
-LDX #$00			;Offset: 0x3C93, Byte Code: 0xA2 0x00
+LDA $6000, X					;Offset: 0x3C7A, Byte Code: 0xBD 0x00 0x60
+STA $10, X						;Offset: 0x3C7D, Byte Code: 0x95 0x10
+INX								;Offset: 0x3C7F, Byte Code: 0xE8 
+CPX #$20						;Offset: 0x3C80, Byte Code: 0xE0 0x20
+BNE L_PRG_0xB_0x3C7A						;Offset: 0x3C82, Byte Code: 0xD0 0xF6 (computed address for relative mode instruction 0x3C7A)
+PLA								;Offset: 0x3C84, Byte Code: 0x68 
+STA $0710						;Offset: 0x3C85, Byte Code: 0x8D 0x10 0x07
+PLA								;Offset: 0x3C88, Byte Code: 0x68 
+TAY								;Offset: 0x3C89, Byte Code: 0xA8 
+PLA								;Offset: 0x3C8A, Byte Code: 0x68 
+TAX								;Offset: 0x3C8B, Byte Code: 0xAA 
+PLA								;Offset: 0x3C8C, Byte Code: 0x68 
+RTS								;Offset: 0x3C8D, Byte Code: 0x60 
+PHA								;Offset: 0x3C8E, Byte Code: 0x48 
+TXA								;Offset: 0x3C8F, Byte Code: 0x8A 
+PHA								;Offset: 0x3C90, Byte Code: 0x48 
+TYA								;Offset: 0x3C91, Byte Code: 0x98 
+PHA								;Offset: 0x3C92, Byte Code: 0x48 
+LDX #$00						;Offset: 0x3C93, Byte Code: 0xA2 0x00
 
 L_PRG_0xB_0x3C95:
 
-LDA $10, X			;Offset: 0x3C95, Byte Code: 0xB5 0x10
-STA $6000, X		;Offset: 0x3C97, Byte Code: 0x9D 0x00 0x60
-INX					;Offset: 0x3C9A, Byte Code: 0xE8 
-CPX #$20			;Offset: 0x3C9B, Byte Code: 0xE0 0x20
-BNE L_PRG_0xB_0x3C95			;Offset: 0x3C9D, Byte Code: 0xD0 0xF6 (computed address for relative mode instruction 0x3C95)
-LDA #$00			;Offset: 0x3C9F, Byte Code: 0xA9 0x00
-STA $17				;Offset: 0x3CA1, Byte Code: 0x85 0x17 
+LDA $10, X						;Offset: 0x3C95, Byte Code: 0xB5 0x10
+STA $6000, X					;Offset: 0x3C97, Byte Code: 0x9D 0x00 0x60
+INX								;Offset: 0x3C9A, Byte Code: 0xE8 
+CPX #$20						;Offset: 0x3C9B, Byte Code: 0xE0 0x20
+BNE L_PRG_0xB_0x3C95						;Offset: 0x3C9D, Byte Code: 0xD0 0xF6 (computed address for relative mode instruction 0x3C95)
+LDA #$00						;Offset: 0x3C9F, Byte Code: 0xA9 0x00
+STA $17							;Offset: 0x3CA1, Byte Code: 0x85 0x17 
 
 L_PRG_0xB_0x3CA3:
 
-LDA $17				;Offset: 0x3CA3, Byte Code: 0xA5 0x17 
-ASL A				;Offset: 0x3CA5, Byte Code: 0x0A
-STA $10				;Offset: 0x3CA6, Byte Code: 0x85 0x10 
-ASL A				;Offset: 0x3CA8, Byte Code: 0x0A
-CLC					;Offset: 0x3CA9, Byte Code: 0x18 
-ADC $10				;Offset: 0x3CAA, Byte Code: 0x65 0x10 
-TAY					;Offset: 0x3CAC, Byte Code: 0xA8 
-LDX #$00			;Offset: 0x3CAD, Byte Code: 0xA2 0x00
+LDA $17							;Offset: 0x3CA3, Byte Code: 0xA5 0x17 
+ASL A							;Offset: 0x3CA5, Byte Code: 0x0A
+STA $10							;Offset: 0x3CA6, Byte Code: 0x85 0x10 
+ASL A							;Offset: 0x3CA8, Byte Code: 0x0A
+CLC								;Offset: 0x3CA9, Byte Code: 0x18 
+ADC $10							;Offset: 0x3CAA, Byte Code: 0x65 0x10 
+TAY								;Offset: 0x3CAC, Byte Code: 0xA8 
+LDX #$00						;Offset: 0x3CAD, Byte Code: 0xA2 0x00
 
 L_PRG_0xB_0x3CAF:
 
-LDA $BDDE, Y		;Offset: 0x3CAF, Byte Code: 0xB9 0xDE 0xBD
-STA $10, X			;Offset: 0x3CB2, Byte Code: 0x95 0x10
-INY					;Offset: 0x3CB4, Byte Code: 0xC8 
-INX					;Offset: 0x3CB5, Byte Code: 0xE8 
-CPX #$06			;Offset: 0x3CB6, Byte Code: 0xE0 0x06
-BNE L_PRG_0xB_0x3CAF			;Offset: 0x3CB8, Byte Code: 0xD0 0xF5 (computed address for relative mode instruction 0x3CAF)
-JSR $BCF7			;Offset: 0x3CBA, Byte Code: 0x20 0xF7 0xBC
-INC $17				;Offset: 0x3CBD, Byte Code: 0xE6 0x17 
-LDA $17				;Offset: 0x3CBF, Byte Code: 0xA5 0x17 
-CMP #$04			;Offset: 0x3CC1, Byte Code: 0xC9 0x04
-BNE L_PRG_0xB_0x3CA3			;Offset: 0x3CC3, Byte Code: 0xD0 0xDE (computed address for relative mode instruction 0x3CA3)
-JSR $BD60			;Offset: 0x3CC5, Byte Code: 0x20 0x60 0xBD
-LDX #$00			;Offset: 0x3CC8, Byte Code: 0xA2 0x00
+LDA $BDDE, Y					;Offset: 0x3CAF, Byte Code: 0xB9 0xDE 0xBD
+STA $10, X						;Offset: 0x3CB2, Byte Code: 0x95 0x10
+INY								;Offset: 0x3CB4, Byte Code: 0xC8 
+INX								;Offset: 0x3CB5, Byte Code: 0xE8 
+CPX #$06						;Offset: 0x3CB6, Byte Code: 0xE0 0x06
+BNE L_PRG_0xB_0x3CAF						;Offset: 0x3CB8, Byte Code: 0xD0 0xF5 (computed address for relative mode instruction 0x3CAF)
+JSR $BCF7						;Offset: 0x3CBA, Byte Code: 0x20 0xF7 0xBC
+INC $17							;Offset: 0x3CBD, Byte Code: 0xE6 0x17 
+LDA $17							;Offset: 0x3CBF, Byte Code: 0xA5 0x17 
+CMP #$04						;Offset: 0x3CC1, Byte Code: 0xC9 0x04
+BNE L_PRG_0xB_0x3CA3						;Offset: 0x3CC3, Byte Code: 0xD0 0xDE (computed address for relative mode instruction 0x3CA3)
+JSR $BD60						;Offset: 0x3CC5, Byte Code: 0x20 0x60 0xBD
+LDX #$00						;Offset: 0x3CC8, Byte Code: 0xA2 0x00
 
 L_PRG_0xB_0x3CCA:
 
-LDA $6000, X		;Offset: 0x3CCA, Byte Code: 0xBD 0x00 0x60
-STA $10, X			;Offset: 0x3CCD, Byte Code: 0x95 0x10
-INX					;Offset: 0x3CCF, Byte Code: 0xE8 
-CPX #$20			;Offset: 0x3CD0, Byte Code: 0xE0 0x20
-BNE L_PRG_0xB_0x3CCA			;Offset: 0x3CD2, Byte Code: 0xD0 0xF6 (computed address for relative mode instruction 0x3CCA)
-PLA					;Offset: 0x3CD4, Byte Code: 0x68 
-TAY					;Offset: 0x3CD5, Byte Code: 0xA8 
-PLA					;Offset: 0x3CD6, Byte Code: 0x68 
-TAX					;Offset: 0x3CD7, Byte Code: 0xAA 
-PLA					;Offset: 0x3CD8, Byte Code: 0x68 
-RTS					;Offset: 0x3CD9, Byte Code: 0x60 
-JSR $BC8E			;Offset: 0x3CDA, Byte Code: 0x20 0x8E 0xBC
-LDX #$00			;Offset: 0x3CDD, Byte Code: 0xA2 0x00
+LDA $6000, X					;Offset: 0x3CCA, Byte Code: 0xBD 0x00 0x60
+STA $10, X						;Offset: 0x3CCD, Byte Code: 0x95 0x10
+INX								;Offset: 0x3CCF, Byte Code: 0xE8 
+CPX #$20						;Offset: 0x3CD0, Byte Code: 0xE0 0x20
+BNE L_PRG_0xB_0x3CCA						;Offset: 0x3CD2, Byte Code: 0xD0 0xF6 (computed address for relative mode instruction 0x3CCA)
+PLA								;Offset: 0x3CD4, Byte Code: 0x68 
+TAY								;Offset: 0x3CD5, Byte Code: 0xA8 
+PLA								;Offset: 0x3CD6, Byte Code: 0x68 
+TAX								;Offset: 0x3CD7, Byte Code: 0xAA 
+PLA								;Offset: 0x3CD8, Byte Code: 0x68 
+RTS								;Offset: 0x3CD9, Byte Code: 0x60 
+JSR $BC8E						;Offset: 0x3CDA, Byte Code: 0x20 0x8E 0xBC
+LDX #$00						;Offset: 0x3CDD, Byte Code: 0xA2 0x00
 
 L_PRG_0xB_0x3CDF:
 
-LDA $7E00, X		;Offset: 0x3CDF, Byte Code: 0xBD 0x00 0x7E
-STA $6480, X		;Offset: 0x3CE2, Byte Code: 0x9D 0x80 0x64
-LDA $7F00, X		;Offset: 0x3CE5, Byte Code: 0xBD 0x00 0x7F
-STA $6580, X		;Offset: 0x3CE8, Byte Code: 0x9D 0x80 0x65
-INX					;Offset: 0x3CEB, Byte Code: 0xE8 
-BNE L_PRG_0xB_0x3CDF			;Offset: 0x3CEC, Byte Code: 0xD0 0xF1 (computed address for relative mode instruction 0x3CDF)
-LDA #$FF			;Offset: 0x3CEE, Byte Code: 0xA9 0xFF
-STA $6D				;Offset: 0x3CF0, Byte Code: 0x85 0x6D 
-LDA #$01			;Offset: 0x3CF2, Byte Code: 0xA9 0x01
-STA $41				;Offset: 0x3CF4, Byte Code: 0x85 0x41 
-RTS					;Offset: 0x3CF6, Byte Code: 0x60 
-LDY #$00			;Offset: 0x3CF7, Byte Code: 0xA0 0x00
+LDA $7E00, X					;Offset: 0x3CDF, Byte Code: 0xBD 0x00 0x7E
+STA $6480, X					;Offset: 0x3CE2, Byte Code: 0x9D 0x80 0x64
+LDA $7F00, X					;Offset: 0x3CE5, Byte Code: 0xBD 0x00 0x7F
+STA $6580, X					;Offset: 0x3CE8, Byte Code: 0x9D 0x80 0x65
+INX								;Offset: 0x3CEB, Byte Code: 0xE8 
+BNE L_PRG_0xB_0x3CDF						;Offset: 0x3CEC, Byte Code: 0xD0 0xF1 (computed address for relative mode instruction 0x3CDF)
+LDA #$FF						;Offset: 0x3CEE, Byte Code: 0xA9 0xFF
+STA $6D							;Offset: 0x3CF0, Byte Code: 0x85 0x6D 
+LDA #$01						;Offset: 0x3CF2, Byte Code: 0xA9 0x01
+STA $41							;Offset: 0x3CF4, Byte Code: 0x85 0x41 
+RTS								;Offset: 0x3CF6, Byte Code: 0x60 
+LDY #$00						;Offset: 0x3CF7, Byte Code: 0xA0 0x00
 
 L_PRG_0xB_0x3CF9:
 
-LDA ($10), Y		;Offset: 0x3CF9, Byte Code: 0xB1 0x10
-STA ($12), Y		;Offset: 0x3CFB, Byte Code: 0x91 0x12
-INC $10				;Offset: 0x3CFD, Byte Code: 0xE6 0x10 
-BNE L_PRG_0xB_0x3D03			;Offset: 0x3CFF, Byte Code: 0xD0 0x02 (computed address for relative mode instruction 0x3D03)
-INC $11				;Offset: 0x3D01, Byte Code: 0xE6 0x11 
+LDA ($10), Y					;Offset: 0x3CF9, Byte Code: 0xB1 0x10
+STA ($12), Y					;Offset: 0x3CFB, Byte Code: 0x91 0x12
+INC $10							;Offset: 0x3CFD, Byte Code: 0xE6 0x10 
+BNE L_PRG_0xB_0x3D03						;Offset: 0x3CFF, Byte Code: 0xD0 0x02 (computed address for relative mode instruction 0x3D03)
+INC $11							;Offset: 0x3D01, Byte Code: 0xE6 0x11 
 
 L_PRG_0xB_0x3D03:
 
-INC $12				;Offset: 0x3D03, Byte Code: 0xE6 0x12 
-BNE L_PRG_0xB_0x3D09			;Offset: 0x3D05, Byte Code: 0xD0 0x02 (computed address for relative mode instruction 0x3D09)
-INC $13				;Offset: 0x3D07, Byte Code: 0xE6 0x13 
+INC $12							;Offset: 0x3D03, Byte Code: 0xE6 0x12 
+BNE L_PRG_0xB_0x3D09						;Offset: 0x3D05, Byte Code: 0xD0 0x02 (computed address for relative mode instruction 0x3D09)
+INC $13							;Offset: 0x3D07, Byte Code: 0xE6 0x13 
 
 L_PRG_0xB_0x3D09:
 
-DEC $14				;Offset: 0x3D09, Byte Code: 0xC6 0x14 
-LDA $14				;Offset: 0x3D0B, Byte Code: 0xA5 0x14 
-CMP #$FF			;Offset: 0x3D0D, Byte Code: 0xC9 0xFF
-BEQ L_PRG_0xB_0x3D14			;Offset: 0x3D0F, Byte Code: 0xF0 0x03 (computed address for relative mode instruction 0x3D14)
-JMP $BCF9			;Offset: 0x3D11, Byte Code: 0x4C 0xF9 0xBC
+DEC $14							;Offset: 0x3D09, Byte Code: 0xC6 0x14 
+LDA $14							;Offset: 0x3D0B, Byte Code: 0xA5 0x14 
+CMP #$FF						;Offset: 0x3D0D, Byte Code: 0xC9 0xFF
+BEQ L_PRG_0xB_0x3D14						;Offset: 0x3D0F, Byte Code: 0xF0 0x03 (computed address for relative mode instruction 0x3D14)
+JMP $BCF9						;Offset: 0x3D11, Byte Code: 0x4C 0xF9 0xBC
 
 L_PRG_0xB_0x3D14:
 
-INC $14				;Offset: 0x3D14, Byte Code: 0xE6 0x14 
-DEC $15				;Offset: 0x3D16, Byte Code: 0xC6 0x15 
-LDA $15				;Offset: 0x3D18, Byte Code: 0xA5 0x15 
-CMP #$FF			;Offset: 0x3D1A, Byte Code: 0xC9 0xFF
-BNE L_PRG_0xB_0x3CF9			;Offset: 0x3D1C, Byte Code: 0xD0 0xDB (computed address for relative mode instruction 0x3CF9)
-RTS					;Offset: 0x3D1E, Byte Code: 0x60 
-LDA $6C				;Offset: 0x3D1F, Byte Code: 0xA5 0x6C 
-STA $7DF0			;Offset: 0x3D21, Byte Code: 0x8D 0xF0 0x7D
-LDA $70				;Offset: 0x3D24, Byte Code: 0xA5 0x70 
-STA $7DF1			;Offset: 0x3D26, Byte Code: 0x8D 0xF1 0x7D
-LDA $90				;Offset: 0x3D29, Byte Code: 0xA5 0x90 
-STA $7DF2			;Offset: 0x3D2B, Byte Code: 0x8D 0xF2 0x7D
-LDA $B0				;Offset: 0x3D2E, Byte Code: 0xA5 0xB0 
-STA $7DF3			;Offset: 0x3D30, Byte Code: 0x8D 0xF3 0x7D
-LDA $D0				;Offset: 0x3D33, Byte Code: 0xA5 0xD0 
-STA $7DF4			;Offset: 0x3D35, Byte Code: 0x8D 0xF4 0x7D
-LDA $03C0			;Offset: 0x3D38, Byte Code: 0xAD 0xC0 0x03
-STA $7DF5			;Offset: 0x3D3B, Byte Code: 0x8D 0xF5 0x7D
-LDA $03C1			;Offset: 0x3D3E, Byte Code: 0xAD 0xC1 0x03
-STA $7DF6			;Offset: 0x3D41, Byte Code: 0x8D 0xF6 0x7D
-LDA $0421			;Offset: 0x3D44, Byte Code: 0xAD 0x21 0x04
-STA $7DF7			;Offset: 0x3D47, Byte Code: 0x8D 0xF7 0x7D
-LDA $0620			;Offset: 0x3D4A, Byte Code: 0xAD 0x20 0x06
-STA $7DF8			;Offset: 0x3D4D, Byte Code: 0x8D 0xF8 0x7D
-LDA #$41			;Offset: 0x3D50, Byte Code: 0xA9 0x41
-STA $7DFD			;Offset: 0x3D52, Byte Code: 0x8D 0xFD 0x7D
-LDA #$4D			;Offset: 0x3D55, Byte Code: 0xA9 0x4D
-STA $7DFE			;Offset: 0x3D57, Byte Code: 0x8D 0xFE 0x7D
-LDA #$49			;Offset: 0x3D5A, Byte Code: 0xA9 0x49
-STA $7DFF			;Offset: 0x3D5C, Byte Code: 0x8D 0xFF 0x7D
-RTS					;Offset: 0x3D5F, Byte Code: 0x60 
-LDA $7DF0			;Offset: 0x3D60, Byte Code: 0xAD 0xF0 0x7D
-STA $6C				;Offset: 0x3D63, Byte Code: 0x85 0x6C 
-LDA $7DF1			;Offset: 0x3D65, Byte Code: 0xAD 0xF1 0x7D
-STA $70				;Offset: 0x3D68, Byte Code: 0x85 0x70 
-LDA $7DF2			;Offset: 0x3D6A, Byte Code: 0xAD 0xF2 0x7D
-STA $90				;Offset: 0x3D6D, Byte Code: 0x85 0x90 
-LDA $7DF3			;Offset: 0x3D6F, Byte Code: 0xAD 0xF3 0x7D
-STA $B0				;Offset: 0x3D72, Byte Code: 0x85 0xB0 
-LDA $7DF4			;Offset: 0x3D74, Byte Code: 0xAD 0xF4 0x7D
-STA $D0				;Offset: 0x3D77, Byte Code: 0x85 0xD0 
-LDA $7DF5			;Offset: 0x3D79, Byte Code: 0xAD 0xF5 0x7D
-STA $03C0			;Offset: 0x3D7C, Byte Code: 0x8D 0xC0 0x03
-LDA $7DF6			;Offset: 0x3D7F, Byte Code: 0xAD 0xF6 0x7D
-STA $03C1			;Offset: 0x3D82, Byte Code: 0x8D 0xC1 0x03
-LDA $7DF7			;Offset: 0x3D85, Byte Code: 0xAD 0xF7 0x7D
-STA $0421			;Offset: 0x3D88, Byte Code: 0x8D 0x21 0x04
-LDA $7DF8			;Offset: 0x3D8B, Byte Code: 0xAD 0xF8 0x7D
-STA $0620			;Offset: 0x3D8E, Byte Code: 0x8D 0x20 0x06
-RTS					;Offset: 0x3D91, Byte Code: 0x60 
-LDA #$00			;Offset: 0x3D92, Byte Code: 0xA9 0x00
-STA $70F5			;Offset: 0x3D94, Byte Code: 0x8D 0xF5 0x70
-STA $70F4			;Offset: 0x3D97, Byte Code: 0x8D 0xF4 0x70
-TAX					;Offset: 0x3D9A, Byte Code: 0xAA 
+INC $14							;Offset: 0x3D14, Byte Code: 0xE6 0x14 
+DEC $15							;Offset: 0x3D16, Byte Code: 0xC6 0x15 
+LDA $15							;Offset: 0x3D18, Byte Code: 0xA5 0x15 
+CMP #$FF						;Offset: 0x3D1A, Byte Code: 0xC9 0xFF
+BNE L_PRG_0xB_0x3CF9						;Offset: 0x3D1C, Byte Code: 0xD0 0xDB (computed address for relative mode instruction 0x3CF9)
+RTS								;Offset: 0x3D1E, Byte Code: 0x60 
+LDA $6C							;Offset: 0x3D1F, Byte Code: 0xA5 0x6C 
+STA $7DF0						;Offset: 0x3D21, Byte Code: 0x8D 0xF0 0x7D
+LDA $70							;Offset: 0x3D24, Byte Code: 0xA5 0x70 
+STA $7DF1						;Offset: 0x3D26, Byte Code: 0x8D 0xF1 0x7D
+LDA $90							;Offset: 0x3D29, Byte Code: 0xA5 0x90 
+STA $7DF2						;Offset: 0x3D2B, Byte Code: 0x8D 0xF2 0x7D
+LDA $B0							;Offset: 0x3D2E, Byte Code: 0xA5 0xB0 
+STA $7DF3						;Offset: 0x3D30, Byte Code: 0x8D 0xF3 0x7D
+LDA $D0							;Offset: 0x3D33, Byte Code: 0xA5 0xD0 
+STA $7DF4						;Offset: 0x3D35, Byte Code: 0x8D 0xF4 0x7D
+LDA $03C0						;Offset: 0x3D38, Byte Code: 0xAD 0xC0 0x03
+STA $7DF5						;Offset: 0x3D3B, Byte Code: 0x8D 0xF5 0x7D
+LDA $03C1						;Offset: 0x3D3E, Byte Code: 0xAD 0xC1 0x03
+STA $7DF6						;Offset: 0x3D41, Byte Code: 0x8D 0xF6 0x7D
+LDA $0421						;Offset: 0x3D44, Byte Code: 0xAD 0x21 0x04
+STA $7DF7						;Offset: 0x3D47, Byte Code: 0x8D 0xF7 0x7D
+LDA $0620						;Offset: 0x3D4A, Byte Code: 0xAD 0x20 0x06
+STA $7DF8						;Offset: 0x3D4D, Byte Code: 0x8D 0xF8 0x7D
+LDA #$41						;Offset: 0x3D50, Byte Code: 0xA9 0x41
+STA $7DFD						;Offset: 0x3D52, Byte Code: 0x8D 0xFD 0x7D
+LDA #$4D						;Offset: 0x3D55, Byte Code: 0xA9 0x4D
+STA $7DFE						;Offset: 0x3D57, Byte Code: 0x8D 0xFE 0x7D
+LDA #$49						;Offset: 0x3D5A, Byte Code: 0xA9 0x49
+STA $7DFF						;Offset: 0x3D5C, Byte Code: 0x8D 0xFF 0x7D
+RTS								;Offset: 0x3D5F, Byte Code: 0x60 
+LDA $7DF0						;Offset: 0x3D60, Byte Code: 0xAD 0xF0 0x7D
+STA $6C							;Offset: 0x3D63, Byte Code: 0x85 0x6C 
+LDA $7DF1						;Offset: 0x3D65, Byte Code: 0xAD 0xF1 0x7D
+STA $70							;Offset: 0x3D68, Byte Code: 0x85 0x70 
+LDA $7DF2						;Offset: 0x3D6A, Byte Code: 0xAD 0xF2 0x7D
+STA $90							;Offset: 0x3D6D, Byte Code: 0x85 0x90 
+LDA $7DF3						;Offset: 0x3D6F, Byte Code: 0xAD 0xF3 0x7D
+STA $B0							;Offset: 0x3D72, Byte Code: 0x85 0xB0 
+LDA $7DF4						;Offset: 0x3D74, Byte Code: 0xAD 0xF4 0x7D
+STA $D0							;Offset: 0x3D77, Byte Code: 0x85 0xD0 
+LDA $7DF5						;Offset: 0x3D79, Byte Code: 0xAD 0xF5 0x7D
+STA $03C0						;Offset: 0x3D7C, Byte Code: 0x8D 0xC0 0x03
+LDA $7DF6						;Offset: 0x3D7F, Byte Code: 0xAD 0xF6 0x7D
+STA $03C1						;Offset: 0x3D82, Byte Code: 0x8D 0xC1 0x03
+LDA $7DF7						;Offset: 0x3D85, Byte Code: 0xAD 0xF7 0x7D
+STA $0421						;Offset: 0x3D88, Byte Code: 0x8D 0x21 0x04
+LDA $7DF8						;Offset: 0x3D8B, Byte Code: 0xAD 0xF8 0x7D
+STA $0620						;Offset: 0x3D8E, Byte Code: 0x8D 0x20 0x06
+RTS								;Offset: 0x3D91, Byte Code: 0x60 
+LDA #$00						;Offset: 0x3D92, Byte Code: 0xA9 0x00
+STA $70F5						;Offset: 0x3D94, Byte Code: 0x8D 0xF5 0x70
+STA $70F4						;Offset: 0x3D97, Byte Code: 0x8D 0xF4 0x70
+TAX								;Offset: 0x3D9A, Byte Code: 0xAA 
 
 L_PRG_0xB_0x3D9B:
 
-LDA $7D00, X		;Offset: 0x3D9B, Byte Code: 0xBD 0x00 0x7D
-CLC					;Offset: 0x3D9E, Byte Code: 0x18 
-ADC $70F5			;Offset: 0x3D9F, Byte Code: 0x6D 0xF5 0x70
-STA $70F5			;Offset: 0x3DA2, Byte Code: 0x8D 0xF5 0x70
-LDA $7E00, X		;Offset: 0x3DA5, Byte Code: 0xBD 0x00 0x7E
-CLC					;Offset: 0x3DA8, Byte Code: 0x18 
-ADC $70F5			;Offset: 0x3DA9, Byte Code: 0x6D 0xF5 0x70
-STA $70F5			;Offset: 0x3DAC, Byte Code: 0x8D 0xF5 0x70
-LDA $7F00, X		;Offset: 0x3DAF, Byte Code: 0xBD 0x00 0x7F
-CLC					;Offset: 0x3DB2, Byte Code: 0x18 
-ADC $70F5			;Offset: 0x3DB3, Byte Code: 0x6D 0xF5 0x70
-STA $70F5			;Offset: 0x3DB6, Byte Code: 0x8D 0xF5 0x70
-STA $70F4			;Offset: 0x3DB9, Byte Code: 0x8D 0xF4 0x70
-INX					;Offset: 0x3DBC, Byte Code: 0xE8 
-BNE L_PRG_0xB_0x3D9B			;Offset: 0x3DBD, Byte Code: 0xD0 0xDC (computed address for relative mode instruction 0x3D9B)
-RTS					;Offset: 0x3DBF, Byte Code: 0x60 
+LDA $7D00, X					;Offset: 0x3D9B, Byte Code: 0xBD 0x00 0x7D
+CLC								;Offset: 0x3D9E, Byte Code: 0x18 
+ADC $70F5						;Offset: 0x3D9F, Byte Code: 0x6D 0xF5 0x70
+STA $70F5						;Offset: 0x3DA2, Byte Code: 0x8D 0xF5 0x70
+LDA $7E00, X					;Offset: 0x3DA5, Byte Code: 0xBD 0x00 0x7E
+CLC								;Offset: 0x3DA8, Byte Code: 0x18 
+ADC $70F5						;Offset: 0x3DA9, Byte Code: 0x6D 0xF5 0x70
+STA $70F5						;Offset: 0x3DAC, Byte Code: 0x8D 0xF5 0x70
+LDA $7F00, X					;Offset: 0x3DAF, Byte Code: 0xBD 0x00 0x7F
+CLC								;Offset: 0x3DB2, Byte Code: 0x18 
+ADC $70F5						;Offset: 0x3DB3, Byte Code: 0x6D 0xF5 0x70
+STA $70F5						;Offset: 0x3DB6, Byte Code: 0x8D 0xF5 0x70
+STA $70F4						;Offset: 0x3DB9, Byte Code: 0x8D 0xF4 0x70
+INX								;Offset: 0x3DBC, Byte Code: 0xE8 
+BNE L_PRG_0xB_0x3D9B						;Offset: 0x3DBD, Byte Code: 0xD0 0xDC (computed address for relative mode instruction 0x3D9B)
+RTS								;Offset: 0x3DBF, Byte Code: 0x60 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x3DC0 --
 .byte $00,  $64,  $00,  $7D,  $7F,  $00,  $80,  $64
@@ -2905,10 +2867,10 @@ RTS					;Offset: 0x3DBF, Byte Code: 0x60
 .byte $B0,  $7D,  $DC,  $07,  $23,  $00
 ;---- End CDL Confirmed Data Block: Total Bytes 0x36 ----
 
-LDX $6C				;Offset: 0x3DF6, Byte Code: 0xA6 0x6C 
-LDA $BF00, X		;Offset: 0x3DF8, Byte Code: 0xBD 0x00 0xBF
-ASL A				;Offset: 0x3DFB, Byte Code: 0x0A
-RTS					;Offset: 0x3DFC, Byte Code: 0x60 
+LDX $6C							;Offset: 0x3DF6, Byte Code: 0xA6 0x6C 
+LDA $BF00, X					;Offset: 0x3DF8, Byte Code: 0xBD 0x00 0xBF
+ASL A							;Offset: 0x3DFB, Byte Code: 0x0A
+RTS								;Offset: 0x3DFC, Byte Code: 0x60 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x3DFD --
 .byte $F8
