@@ -2,6 +2,10 @@
 .segment "PRG_0xF"
 .org $C000
 
+;List of identified subroutines in this PRG bank:
+;SUB_PRG_0xF_UpdatePlayerEquiptmentStats					0x0008
+;SUB_PRG_0xF_ApplyEnvironmentalEffectsToPlayer				0x2F55
+
 ;---- Start CDL Confirmed Data Block: Offset 0x0000 --
 .byte $01,  $02,  $04,  $08,  $10,  $20,  $40,  $80
 ;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
@@ -1666,7 +1670,7 @@ JMP ($0010)						;Offset: 0xADB, Byte Code: 0x6C 0x10 0x00
 
 JSR $FE80						;Offset: 0xB62, Byte Code: 0x20 0x80 0xFE
 JSR $CB84						;Offset: 0xB65, Byte Code: 0x20 0x84 0xCB
-JSR $EF55						;Offset: 0xB68, Byte Code: 0x20 0x55 0xEF
+JSR SUB_PRG_0xF_ApplyEnvironmentalEffectsToPlayer						;Offset: 0xB68, Byte Code: 0x20 0x55 0xEF
 JSR $CCCC						;Offset: 0xB6B, Byte Code: 0x20 0xCC 0xCC
 JSR $E8F6						;Offset: 0xB6E, Byte Code: 0x20 0xF6 0xE8
 LDA #$0E						;Offset: 0xB71, Byte Code: 0xA9 0x0E
@@ -6795,49 +6799,55 @@ LSR A							;Offset: 0x2F50, Byte Code: 0x4A
 LSR A							;Offset: 0x2F51, Byte Code: 0x4A
 ORA $12							;Offset: 0x2F52, Byte Code: 0x05 0x12 
 RTS								;Offset: 0x2F54, Byte Code: 0x60 
-LDA $08							;Offset: 0x2F55, Byte Code: 0xA5 0x08 
+
+
+
+SUB_PRG_0xF_ApplyEnvironmentalEffectsToPlayer:
+
+LDA AddressDecrementingCounter_RAM_0x8							;Offset: 0x2F55, Byte Code: 0xA5 0x08 
 ASL A							;Offset: 0x2F57, Byte Code: 0x0A
 BNE L_PRG_0xF_0x2F63						;Offset: 0x2F58, Byte Code: 0xD0 0x09 (computed address for relative mode instruction 0x2F63)
-LDA $0710						;Offset: 0x2F5A, Byte Code: 0xAD 0x10 0x07
+LDA AddressPlayerCondition						;Offset: 0x2F5A, Byte Code: 0xAD 0x10 0x07
 AND #$0F						;Offset: 0x2F5D, Byte Code: 0x29 0x0F
-CMP #$03						;Offset: 0x2F5F, Byte Code: 0xC9 0x03
-BEQ L_PRG_0xF_0x2F8C						;Offset: 0x2F61, Byte Code: 0xF0 0x29 (computed address for relative mode instruction 0x2F8C)
+CMP #PlayerCondition_Poison						;Offset: 0x2F5F, Byte Code: 0xC9 0x03
+BEQ L_PRG_0xF_0xPlayerIsPoisoned						;Offset: 0x2F61, Byte Code: 0xF0 0x29 (computed address for relative mode instruction 0x2F8C)
 
 L_PRG_0xF_0x2F63:
 
-LDA $0716						;Offset: 0x2F63, Byte Code: 0xAD 0x16 0x07
-CMP #$13						;Offset: 0x2F66, Byte Code: 0xC9 0x13
-BEQ L_PRG_0xF_0x2F77						;Offset: 0x2F68, Byte Code: 0xF0 0x0D (computed address for relative mode instruction 0x2F77)
+LDA AddressIndexEquippedEquippableItem						;Offset: 0x2F63, Byte Code: 0xAD 0x16 0x07
+CMP #EquippableItemIndex_LeatherBoots						;Offset: 0x2F66, Byte Code: 0xC9 0x13
+BEQ L_PRG_0xF_WearingLeatherBoots						;Offset: 0x2F68, Byte Code: 0xF0 0x0D (computed address for relative mode instruction 0x2F77)
 LDA $0620						;Offset: 0x2F6A, Byte Code: 0xAD 0x20 0x06
 BNE L_PRG_0xF_0x2F77						;Offset: 0x2F6D, Byte Code: 0xD0 0x08 (computed address for relative mode instruction 0x2F77)
 LDA $0561						;Offset: 0x2F6F, Byte Code: 0xAD 0x61 0x05
 ORA $0641						;Offset: 0x2F72, Byte Code: 0x0D 0x41 0x06
 BMI L_PRG_0xF_0x2F8C						;Offset: 0x2F75, Byte Code: 0x30 0x15 (computed address for relative mode instruction 0x2F8C)
 
+L_PRG_0xF_WearingLeatherBoots:
 L_PRG_0xF_0x2F77:
 
 LDA $6C							;Offset: 0x2F77, Byte Code: 0xA5 0x6C 
 CMP #$1A						;Offset: 0x2F79, Byte Code: 0xC9 0x1A
 BNE L_PRG_0xF_0x2FBC						;Offset: 0x2F7B, Byte Code: 0xD0 0x3F (computed address for relative mode instruction 0x2FBC)
-LDA $0716						;Offset: 0x2F7D, Byte Code: 0xAD 0x16 0x07
-CMP #$0D						;Offset: 0x2F80, Byte Code: 0xC9 0x0D
-BEQ L_PRG_0xF_0x2FBC						;Offset: 0x2F82, Byte Code: 0xF0 0x38 (computed address for relative mode instruction 0x2FBC)
-LDA $08							;Offset: 0x2F84, Byte Code: 0xA5 0x08 
+LDA AddressIndexEquippedEquippableItem						;Offset: 0x2F7D, Byte Code: 0xAD 0x16 0x07
+CMP #EquippableItemIndex_GasMask						;Offset: 0x2F80, Byte Code: 0xC9 0x0D
+BEQ L_PRG_0xF_WearingGasMask						;Offset: 0x2F82, Byte Code: 0xF0 0x38 (computed address for relative mode instruction 0x2FBC)
+LDA AddressDecrementingCounter_RAM_0x8							;Offset: 0x2F84, Byte Code: 0xA5 0x08 
 AND #$07						;Offset: 0x2F86, Byte Code: 0x29 0x07
 BNE L_PRG_0xF_0x2FBC						;Offset: 0x2F88, Byte Code: 0xD0 0x32 (computed address for relative mode instruction 0x2FBC)
 BEQ L_PRG_0xF_0x2F92						;Offset: 0x2F8A, Byte Code: 0xF0 0x06 (computed address for relative mode instruction 0x2F92)
 
+L_PRG_0xF_0xPlayerIsPoisoned:
 L_PRG_0xF_0x2F8C:
-
-LDA $08							;Offset: 0x2F8C, Byte Code: 0xA5 0x08 
+LDA AddressDecrementingCounter_RAM_0x8							;Offset: 0x2F8C, Byte Code: 0xA5 0x08 
 AND #$1F						;Offset: 0x2F8E, Byte Code: 0x29 0x1F
 BNE L_PRG_0xF_0x2FBC						;Offset: 0x2F90, Byte Code: 0xD0 0x2A (computed address for relative mode instruction 0x2FBC)
 
 L_PRG_0xF_0x2F92:
 
-LDA $03C1						;Offset: 0x2F92, Byte Code: 0xAD 0xC1 0x03
+LDA AddressPlayerSpriteCurrentHP						;Offset: 0x2F92, Byte Code: 0xAD 0xC1 0x03
 SEC								;Offset: 0x2F95, Byte Code: 0x38 
-SBC #$04						;Offset: 0x2F96, Byte Code: 0xE9 0x04
+SBC #EnvironmentalDamageValue						;Offset: 0x2F96, Byte Code: 0xE9 0x04
 BCS L_PRG_0xF_0x2F9C						;Offset: 0x2F98, Byte Code: 0xB0 0x02 (computed address for relative mode instruction 0x2F9C)
 
 ;---- Start CDL Unknown Block: Offset 0x2F9A --
@@ -6847,7 +6857,7 @@ BCS L_PRG_0xF_0x2F9C						;Offset: 0x2F98, Byte Code: 0xB0 0x02 (computed addres
 
 L_PRG_0xF_0x2F9C:
 
-STA $03C1						;Offset: 0x2F9C, Byte Code: 0x8D 0xC1 0x03
+STA AddressPlayerSpriteCurrentHP						;Offset: 0x2F9C, Byte Code: 0x8D 0xC1 0x03
 LDA #$36						;Offset: 0x2F9F, Byte Code: 0xA9 0x36
 JSR $C125						;Offset: 0x2FA1, Byte Code: 0x20 0x25 0xC1
 LDX #$03						;Offset: 0x2FA4, Byte Code: 0xA2 0x03
@@ -6864,6 +6874,7 @@ JSR $C418						;Offset: 0x2FB3, Byte Code: 0x20 0x18 0xC4
 JSR $8CC0						;Offset: 0x2FB6, Byte Code: 0x20 0xC0 0x8C
 JSR $8C0E						;Offset: 0x2FB9, Byte Code: 0x20 0x0E 0x8C
 
+L_PRG_0xF_WearingGasMask:
 L_PRG_0xF_0x2FBC:
 
 LDA #$1A						;Offset: 0x2FBC, Byte Code: 0xA9 0x1A

@@ -27,3 +27,5 @@
 .define AddressIndexEquippedEquippableItem			$0716
 
 .define AddressDecrementingCounter_RAM_0x8			$08
+
+.define AddressCurrentKeyPressPlayer1_RAM_0x4B			$4B

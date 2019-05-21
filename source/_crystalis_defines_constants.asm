@@ -98,3 +98,14 @@
 ;The master list is used for shop inventory (i.e. to sell sword of wind in a shop, put $00 in one of the slots - when the item is selected in the player's inventory, the index of $01 will be used
 .define MasterItemList_SwordOfWind					$00
 .define MasterItemList_None							$FF
+
+.define EnvironmentalDamageValue					$04
+
+.define ControllerButton_Right						$01
+.define ControllerButton_Left						$02
+.define ControllerButton_Down						$04
+.define ControllerButton_Up							$08
+.define ControllerButton_Start						$10
+.define ControllerButton_Select						$20
+.define ControllerButton_B							$40
+.define ControllerButton_A							$80
