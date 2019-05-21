@@ -2,6 +2,8 @@
 .segment "PRG_0x8"
 .org $8000
 
+;this bank contains some gui and shop processing code (for the inn at least, dunno what else)
+
 ;SUB_PRG_0x8_GUI_EVENT_INN_PREPARE_DIALOGUE_CHECK_LOOP
 
 JSR $8605						;Offset: 0x0, Byte Code: 0x20 0x05 0x86
