@@ -79,6 +79,21 @@
 .define SpellIndex_Change							$7
 .define SpellIndex_Flight							$8
 
+;Player condition is stored at $0710 and consists of a low order nibble (0x0 - 0xF) and high order nibble (0x10-0xF0)
+;This does not seem to be set up as a flag system in other words the player can't be both paralyzed and mutated
+;However, since the high and low order nibbles are considered separate, the player can be petrified and changed into stom at the same time
+;Flying and barrier don't seem to be set at $0710, I don't know how they are handled yet
+.define PlayerCondition_Normal						$0
+.define PlayerCondition_Paralyzed					$1
+.define PlayerCondition_Stone						$2
+.define PlayerCondition_Poison						$3
+.define PlayerCondition_Mutated						$4
+
+.define PlayerCondition_ChangedStom					$80
+.define PlayerCondition_ChangedDraygoniaSoldier		$90
+.define PlayerCondition_ChangedGirl					$A0
+.define PlayerCondition_ChangedAkhana				$B0
+
 ;Master Item List - This is different than the categorical item lists above!
 ;The master list is used for shop inventory (i.e. to sell sword of wind in a shop, put $00 in one of the slots - when the item is selected in the player's inventory, the index of $01 will be used
 .define MasterItemList_SwordOfWind					$00

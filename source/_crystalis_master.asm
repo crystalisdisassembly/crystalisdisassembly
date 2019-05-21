@@ -1,5 +1,6 @@
 
 .include "_crystalis_defines_constants.asm"
+.include "_crystalis_defines_memory.asm"
 
 .segment "HEADER"
 
