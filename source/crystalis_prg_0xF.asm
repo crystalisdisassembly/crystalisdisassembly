@@ -3915,11 +3915,9 @@ LDY $20							;Offset: 0x1C44, Byte Code: 0xA4 0x20
 INY								;Offset: 0x1C46, Byte Code: 0xC8 
 CPY #$03						;Offset: 0x1C47, Byte Code: 0xC0 0x03
 BNE L_PRG_0xF_0x1C50						;Offset: 0x1C49, Byte Code: 0xD0 0x05 (computed address for relative mode instruction 0x1C50)
-
-;---- Start CDL Unknown Block: Offset 0x1C4B --
-.byte $A0,  $00,  $38,  $E9,  $F0
-;---- End CDL Unknown Block: Total Bytes 0x05 ----
-
+LDY #$00						;Offset: 0x1C4B, Byte Code: 0xA0 0x00
+SEC								;Offset: 0x1C4D, Byte Code: 0x38 
+SBC #$F0						;Offset: 0x1C4E, Byte Code: 0xE9 0xF0
 
 L_PRG_0xF_0x1C50:
 
@@ -5297,12 +5295,10 @@ LDA $0710						;Offset: 0x25CE, Byte Code: 0xAD 0x10 0x07
 AND #$0F						;Offset: 0x25D1, Byte Code: 0x29 0x0F
 CMP #$04						;Offset: 0x25D3, Byte Code: 0xC9 0x04
 BNE L_PRG_0xF_0x25E2						;Offset: 0x25D5, Byte Code: 0xD0 0x0B (computed address for relative mode instruction 0x25E2)
-
-;---- Start CDL Unknown Block: Offset 0x25D7 --
-.byte $AD,  $10,  $07,  $29,  $F0,  $8D,  $10,  $07
-.byte $20,  $08,  $C0
-;---- End CDL Unknown Block: Total Bytes 0x0B ----
-
+LDA $0710						;Offset: 0x25D7, Byte Code: 0xAD 0x10 0x07
+AND #$F0						;Offset: 0x25DA, Byte Code: 0x29 0xF0
+STA $0710						;Offset: 0x25DC, Byte Code: 0x8D 0x10 0x07
+JSR $C008						;Offset: 0x25DF, Byte Code: 0x20 0x08 0xC0
 
 L_PRG_0xF_0x25E2:
 
@@ -6915,14 +6911,18 @@ L_PRG_0xF_0x2FFC:
 LDA $0712						;Offset: 0x2FFC, Byte Code: 0xAD 0x12 0x07
 CMP #$05						;Offset: 0x2FFF, Byte Code: 0xC9 0x05
 BNE L_PRG_0xF_0x301D						;Offset: 0x3001, Byte Code: 0xD0 0x1A (computed address for relative mode instruction 0x301D)
-
-;---- Start CDL Unknown Block: Offset 0x3003 --
-.byte $A5,  $4B,  $29,  $80,  $F0,  $14,  $A5,  $41
-.byte $C9,  $08,  $D0,  $0E,  $A9,  $1A,  $20,  $18
-.byte $C4,  $A9,  $18,  $20,  $E8,  $9A,  $A9,  $18
-.byte $85,  $41
-;---- End CDL Unknown Block: Total Bytes 0x1A ----
-
+LDA $4B							;Offset: 0x3003, Byte Code: 0xA5 0x4B 
+AND #$80						;Offset: 0x3005, Byte Code: 0x29 0x80
+BEQ L_PRG_0xF_0x301D						;Offset: 0x3007, Byte Code: 0xF0 0x14 (computed address for relative mode instruction 0x301D)
+LDA $41							;Offset: 0x3009, Byte Code: 0xA5 0x41 
+CMP #$08						;Offset: 0x300B, Byte Code: 0xC9 0x08
+BNE L_PRG_0xF_0x301D						;Offset: 0x300D, Byte Code: 0xD0 0x0E (computed address for relative mode instruction 0x301D)
+LDA #$1A						;Offset: 0x300F, Byte Code: 0xA9 0x1A
+JSR $C418						;Offset: 0x3011, Byte Code: 0x20 0x18 0xC4
+LDA #$18						;Offset: 0x3014, Byte Code: 0xA9 0x18
+JSR $9AE8						;Offset: 0x3016, Byte Code: 0x20 0xE8 0x9A
+LDA #$18						;Offset: 0x3019, Byte Code: 0xA9 0x18
+STA $41							;Offset: 0x301B, Byte Code: 0x85 0x41 
 
 L_PRG_0xF_0x301D:
 	LDA AddressIndexEquippedEquippableItem						;Offset: 0x301D, Byte Code: 0xAD 0x16 0x07
@@ -8321,18 +8321,8 @@ BPL L_PRG_0xF_0x3E82						;Offset: 0x3ECD, Byte Code: 0x10 0xB3 (computed addres
 RTS								;Offset: 0x3ECF, Byte Code: 0x60 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x3ED0 --
-.byte $FF,  $02,  $06
-;---- End CDL Confirmed Data Block: Total Bytes 0x03 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x3ED3 --
-.byte $FF
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x3ED4 --
-.byte $04,  $03,  $05
-;---- End CDL Confirmed Data Block: Total Bytes 0x03 ----
+.byte $FF,  $02,  $06,  $FF,  $04,  $03,  $05
+;---- End CDL Confirmed Data Block: Total Bytes 0x07 ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x3ED7 --
@@ -8341,13 +8331,13 @@ RTS								;Offset: 0x3ECF, Byte Code: 0x60
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x3ED8 --
-.byte $00,  $01,  $07
-;---- End CDL Confirmed Data Block: Total Bytes 0x03 ----
+.byte $00,  $01,  $07,  $00
+;---- End CDL Confirmed Data Block: Total Bytes 0x04 ----
 
 
-;---- Start CDL Unknown Block: Offset 0x3EDB --
-.byte $00,  $FF,  $02,  $06,  $FF
-;---- End CDL Unknown Block: Total Bytes 0x05 ----
+;---- Start CDL Unknown Block: Offset 0x3EDC --
+.byte $FF,  $02,  $06,  $FF
+;---- End CDL Unknown Block: Total Bytes 0x04 ----
 
 LDX #$01						;Offset: 0x3EE0, Byte Code: 0xA2 0x01
 

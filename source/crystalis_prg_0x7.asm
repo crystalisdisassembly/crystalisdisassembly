@@ -8323,16 +8323,8 @@ BMI L_PRG_0x7_0x3F0A						;Offset: 0x3EC5, Byte Code: 0x30 0x43 (computed addres
 AND #$0F						;Offset: 0x3EC7, Byte Code: 0x29 0x0F
 CMP #$04						;Offset: 0x3EC9, Byte Code: 0xC9 0x04
 BNE L_PRG_0x7_0x3ED1						;Offset: 0x3ECB, Byte Code: 0xD0 0x04 (computed address for relative mode instruction 0x3ED1)
-
-;---- Start CDL Confirmed Data Block: Offset 0x3ECD --
-.byte $A0
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x3ECE --
-.byte $20,  $D0,  $3D
-;---- End CDL Unknown Block: Total Bytes 0x03 ----
-
+LDY #$20						;Offset: 0x3ECD, Byte Code: 0xA0 0x20
+BNE L_PRG_0x7_0x3F0E						;Offset: 0x3ECF, Byte Code: 0xD0 0x3D (computed address for relative mode instruction 0x3F0E)
 
 L_PRG_0x7_0x3ED1:
 
@@ -8362,23 +8354,52 @@ LDA #$00						;Offset: 0x3EF8, Byte Code: 0xA9 0x00
 STA $6005						;Offset: 0x3EFA, Byte Code: 0x8D 0x05 0x60
 STA $6006						;Offset: 0x3EFD, Byte Code: 0x8D 0x06 0x60
 STA $6007						;Offset: 0x3F00, Byte Code: 0x8D 0x07 0x60
+
+L_PRG_0x7_0x3F03:
+
 LDA #$00						;Offset: 0x3F03, Byte Code: 0xA9 0x00
 STA $20							;Offset: 0x3F05, Byte Code: 0x85 0x20 
 JMP $C1AE						;Offset: 0x3F07, Byte Code: 0x4C 0xAE 0xC1
 
 L_PRG_0x7_0x3F0A:
 
+LSR A							;Offset: 0x3F0A, Byte Code: 0x4A
+AND #$38						;Offset: 0x3F0B, Byte Code: 0x29 0x38
+TAY								;Offset: 0x3F0D, Byte Code: 0xA8 
 
-;---- Start CDL Unknown Block: Offset 0x3F0A --
-.byte $4A,  $29,  $38,  $A8,  $A2,  $00,  $B9,  $1E
-.byte $BF,  $9D,  $00,  $60,  $C8,  $E8,  $E0,  $08
-.byte $D0,  $F4,  $F0,  $E5,  $30,  $36,  $2E,  $00
-.byte $09,  $80,  $00,  $00,  $30,  $36,  $32,  $00
-.byte $09,  $80,  $00,  $00,  $30,  $36,  $36,  $00
-.byte $09,  $80,  $00,  $00,  $30,  $36,  $3A,  $00
-.byte $09,  $80,  $00,  $00,  $30,  $36,  $53,  $00
-.byte $09,  $80,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x3C ----
+L_PRG_0x7_0x3F0E:
+
+LDX #$00						;Offset: 0x3F0E, Byte Code: 0xA2 0x00
+
+L_PRG_0x7_0x3F10:
+
+LDA $BF1E, Y					;Offset: 0x3F10, Byte Code: 0xB9 0x1E 0xBF
+STA $6000, X					;Offset: 0x3F13, Byte Code: 0x9D 0x00 0x60
+INY								;Offset: 0x3F16, Byte Code: 0xC8 
+INX								;Offset: 0x3F17, Byte Code: 0xE8 
+CPX #$08						;Offset: 0x3F18, Byte Code: 0xE0 0x08
+BNE L_PRG_0x7_0x3F10						;Offset: 0x3F1A, Byte Code: 0xD0 0xF4 (computed address for relative mode instruction 0x3F10)
+BEQ L_PRG_0x7_0x3F03						;Offset: 0x3F1C, Byte Code: 0xF0 0xE5 (computed address for relative mode instruction 0x3F03)
+
+;---- Start CDL Unknown Block: Offset 0x3F1E --
+.byte $30,  $36,  $2E,  $00,  $09,  $80,  $00,  $00
+.byte $30,  $36,  $32,  $00,  $09,  $80,  $00,  $00
+;---- End CDL Unknown Block: Total Bytes 0x10 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x3F2E --
+.byte $30,  $36,  $36,  $00,  $09,  $80,  $00,  $00
+;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x3F36 --
+.byte $30,  $36,  $3A,  $00,  $09,  $80,  $00,  $00
+;---- End CDL Unknown Block: Total Bytes 0x08 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x3F3E --
+.byte $30,  $36,  $53,  $00,  $09,  $80,  $00,  $00
+;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
 
 RTS								;Offset: 0x3F46, Byte Code: 0x60 
 

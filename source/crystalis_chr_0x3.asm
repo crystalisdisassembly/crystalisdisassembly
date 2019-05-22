@@ -2309,10 +2309,20 @@ RTI								;Offset: 0xC1A, Byte Code: 0x40
 ;---- Start CDL Unknown Block: Offset 0x0C1B --
 .byte $20,  $10,  $10,  $64,  $1E,  $CA,  $B8,  $8F
 .byte $98,  $A8,  $C8,  $89,  $8B,  $00,  $00,  $00
-.byte $01,  $03,  $06,  $14,  $20,  $40,  $00,  $E0
-.byte $30,  $60,  $C0,  $80,  $10,  $09,  $07,  $0D
-.byte $8D,  $0B,  $0B,  $07,  $05,  $9A,  $A8
-;---- End CDL Unknown Block: Total Bytes 0x27 ----
+.byte $01,  $03,  $06,  $14,  $20,  $40,  $00
+;---- End CDL Unknown Block: Total Bytes 0x17 ----
+
+CPX #$30						;Offset: 0xC32, Byte Code: 0xE0 0x30
+
+;---- Start CDL Unknown Block: Offset 0x0C34 --
+.byte $60,  $C0,  $80,  $10,  $09,  $07
+;---- End CDL Unknown Block: Total Bytes 0x06 ----
+
+ORA $0B8D						;Offset: 0xC3A, Byte Code: 0x0D 0x8D 0x0B
+
+;---- Start CDL Unknown Block: Offset 0x0C3D --
+.byte $0B,  $07,  $05,  $9A,  $A8
+;---- End CDL Unknown Block: Total Bytes 0x05 ----
 
 INY								;Offset: 0xC42, Byte Code: 0xC8 
 
@@ -2335,10 +2345,20 @@ INY								;Offset: 0xC42, Byte Code: 0xC8
 .byte $4B							;Offset: 0xC5A, Byte Code: 0x4B .. Illegal Opcode!!
 
 ;---- Start CDL Unknown Block: Offset 0x0C5B --
-.byte $87,  $07,  $3F,  $0F,  $09,  $08,  $00,  $00
-.byte $00,  $00,  $00,  $00,  $00,  $E0,  $7B,  $3B
+.byte $87,  $07,  $3F,  $0F,  $09,  $08,  $00
+;---- End CDL Unknown Block: Total Bytes 0x07 ----
+
+BRK								;Offset: 0xC62, Byte Code: 0x00 
+
+;---- Start CDL Unknown Block: Offset 0x0C63 --
+.byte $00,  $00,  $00,  $00,  $00,  $E0,  $7B
+;---- End CDL Unknown Block: Total Bytes 0x07 ----
+
+.byte $3B							;Offset: 0xC6A, Byte Code: 0x3B .. Illegal Opcode!!
+
+;---- Start CDL Unknown Block: Offset 0x0C6B --
 .byte $1D,  $0D,  $06,  $02,  $01,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x17 ----
+;---- End CDL Unknown Block: Total Bytes 0x07 ----
 
 BRK								;Offset: 0xC72, Byte Code: 0x00 
 

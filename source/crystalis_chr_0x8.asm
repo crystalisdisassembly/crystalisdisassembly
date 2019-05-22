@@ -521,17 +521,18 @@ CLC								;Offset: 0x29A, Byte Code: 0x18
 BIT $183C						;Offset: 0x29B, Byte Code: 0x2C 0x3C 0x18
 BRK								;Offset: 0x29E, Byte Code: 0x00 
 BRK								;Offset: 0x29F, Byte Code: 0x00 
-
-;---- Start CDL Unknown Block: Offset 0x02A0 --
-.byte $00,  $18,  $24,  $5A,  $5A,  $24,  $18
-;---- End CDL Unknown Block: Total Bytes 0x07 ----
-
+BRK								;Offset: 0x2A0, Byte Code: 0x00 
+CLC								;Offset: 0x2A1, Byte Code: 0x18 
+BIT $5A							;Offset: 0x2A2, Byte Code: 0x24 0x5A 
+.byte $5A							;Offset: 0x2A4, Byte Code: 0x5A .. Illegal Opcode!!
+BIT $18							;Offset: 0x2A5, Byte Code: 0x24 0x18 
 BRK								;Offset: 0x2A7, Byte Code: 0x00 
-
-;---- Start CDL Unknown Block: Offset 0x02A8 --
-.byte $00,  $18,  $3C,  $66,  $66,  $3C,  $18
-;---- End CDL Unknown Block: Total Bytes 0x07 ----
-
+BRK								;Offset: 0x2A8, Byte Code: 0x00 
+CLC								;Offset: 0x2A9, Byte Code: 0x18 
+.byte $3C							;Offset: 0x2AA, Byte Code: 0x3C .. Illegal Opcode!!
+ROR $66							;Offset: 0x2AB, Byte Code: 0x66 0x66 
+.byte $3C							;Offset: 0x2AD, Byte Code: 0x3C .. Illegal Opcode!!
+CLC								;Offset: 0x2AE, Byte Code: 0x18 
 BRK								;Offset: 0x2AF, Byte Code: 0x00 
 .byte $90, $90						;BCC $90			;Offset: 0x2B0, Byte Code: 0x90 0x90 (computed address for relative mode instruction 0x0242)
 .byte $F0, $F8						;BEQ $F8			;Offset: 0x2B2, Byte Code: 0xF0 0xF8 (computed address for relative mode instruction 0x02AC)
@@ -673,12 +674,22 @@ ORA ($00, X)					;Offset: 0x366, Byte Code: 0x01 0x00
 PHP								;Offset: 0x36C, Byte Code: 0x08 
 .byte $07							;Offset: 0x36D, Byte Code: 0x07 .. Illegal Opcode!!
 ORA ($00, X)					;Offset: 0x36E, Byte Code: 0x01 0x00
-
-;---- Start CDL Unknown Block: Offset 0x0370 --
-.byte $00,  $00,  $00,  $00,  $FF,  $00,  $00,  $00
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x10 ----
-
+BRK								;Offset: 0x370, Byte Code: 0x00 
+BRK								;Offset: 0x371, Byte Code: 0x00 
+BRK								;Offset: 0x372, Byte Code: 0x00 
+BRK								;Offset: 0x373, Byte Code: 0x00 
+.byte $FF							;Offset: 0x374, Byte Code: 0xFF .. Illegal Opcode!!
+BRK								;Offset: 0x375, Byte Code: 0x00 
+BRK								;Offset: 0x376, Byte Code: 0x00 
+BRK								;Offset: 0x377, Byte Code: 0x00 
+BRK								;Offset: 0x378, Byte Code: 0x00 
+BRK								;Offset: 0x379, Byte Code: 0x00 
+BRK								;Offset: 0x37A, Byte Code: 0x00 
+BRK								;Offset: 0x37B, Byte Code: 0x00 
+BRK								;Offset: 0x37C, Byte Code: 0x00 
+BRK								;Offset: 0x37D, Byte Code: 0x00 
+BRK								;Offset: 0x37E, Byte Code: 0x00 
+BRK								;Offset: 0x37F, Byte Code: 0x00 
 .byte $3C							;Offset: 0x380, Byte Code: 0x3C .. Illegal Opcode!!
 ORA $0707, X					;Offset: 0x381, Byte Code: 0x1D 0x07 0x07
 .byte $0F							;Offset: 0x384, Byte Code: 0x0F .. Illegal Opcode!!
@@ -692,12 +703,20 @@ BRK								;Offset: 0x387, Byte Code: 0x00
 ORA #$07						;Offset: 0x38C, Byte Code: 0x09 0x07
 BRK								;Offset: 0x38E, Byte Code: 0x00 
 BRK								;Offset: 0x38F, Byte Code: 0x00 
-
-;---- Start CDL Unknown Block: Offset 0x0390 --
-.byte $01,  $02,  $04,  $08,  $10,  $20,  $40,  $80
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x10 ----
-
+ORA ($02, X)					;Offset: 0x390, Byte Code: 0x01 0x02
+.byte $04							;Offset: 0x392, Byte Code: 0x04 .. Illegal Opcode!!
+PHP								;Offset: 0x393, Byte Code: 0x08 
+.byte $10, $20						;BPL $20			;Offset: 0x394, Byte Code: 0x10 0x20 (computed address for relative mode instruction 0x03B6)
+RTI								;Offset: 0x396, Byte Code: 0x40 
+.byte $80							;Offset: 0x397, Byte Code: 0x80 .. Illegal Opcode!!
+BRK								;Offset: 0x398, Byte Code: 0x00 
+BRK								;Offset: 0x399, Byte Code: 0x00 
+BRK								;Offset: 0x39A, Byte Code: 0x00 
+BRK								;Offset: 0x39B, Byte Code: 0x00 
+BRK								;Offset: 0x39C, Byte Code: 0x00 
+BRK								;Offset: 0x39D, Byte Code: 0x00 
+BRK								;Offset: 0x39E, Byte Code: 0x00 
+BRK								;Offset: 0x39F, Byte Code: 0x00 
 .byte $07							;Offset: 0x3A0, Byte Code: 0x07 .. Illegal Opcode!!
 ASL $2028, X					;Offset: 0x3A1, Byte Code: 0x1E 0x28 0x20
 .byte $50, $50						;BVC $50			;Offset: 0x3A4, Byte Code: 0x50 0x50 (computed address for relative mode instruction 0x03F6)
@@ -768,12 +787,18 @@ BRK								;Offset: 0x3E9, Byte Code: 0x00
 .byte $3F							;Offset: 0x3ED, Byte Code: 0x3F .. Illegal Opcode!!
 .byte $1F							;Offset: 0x3EE, Byte Code: 0x1F .. Illegal Opcode!!
 .byte $07							;Offset: 0x3EF, Byte Code: 0x07 .. Illegal Opcode!!
-
-;---- Start CDL Unknown Block: Offset 0x03F0 --
-.byte $10,  $10,  $10,  $10,  $10,  $10,  $10,  $10
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x10 ----
-
+.byte $10, $10						;BPL $10			;Offset: 0x3F0, Byte Code: 0x10 0x10 (computed address for relative mode instruction 0x0402)
+.byte $10, $10						;BPL $10			;Offset: 0x3F2, Byte Code: 0x10 0x10 (computed address for relative mode instruction 0x0404)
+.byte $10, $10						;BPL $10			;Offset: 0x3F4, Byte Code: 0x10 0x10 (computed address for relative mode instruction 0x0406)
+.byte $10, $10						;BPL $10			;Offset: 0x3F6, Byte Code: 0x10 0x10 (computed address for relative mode instruction 0x0408)
+BRK								;Offset: 0x3F8, Byte Code: 0x00 
+BRK								;Offset: 0x3F9, Byte Code: 0x00 
+BRK								;Offset: 0x3FA, Byte Code: 0x00 
+BRK								;Offset: 0x3FB, Byte Code: 0x00 
+BRK								;Offset: 0x3FC, Byte Code: 0x00 
+BRK								;Offset: 0x3FD, Byte Code: 0x00 
+BRK								;Offset: 0x3FE, Byte Code: 0x00 
+BRK								;Offset: 0x3FF, Byte Code: 0x00 
 .byte $1F							;Offset: 0x400, Byte Code: 0x1F .. Illegal Opcode!!
 .byte $3F							;Offset: 0x401, Byte Code: 0x3F .. Illegal Opcode!!
 .byte $7F							;Offset: 0x402, Byte Code: 0x7F .. Illegal Opcode!!
