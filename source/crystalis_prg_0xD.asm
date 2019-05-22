@@ -2,6 +2,8 @@
 .segment "PRG_0xD"
 .org $8000
 
+;contains sword charging code. don't know what else
+
 ;---- Start CDL Confirmed Data Block: Offset 0x0000 --
 .byte $97,  $97,  $97,  $97,  $97,  $97,  $87,  $80
 .byte $80,  $80,  $80,  $70,  $70,  $70,  $70,  $70
@@ -3236,12 +3238,12 @@ LDY $0711						;Offset: 0x1CC8, Byte Code: 0xAC 0x11 0x07
 LDA $8BD8, Y					;Offset: 0x1CCB, Byte Code: 0xB9 0xD8 0x8B
 JSR $9AE8						;Offset: 0x1CCE, Byte Code: 0x20 0xE8 0x9A
 
+L_PRG_0xD_ResetSwordCharge:
 L_PRG_0xD_0x1CD1:
-
-LDA #$00						;Offset: 0x1CD1, Byte Code: 0xA9 0x00
-STA $06C0						;Offset: 0x1CD3, Byte Code: 0x8D 0xC0 0x06
-STA $06C1						;Offset: 0x1CD6, Byte Code: 0x8D 0xC1 0x06
-RTS								;Offset: 0x1CD9, Byte Code: 0x60 
+	LDA #$00						;Offset: 0x1CD1, Byte Code: 0xA9 0x00
+	STA AddressPlayerSpriteCurrentSwordCharge						;Offset: 0x1CD3, Byte Code: 0x8D 0xC0 0x06
+	STA $06C1						;Offset: 0x1CD6, Byte Code: 0x8D 0xC1 0x06
+	RTS								;Offset: 0x1CD9, Byte Code: 0x60 
 
 L_PRG_0xD_0x1CDA:
 
@@ -3307,7 +3309,11 @@ JMP $9897						;Offset: 0x1D4A, Byte Code: 0x4C 0x97 0x98
 .byte $EE,  $F0,  $F1,  $F3,  $F4,  $F6,  $F8,  $FA
 .byte $FD,  $F9,  $F0,  $E8,  $E0,  $D8,  $D0,  $C8
 .byte $C0,  $B8,  $B0,  $A8,  $A0,  $9A,  $92,  $76
-.byte $84,  $08,  $10,  $18
+.byte $84
+
+;Level 0, level 1, level 2
+L_PRG_0xD_SwordChargeLevelCapArray:
+.byte $08,  $10,  $18
 ;---- End CDL Confirmed Data Block: Total Bytes 0x34 ----
 
 LDA #$00						;Offset: 0x1D81, Byte Code: 0xA9 0x00
@@ -3325,11 +3331,11 @@ STA $49							;Offset: 0x1D98, Byte Code: 0x85 0x49
 
 L_PRG_0xD_0x1D9A:
 
-LDA $0710						;Offset: 0x1D9A, Byte Code: 0xAD 0x10 0x07
+LDA AddressPlayerCondition						;Offset: 0x1D9A, Byte Code: 0xAD 0x10 0x07
 BMI L_PRG_0xD_0x1DB7						;Offset: 0x1D9D, Byte Code: 0x30 0x18 (computed address for relative mode instruction 0x1DB7)
 AND #$0F						;Offset: 0x1D9F, Byte Code: 0x29 0x0F
-CMP #$04						;Offset: 0x1DA1, Byte Code: 0xC9 0x04
-BEQ L_PRG_0xD_0x1DB7						;Offset: 0x1DA3, Byte Code: 0xF0 0x12 (computed address for relative mode instruction 0x1DB7)
+CMP #PlayerCondition_Mutated						;Offset: 0x1DA1, Byte Code: 0xC9 0x04
+BEQ L_PRG_0xD_PlayerIsMutated						;Offset: 0x1DA3, Byte Code: 0xF0 0x12 (computed address for relative mode instruction 0x1DB7)
 LDA $49							;Offset: 0x1DA5, Byte Code: 0xA5 0x49 
 STA $06E0, X					;Offset: 0x1DA7, Byte Code: 0x9D 0xE0 0x06
 LDY #$A7						;Offset: 0x1DAA, Byte Code: 0xA0 0xA7
@@ -3339,6 +3345,7 @@ BPL L_PRG_0xD_0x1DB9						;Offset: 0x1DB0, Byte Code: 0x10 0x07 (computed addres
 LDA $0620, X					;Offset: 0x1DB2, Byte Code: 0xBD 0x20 0x06
 BNE L_PRG_0xD_0x1DB9						;Offset: 0x1DB5, Byte Code: 0xD0 0x02 (computed address for relative mode instruction 0x1DB9)
 
+L_PRG_0xD_PlayerIsMutated:
 L_PRG_0xD_0x1DB7:
 
 LDY #$4C						;Offset: 0x1DB7, Byte Code: 0xA0 0x4C
@@ -3369,25 +3376,28 @@ BPL L_PRG_0xD_0x1DE1						;Offset: 0x1DDF, Byte Code: 0x10 0x00 (computed addres
 L_PRG_0xD_0x1DE1:
 
 JSR $A022						;Offset: 0x1DE1, Byte Code: 0x20 0x22 0xA0
-LDA $0710						;Offset: 0x1DE4, Byte Code: 0xAD 0x10 0x07
+LDA AddressPlayerCondition						;Offset: 0x1DE4, Byte Code: 0xAD 0x10 0x07
 BMI L_PRG_0xD_0x1E39						;Offset: 0x1DE7, Byte Code: 0x30 0x50 (computed address for relative mode instruction 0x1E39)
 AND #$0F						;Offset: 0x1DE9, Byte Code: 0x29 0x0F
-CMP #$04						;Offset: 0x1DEB, Byte Code: 0xC9 0x04
-BEQ L_PRG_0xD_0x1E39						;Offset: 0x1DED, Byte Code: 0xF0 0x4A (computed address for relative mode instruction 0x1E39)
-LDA $43							;Offset: 0x1DEF, Byte Code: 0xA5 0x43 
-AND #$40						;Offset: 0x1DF1, Byte Code: 0x29 0x40
-BEQ L_PRG_0xD_0x1E39						;Offset: 0x1DF3, Byte Code: 0xF0 0x44 (computed address for relative mode instruction 0x1E39)
-LDA $0600, X					;Offset: 0x1DF5, Byte Code: 0xBD 0x00 0x06
-CMP #$0C						;Offset: 0x1DF8, Byte Code: 0xC9 0x0C
-BCC L_PRG_0xD_0x1E03						;Offset: 0x1DFA, Byte Code: 0x90 0x07 (computed address for relative mode instruction 0x1E03)
-CMP #$11						;Offset: 0x1DFC, Byte Code: 0xC9 0x11
-BEQ L_PRG_0xD_0x1E03						;Offset: 0x1DFE, Byte Code: 0xF0 0x03 (computed address for relative mode instruction 0x1E03)
-JMP $9E39						;Offset: 0x1E00, Byte Code: 0x4C 0x39 0x9E
+CMP #PlayerCondition_Mutated						;Offset: 0x1DEB, Byte Code: 0xC9 0x04
+BEQ L_PRG_0xD_SkipSwordCharging						;Offset: 0x1DED, Byte Code: 0xF0 0x4A (computed address for relative mode instruction 0x1E39)
+
+LDA $43							;Offset: 0x1DEF, Byte Code: 0xA5 0x43
+;$43 has the controller state for player 1 (also at $4B, duno why there's more than 1 address)
+
+AND #ControllerButton_B						;Offset: 0x1DF1, Byte Code: 0x29 0x40
+BEQ L_PRG_0xD_SkipSwordCharging						;Offset: 0x1DF3, Byte Code: 0xF0 0x44 (computed address for relative mode instruction 0x1E39)
+	LDA $0600, X					;Offset: 0x1DF5, Byte Code: 0xBD 0x00 0x06
+	CMP #$0C						;Offset: 0x1DF8, Byte Code: 0xC9 0x0C
+	BCC L_PRG_0xD_0x1E03						;Offset: 0x1DFA, Byte Code: 0x90 0x07 (computed address for relative mode instruction 0x1E03)
+		CMP #$11						;Offset: 0x1DFC, Byte Code: 0xC9 0x11
+		BEQ L_PRG_0xD_0x1E03						;Offset: 0x1DFE, Byte Code: 0xF0 0x03 (computed address for relative mode instruction 0x1E03)
+			JMP $9E39						;Offset: 0x1E00, Byte Code: 0x4C 0x39 0x9E
 
 L_PRG_0xD_0x1E03:
 
-LDA $0711						;Offset: 0x1E03, Byte Code: 0xAD 0x11 0x07
-BEQ L_PRG_0xD_0x1E39						;Offset: 0x1E06, Byte Code: 0xF0 0x31 (computed address for relative mode instruction 0x1E39)
+LDA AddressIndexEquippedSword						;Offset: 0x1E03, Byte Code: 0xAD 0x11 0x07
+BEQ L_PRG_0xD_NoSwordEquipped						;Offset: 0x1E06, Byte Code: 0xF0 0x31 (computed address for relative mode instruction 0x1E39)
 LDA #$12						;Offset: 0x1E08, Byte Code: 0xA9 0x12
 STA $0600, X					;Offset: 0x1E0A, Byte Code: 0x9D 0x00 0x06
 LDA $08							;Offset: 0x1E0D, Byte Code: 0xA5 0x08 
@@ -3409,12 +3419,16 @@ JSR $C125						;Offset: 0x1E28, Byte Code: 0x20 0x25 0xC1
 
 L_PRG_0xD_0x1E2B:
 
-LDY $0719						;Offset: 0x1E2B, Byte Code: 0xAC 0x19 0x07
-LDA $9D7E, Y					;Offset: 0x1E2E, Byte Code: 0xB9 0x7E 0x9D
+;max sword charge level is 0, 1 or 2
+LDY AddressPlayerMaximumSwordChargeLevel						;Offset: 0x1E2B, Byte Code: 0xAC 0x19 0x07
+LDA L_PRG_0xD_SwordChargeLevelCapArray, Y					;Offset: 0x1E2E, Byte Code: 0xB9 0x7E 0x9D
 CMP $06C0						;Offset: 0x1E31, Byte Code: 0xCD 0xC0 0x06
 BCS L_PRG_0xD_0x1E39						;Offset: 0x1E34, Byte Code: 0xB0 0x03 (computed address for relative mode instruction 0x1E39)
 STA $06C0						;Offset: 0x1E36, Byte Code: 0x8D 0xC0 0x06
 
+L_PRG_0xD_ButtonBNotPressed:
+L_PRG_0xD_SkipSwordCharging:
+L_PRG_0xD_NoSwordEquipped:
 L_PRG_0xD_0x1E39:
 
 LDY $0600, X					;Offset: 0x1E39, Byte Code: 0xBC 0x00 0x06

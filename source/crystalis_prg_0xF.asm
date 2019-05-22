@@ -3,14 +3,15 @@
 .org $C000
 
 ;List of identified subroutines in this PRG bank:
-;SUB_PRG_0xF_UpdatePlayerEquiptmentStats					0x0008
+;SUB_PRG_0xF_UpdatePlayerEquipmentStats						0x0008
+;SUB_PRG_0xF_UnknownSub_0xC169								0x0169
 ;SUB_PRG_0xF_ApplyEnvironmentalEffectsToPlayer				0x2F55
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0000 --
 .byte $01,  $02,  $04,  $08,  $10,  $20,  $40,  $80
 ;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
 
-SUB_PRG_0xF_UpdatePlayerEquiptmentStats:
+SUB_PRG_0xF_UpdatePlayerEquipmentStats:
 	LDA $6E													;Offset: 0x8, Byte Code: 0xA5 0x6E 
 	PHA														;Offset: 0xA, Byte Code: 0x48 
 	LDA #$1A												;Offset: 0xB, Byte Code: 0xA9 0x1A
@@ -165,7 +166,7 @@ L_PRG_0xF_0x010C:
 	LDA #$80												;Offset: 0x119, Byte Code: 0xA9 0x80
 	STA $0321												;Offset: 0x11B, Byte Code: 0x8D 0x21 0x03
 	JMP $C0DA												;Offset: 0x11E, Byte Code: 0x4C 0xDA 0xC0
-ENDSUB_PRG_0xF_UpdatePlayerEquiptmentStats:
+ENDSUB_PRG_0xF_UpdatePlayerEquipmentStats:
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0121 --
 .byte $08,  $04,  $01,  $02
@@ -219,6 +220,8 @@ L_PRG_0xF_0x0165:
 
 LDY $010F						;Offset: 0x165, Byte Code: 0xAC 0x0F 0x01
 RTS								;Offset: 0x168, Byte Code: 0x60 
+
+SUB_PRG_0xF_UnknownSub_0xC169:
 LDA #$00						;Offset: 0x169, Byte Code: 0xA9 0x00
 STA $09							;Offset: 0x16B, Byte Code: 0x85 0x09 
 
