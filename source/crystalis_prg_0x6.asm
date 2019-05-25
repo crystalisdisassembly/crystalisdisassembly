@@ -2,6 +2,8 @@
 .segment "PRG_0x6"
 .org $8000
 
+;contains the monster data array, and also contains a pointer table with pointers to each monster in the array (size of monsters appears to be variable based on prior analysis from romhacking.net)
+
 ;---- Start CDL Unknown Block: Offset 0x0000 --
 .byte $B0,  $A0
 ;---- End CDL Unknown Block: Total Bytes 0x02 ----
@@ -2350,7 +2352,10 @@
 .byte $85,  $BD,  $9A,  $BD,  $AE,  $BD,  $C2,  $BD
 .byte $D6,  $BD,  $EA,  $BD,  $FF,  $BD,  $14,  $BE
 .byte $2A,  $BE,  $40,  $BE,  $55,  $BE,  $69,  $BE
-.byte $7D,  $BE,  $00,  $AE,  $00,  $00,  $00,  $00
+.byte $7D,  $BE,  $00,  $AE
+
+PRG_0x6_MonsterDataArray:
+.byte $00,  $00,  $00,  $00
 .byte $00,  $00,  $BE,  $A7,  $06,  $04,  $01,  $00
 .byte $30,  $54,  $01,  $32,  $03,  $00,  $28,  $FF
 .byte $04,  $00,  $BE,  $02,  $06,  $04,  $03,  $B0

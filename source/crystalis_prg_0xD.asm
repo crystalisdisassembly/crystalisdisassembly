@@ -2,7 +2,11 @@
 .segment "PRG_0xD"
 .org $8000
 
-;contains sword charging code. don't know what else
+;Subroutines:
+;SUB_PRG_0xD_NestedSubroutine_RestoreHPFromRefresh
+
+;contains sword charging code, level up code and combat code (damage monsters in combat) -- also damage player (see offset 0x1403). Also has code for hp restore from refresh (0x20BE) don't know what else
+;also has sword attack (and level 3 mp cost), armor/shield defense power and gold drop amount arrays
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0000 --
 .byte $97,  $97,  $97,  $97,  $97,  $97,  $87,  $80
@@ -737,13 +741,19 @@ RTS								;Offset: 0x4BB, Byte Code: 0x60
 
 
 ;---- Start CDL Unknown Block: Offset 0x0B7C --
-.byte $69,  $6E,  $64,  $00
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
+.byte $69,  $6E,  $64
+;---- End CDL Unknown Block: Total Bytes 0x03 ----
+;note: the $00 byte at the start of this array is actually a CDL unknown, but the code at 0x118E puts the start of the array here
 
+PRG_0xD_MaximumHPLevelArray:
+.byte $00
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0B80 --
 .byte $30,  $40,  $50,  $60,  $70,  $80,  $90,  $A0
-.byte $B0,  $C0,  $D0,  $E0,  $F0,  $FF,  $FF,  $FF
+.byte $B0,  $C0,  $D0,  $E0,  $F0,  $FF,  $FF
+
+PRG_0xD_MaximumMPLevelArray:
+.byte $FF
 .byte $22,  $22,  $33,  $44,  $55,  $66,  $77,  $88
 .byte $99,  $AA,  $BB,  $CC,  $DD,  $EE,  $FF,  $FF
 ;---- End CDL Confirmed Data Block: Total Bytes 0x20 ----
@@ -758,17 +768,25 @@ RTS								;Offset: 0x4BB, Byte Code: 0x60
 .byte $3C,  $00,  $96,  $00,  $2C,  $01,  $BC,  $02
 .byte $B0,  $04,  $40,  $06,  $AC,  $0D,  $A8,  $16
 .byte $40,  $1F,  $10,  $27,  $20,  $4E,  $30,  $75
-.byte $40,  $9C,  $50,  $C3,  $00,  $00,  $00,  $02
-.byte $06,  $0A,  $0E,  $12,  $18,  $14,  $20,  $00
+.byte $40,  $9C,  $50,  $C3,  $00,  $00
+
+PRG_0xD_ArmorDefensePowerArray:
+.byte $00,  $02
+.byte $06,  $0A,  $0E,  $12,  $18,  $14,  $20
+
+PRG_0xD_ShieldDefensePowerArray:
+
+.byte $00
 .byte $02,  $06,  $08,  $0C,  $12,  $10,  $18,  $20
+
+PRG_0xD_SwordBaseAttackPowerArray:
 .byte $00,  $01,  $02,  $04,  $08,  $10
 ;---- End CDL Confirmed Data Block: Total Bytes 0x36 ----
 
-
+PRG_0xD_SwordLevel3MPCostArray:
 ;---- Start CDL Unknown Block: Offset 0x0BD8 --
 .byte $00
 ;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0BD9 --
 .byte $08,  $10,  $10,  $28
@@ -776,9 +794,11 @@ RTS								;Offset: 0x4BB, Byte Code: 0x60
 
 
 ;---- Start CDL Unknown Block: Offset 0x0BDD --
-.byte $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x03 ----
+.byte $00
 
+PRG_0xD_GoldDropAmountsArray:
+.byte $00,  $00
+;---- End CDL Unknown Block: Total Bytes 0x03 ----
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0BE0 --
 .byte $01,  $00,  $02,  $00,  $04,  $00,  $08,  $00
@@ -1534,13 +1554,21 @@ BEQ L_PRG_0xD_0x1094						;Offset: 0x10F1, Byte Code: 0xF0 0xA1 (computed addres
 LDA $0300, Y					;Offset: 0x10F3, Byte Code: 0xB9 0x00 0x03
 CMP #$A7						;Offset: 0x10F6, Byte Code: 0xC9 0xA7
 BEQ L_PRG_0xD_0x1082						;Offset: 0x10F8, Byte Code: 0xF0 0x88 (computed address for relative mode instruction 0x1082)
-LDA $0420, Y					;Offset: 0x10FA, Byte Code: 0xB9 0x20 0x04
+LDA AddressSpritesLevelArray, Y					;Offset: 0x10FA, Byte Code: 0xB9 0x20 0x04
+;target monster level, but this isn't just the level.. there are some additional bits here too
+
 AND #$1F						;Offset: 0x10FD, Byte Code: 0x29 0x1F
-STA $10							;Offset: 0x10FF, Byte Code: 0x85 0x10 
-LDA $0421						;Offset: 0x1101, Byte Code: 0xAD 0x21 0x04
-CMP $10							;Offset: 0x1104, Byte Code: 0xC5 0x10 
+STA $10							;Offset: 0x10FF, Byte Code: 0x85 0x10
+;the AND #$1F should isolate the level bits.. I think
+
+LDA AddressPlayerSpriteLevel						;Offset: 0x1101, Byte Code: 0xAD 0x21 0x04
+;Loads the player level
+
+CMP $10							;Offset: 0x1104, Byte Code: 0xC5 0x10
+;compares player level to monster level (just the isolated level bits I think)
+
 BCC L_PRG_0xD_0x1125						;Offset: 0x1106, Byte Code: 0x90 0x1D (computed address for relative mode instruction 0x1125)
-LDA $03E1						;Offset: 0x1108, Byte Code: 0xAD 0xE1 0x03
+LDA AddressPlayerSpriteAttackPower						;Offset: 0x1108, Byte Code: 0xAD 0xE1 0x03
 CLC								;Offset: 0x110B, Byte Code: 0x18 
 ADC $03E0, X					;Offset: 0x110C, Byte Code: 0x7D 0xE0 0x03
 STA $10							;Offset: 0x110F, Byte Code: 0x85 0x10 
@@ -1550,7 +1578,7 @@ AND #$0F						;Offset: 0x1117, Byte Code: 0x29 0x0F
 BNE L_PRG_0xD_0x1125						;Offset: 0x1119, Byte Code: 0xD0 0x0A (computed address for relative mode instruction 0x1125)
 LDA $10							;Offset: 0x111B, Byte Code: 0xA5 0x10 
 SEC								;Offset: 0x111D, Byte Code: 0x38 
-SBC $0400, Y					;Offset: 0x111E, Byte Code: 0xF9 0x00 0x04
+SBC AddressSpritesDefensePowerArray, Y					;Offset: 0x111E, Byte Code: 0xF9 0x00 0x04
 STA $10							;Offset: 0x1121, Byte Code: 0x85 0x10 
 BCS L_PRG_0xD_0x113B						;Offset: 0x1123, Byte Code: 0xB0 0x16 (computed address for relative mode instruction 0x113B)
 
@@ -1571,10 +1599,15 @@ JMP $C125						;Offset: 0x1138, Byte Code: 0x4C 0x25 0xC1
 
 L_PRG_0xD_0x113B:
 
-LDA $03C0, Y					;Offset: 0x113B, Byte Code: 0xB9 0xC0 0x03
+LDA AddressSpritesCurrentHPArray - 1, Y					;Offset: 0x113B, Byte Code: 0xB9 0xC0 0x03
+;Note: the base address is actually $03C0 (AddressSpritesMaximumHPArray) but for readability it's here as CurrentHPArray. Therefore, Y will always be ODD and starts from #$1
+;Y is the index to the target sprite being damagedd
+
 SEC								;Offset: 0x113E, Byte Code: 0x38 
-SBC $10							;Offset: 0x113F, Byte Code: 0xE5 0x10 
-STA $03C0, Y					;Offset: 0x1141, Byte Code: 0x99 0xC0 0x03
+SBC $10							;Offset: 0x113F, Byte Code: 0xE5 0x10
+STA AddressSpritesCurrentHPArray - 1, Y					;Offset: 0x1141, Byte Code: 0x99 0xC0 0x03
+;Note: the base address is actually $03C0 (AddressSpritesMaximumHPArray) but for readability it's here as CurrentHPArray. Therefore, Y will always be ODD and starts from #$1
+
 BCC L_PRG_0xD_0x1152						;Offset: 0x1144, Byte Code: 0x90 0x0C (computed address for relative mode instruction 0x1152)
 STX $10							;Offset: 0x1146, Byte Code: 0x86 0x10 
 STY $11							;Offset: 0x1148, Byte Code: 0x84 0x11 
@@ -1608,12 +1641,19 @@ STA $0705						;Offset: 0x117E, Byte Code: 0x8D 0x05 0x07
 LDA $0421						;Offset: 0x1181, Byte Code: 0xAD 0x21 0x04
 AND #$F0						;Offset: 0x1184, Byte Code: 0x29 0xF0
 BNE L_PRG_0xD_0x11EF						;Offset: 0x1186, Byte Code: 0xD0 0x67 (computed address for relative mode instruction 0x11EF)
-INC $0421						;Offset: 0x1188, Byte Code: 0xEE 0x21 0x04
-LDY $0421						;Offset: 0x118B, Byte Code: 0xAC 0x21 0x04
-LDA $8B7F, Y					;Offset: 0x118E, Byte Code: 0xB9 0x7F 0x8B
-STA $03C0						;Offset: 0x1191, Byte Code: 0x8D 0xC0 0x03
-LDA $8B8F, Y					;Offset: 0x1194, Byte Code: 0xB9 0x8F 0x8B
-STA $0709						;Offset: 0x1197, Byte Code: 0x8D 0x09 0x07
+
+
+INC AddressPlayerSpriteLevel						;Offset: 0x1188, Byte Code: 0xEE 0x21 0x04
+LDY AddressPlayerSpriteLevel						;Offset: 0x118B, Byte Code: 0xAC 0x21 0x04
+LDA PRG_0xD_MaximumHPLevelArray, Y					;Offset: 0x118E, Byte Code: 0xB9 0x7F 0x8B
+;maximum hp for the new level
+
+STA AddressPlayerSpriteMaximumHP						;Offset: 0x1191, Byte Code: 0x8D 0xC0 0x03
+
+
+LDA PRG_0xD_MaximumMPLevelArray, Y					;Offset: 0x1194, Byte Code: 0xB9 0x8F 0x8B
+STA AddressPlayerMaximumMP		;Offset: 0x1197, Byte Code: 0x8D 0x09 0x07
+
 SEC								;Offset: 0x119A, Byte Code: 0x38 
 LDA $8B7F, Y					;Offset: 0x119B, Byte Code: 0xB9 0x7F 0x8B
 SBC $8B7E, Y					;Offset: 0x119E, Byte Code: 0xF9 0x7E 0x8B
@@ -1946,16 +1986,18 @@ JMP $943F						;Offset: 0x13FE, Byte Code: 0x4C 0x3F 0x94
 L_PRG_0xD_0x1401:
 
 STA $10							;Offset: 0x1401, Byte Code: 0x85 0x10 
-LDA $0421						;Offset: 0x1403, Byte Code: 0xAD 0x21 0x04
+LDA AddressPlayerSpriteLevel						;Offset: 0x1403, Byte Code: 0xAD 0x21 0x04
 CMP #$11						;Offset: 0x1406, Byte Code: 0xC9 0x11
 BEQ L_PRG_0xD_0x1422						;Offset: 0x1408, Byte Code: 0xF0 0x18 (computed address for relative mode instruction 0x1422)
-LDA $03C0, X					;Offset: 0x140A, Byte Code: 0xBD 0xC0 0x03
+LDA AddressPlayerSpriteCurrentHP - 1, X					;Offset: 0x140A, Byte Code: 0xBD 0xC0 0x03
 SEC								;Offset: 0x140D, Byte Code: 0x38 
-SBC $10							;Offset: 0x140E, Byte Code: 0xE5 0x10 
-STA $03C0, X					;Offset: 0x1410, Byte Code: 0x9D 0xC0 0x03
+SBC $10							;Offset: 0x140E, Byte Code: 0xE5 0x10
+;$10 contains the amount of damage from the monster
+
+STA AddressPlayerSpriteCurrentHP - 1, X					;Offset: 0x1410, Byte Code: 0x9D 0xC0 0x03
 BCS L_PRG_0xD_0x141A						;Offset: 0x1413, Byte Code: 0xB0 0x05 (computed address for relative mode instruction 0x141A)
 LDA #$00						;Offset: 0x1415, Byte Code: 0xA9 0x00
-STA $03C0, X					;Offset: 0x1417, Byte Code: 0x9D 0xC0 0x03
+STA AddressPlayerSpriteCurrentHP - 1, X					;Offset: 0x1417, Byte Code: 0x9D 0xC0 0x03
 
 L_PRG_0xD_0x141A:
 
@@ -2930,15 +2972,23 @@ RTS								;Offset: 0x1ADF, Byte Code: 0x60
 ;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
 
 STA $1F							;Offset: 0x1AE8, Byte Code: 0x85 0x1F 
-LDA $0708						;Offset: 0x1AEA, Byte Code: 0xAD 0x08 0x07
+LDA AddressPlayerCurrentMP						;Offset: 0x1AEA, Byte Code: 0xAD 0x08 0x07
 BEQ L_PRG_0xD_0x1AF7						;Offset: 0x1AED, Byte Code: 0xF0 0x08 (computed address for relative mode instruction 0x1AF7)
-LDA $0708						;Offset: 0x1AEF, Byte Code: 0xAD 0x08 0x07
+LDA AddressPlayerCurrentMP						;Offset: 0x1AEF, Byte Code: 0xAD 0x08 0x07
 SEC								;Offset: 0x1AF2, Byte Code: 0x38 
-SBC $1F							;Offset: 0x1AF3, Byte Code: 0xE5 0x1F 
+SBC $1F							;Offset: 0x1AF3, Byte Code: 0xE5 0x1F
+;$1F = mp cost of current spell (have only tested refresh, teleport, recover and telepathy so far. interestingly, this code handles refresh+teleport+recover but not telepathy)
+
 BCS L_PRG_0xD_0x1AFE						;Offset: 0x1AF5, Byte Code: 0xB0 0x07 (computed address for relative mode instruction 0x1AFE)
 
 L_PRG_0xD_0x1AF7:
 
+;the CDL says data, but the following 7 bytes (1 CDL confirmed data + 6 CDL unknown) would disassemble to:
+;LDA #$1C
+;STA $41
+;PLA
+;PLA
+;RTS
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1AF7 --
 .byte $A9
@@ -2952,7 +3002,7 @@ L_PRG_0xD_0x1AF7:
 
 L_PRG_0xD_0x1AFE:
 
-STA $0708						;Offset: 0x1AFE, Byte Code: 0x8D 0x08 0x07
+STA AddressPlayerCurrentMP						;Offset: 0x1AFE, Byte Code: 0x8D 0x08 0x07
 LDA #$04						;Offset: 0x1B01, Byte Code: 0xA9 0x04
 JSR $8E46						;Offset: 0x1B03, Byte Code: 0x20 0x46 0x8E
 RTS								;Offset: 0x1B06, Byte Code: 0x60 
@@ -3799,33 +3849,45 @@ JMP ($0010)						;Offset: 0x206E, Byte Code: 0x6C 0x10 0x00
 
 RTS								;Offset: 0x20A2, Byte Code: 0x60 
 JSR $A1B0						;Offset: 0x20A3, Byte Code: 0x20 0xB0 0xA1
-LDA $0708						;Offset: 0x20A6, Byte Code: 0xAD 0x08 0x07
+LDA AddressPlayerCurrentMP						;Offset: 0x20A6, Byte Code: 0xAD 0x08 0x07
 CMP #$02						;Offset: 0x20A9, Byte Code: 0xC9 0x02
-BCS L_PRG_0xD_0x20B0						;Offset: 0x20AB, Byte Code: 0xB0 0x03 (computed address for relative mode instruction 0x20B0)
-JMP $A15C						;Offset: 0x20AD, Byte Code: 0x4C 0x5C 0xA1
+BCS L_PRG_0xD_SufficientMP						;Offset: 0x20AB, Byte Code: 0xB0 0x03 (computed address for relative mode instruction 0x20B0)
+JMP L_PRG_0xD_InsufficientMP						;Offset: 0x20AD, Byte Code: 0x4C 0x5C 0xA1
 
+L_PRG_0xD_SufficientMP:
 L_PRG_0xD_0x20B0:
 
-JSR $A0B3						;Offset: 0x20B0, Byte Code: 0x20 0xB3 0xA0
-LDA $03C1						;Offset: 0x20B3, Byte Code: 0xAD 0xC1 0x03
-CMP $03C0, X					;Offset: 0x20B6, Byte Code: 0xDD 0xC0 0x03
-BEQ L_PRG_0xD_0x20D6						;Offset: 0x20B9, Byte Code: 0xF0 0x1B (computed address for relative mode instruction 0x20D6)
+JSR SUB_PRG_0xD_NestedSubroutine_RestoreHPFromRefresh						;Offset: 0x20B0, Byte Code: 0x20 0xB3 0xA0
+
+SUB_PRG_0xD_NestedSubroutine_RestoreHPFromRefresh: ;memory 0xA0B3 (offset 0x20B3)
+;This sub is nested within the parent sub (0xA022, offset 0x2022). Notice how this sub is called from offset 0x20B0... but there is no RTS after the call. This means the sub excutes twice
+
+LDA AddressPlayerSpriteCurrentHP						;Offset: 0x20B3, Byte Code: 0xAD 0xC1 0x03
+CMP AddressPlayerSpriteMaximumHP, X					;Offset: 0x20B6, Byte Code: 0xDD 0xC0 0x03
+;duno why there is an index here since there's no index for the player's current hp. X always seems to be zero, so it should only ever get the player's max hp
+
+BEQ L_PRG_0xD_PlayerAlreadyAtMaxHP						;Offset: 0x20B9, Byte Code: 0xF0 0x1B (computed address for relative mode instruction 0x20D6)
 CLC								;Offset: 0x20BB, Byte Code: 0x18 
 ADC #$01						;Offset: 0x20BC, Byte Code: 0x69 0x01
-STA $03C1						;Offset: 0x20BE, Byte Code: 0x8D 0xC1 0x03
-CMP $03C0, X					;Offset: 0x20C1, Byte Code: 0xDD 0xC0 0x03
-BEQ L_PRG_0xD_0x20CA						;Offset: 0x20C4, Byte Code: 0xF0 0x04 (computed address for relative mode instruction 0x20CA)
+STA AddressPlayerSpriteCurrentHP						;Offset: 0x20BE, Byte Code: 0x8D 0xC1 0x03
+CMP AddressPlayerSpriteMaximumHP, X					;Offset: 0x20C1, Byte Code: 0xDD 0xC0 0x03
+;duno why there is an index here since there's no index for the player's current hp. X always seems to be zero, so it should only ever get the player's max hp
+
+BEQ L_PRG_0xD_PlayerNowAtMaxHP						;Offset: 0x20C4, Byte Code: 0xF0 0x04 (computed address for relative mode instruction 0x20CA)
 AND #$03						;Offset: 0x20C6, Byte Code: 0x29 0x03
 BNE L_PRG_0xD_0x20D6						;Offset: 0x20C8, Byte Code: 0xD0 0x0C (computed address for relative mode instruction 0x20D6)
 
+L_PRG_0xD_PlayerNowAtMaxHP:
 L_PRG_0xD_0x20CA:
 
 JSR $8CC0						;Offset: 0x20CA, Byte Code: 0x20 0xC0 0x8C
 LDA #$02						;Offset: 0x20CD, Byte Code: 0xA9 0x02
 JSR $9AE8						;Offset: 0x20CF, Byte Code: 0x20 0xE8 0x9A
+
 LDA #$12						;Offset: 0x20D2, Byte Code: 0xA9 0x12
 BNE L_PRG_0xD_0x20E6						;Offset: 0x20D4, Byte Code: 0xD0 0x10 (computed address for relative mode instruction 0x20E6)
 
+L_PRG_0xD_PlayerAlreadyAtMaxHP:
 L_PRG_0xD_0x20D6:
 
 RTS								;Offset: 0x20D6, Byte Code: 0x60 
@@ -3915,11 +3977,14 @@ STA $0640, X					;Offset: 0x2154, Byte Code: 0x9D 0x40 0x06
 LDA #$30						;Offset: 0x2157, Byte Code: 0xA9 0x30
 JMP $C125						;Offset: 0x2159, Byte Code: 0x4C 0x25 0xC1
 
+L_PRG_0xD_InsufficientMP:
 L_PRG_0xD_0x215C:
+	LDA #$1C						;Offset: 0x215C, Byte Code: 0xA9 0x1C
+	STA $41							;Offset: 0x215E, Byte Code: 0x85 0x41 
+	RTS								;Offset: 0x2160, Byte Code: 0x60
 
-LDA #$1C						;Offset: 0x215C, Byte Code: 0xA9 0x1C
-STA $41							;Offset: 0x215E, Byte Code: 0x85 0x41 
-RTS								;Offset: 0x2160, Byte Code: 0x60 
+
+
 LDA $6C							;Offset: 0x2161, Byte Code: 0xA5 0x6C 
 AND #$F8						;Offset: 0x2163, Byte Code: 0x29 0xF8
 CMP #$58						;Offset: 0x2165, Byte Code: 0xC9 0x58

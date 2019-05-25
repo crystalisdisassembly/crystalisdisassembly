@@ -2,7 +2,7 @@
 .segment "PRG_0x8"
 .org $8000
 
-;this bank contains some gui and shop processing code (for the inn at least, dunno what else)
+;this bank contains some gui and shop processing code including price/inventory array for the shops (likely the inn as well) and program logic for the inn (presumably other shops as well)
 
 ;SUB_PRG_0x8_GUI_EVENT_INN_PREPARE_DIALOGUE_CHECK_LOOP
 ;SUB_PRG_0x8_UpdateEquipmentSelection
@@ -3392,132 +3392,206 @@ RTS								;Offset: 0x1D8C, Byte Code: 0x60
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1D9C --
 .byte $38,  $50,  $30,  $30,  $00,  $01,  $75,  $7E
-.byte $15,  $0D,  $FF,  $FF,  $16,  $0D,  $0E,  $FF
+
+L_PRG_0x8_ArmorShopInventoryIndexArray:
+L_PRG_0x8_ArmorShopInventoryIndexArray_Leaf:
+.byte $15,  $0D,  $FF,  $FF
+
+L_PRG_0x8_ArmorShopInventoryIndexArray_Brynmaer:
+.byte $16,  $0D,  $0E,  $FF
 ;---- End CDL Confirmed Data Block: Total Bytes 0x10 ----
 
-
+;oak???
+;L_PRG_0x8_ArmorShopInventoryIndexArray_Unused1:
 ;---- Start CDL Unknown Block: Offset 0x1DAC --
 .byte $00,  $01,  $02,  $03
 ;---- End CDL Unknown Block: Total Bytes 0x04 ----
 
-
+L_PRG_0x8_ArmorShopInventoryIndexArray_Amazones:
 ;---- Start CDL Confirmed Data Block: Offset 0x1DB0 --
 .byte $18,  $0F,  $10,  $12
 ;---- End CDL Confirmed Data Block: Total Bytes 0x04 ----
 
-
+;nadares???
+L_PRG_0x8_ArmorShopInventoryIndexArray_Unused2:
 ;---- Start CDL Unknown Block: Offset 0x1DB4 --
 .byte $05,  $1C,  $14,  $FF
 ;---- End CDL Unknown Block: Total Bytes 0x04 ----
 
-
+L_PRG_0x8_ArmorShopInventoryIndexArray_Portoa:
 ;---- Start CDL Confirmed Data Block: Offset 0x1DB8 --
 .byte $17,  $18,  $0F,  $FF
 ;---- End CDL Confirmed Data Block: Total Bytes 0x04 ----
 
-
+;joel
+L_PRG_0x8_ArmorShopInventoryIndexArray_Unused3:
 ;---- Start CDL Unknown Block: Offset 0x1DBC --
 .byte $FF,  $FF,  $FF,  $FF
 ;---- End CDL Unknown Block: Total Bytes 0x04 ----
 
-
+L_PRG_0x8_ArmorShopInventoryIndexArray_Swan:
 ;---- Start CDL Confirmed Data Block: Offset 0x1DC0 --
 .byte $19,  $1A,  $11,  $13
 ;---- End CDL Confirmed Data Block: Total Bytes 0x04 ----
 
-
+;goa???
+L_PRG_0x8_ArmorShopInventoryIndexArray_Unused4:
 ;---- Start CDL Unknown Block: Offset 0x1DC4 --
 .byte $FF,  $FF,  $FF,  $FF
 ;---- End CDL Unknown Block: Total Bytes 0x04 ----
 
-
+L_PRG_0x8_ArmorShopInventoryIndexArray_Shyron:
 ;---- Start CDL Confirmed Data Block: Offset 0x1DC8 --
 .byte $1A,  $12,  $13,  $FF
 ;---- End CDL Confirmed Data Block: Total Bytes 0x04 ----
 
-
+L_PRG_0x8_ArmorShopInventoryIndexArray_Sahara:
 ;---- Start CDL Unknown Block: Offset 0x1DCC --
 .byte $FF,  $FF,  $FF,  $FF
 ;---- End CDL Unknown Block: Total Bytes 0x04 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1DD0 --
+
+L_PRG_0x8_ArmorShopPricesArray:
+L_PRG_0x8_ArmorShopPricesArray_Leaf:
 .byte $64,  $00,  $50,  $00,  $00,  $00,  $00,  $00
+
+L_PRG_0x8_ArmorShopPricesArray_Brynmaer:
 .byte $8C,  $00,  $46,  $00,  $DC,  $00,  $00,  $00
 ;---- End CDL Confirmed Data Block: Total Bytes 0x10 ----
 
 
+;this might be an unused armor shop??
+;oak???
+L_PRG_0x8_ArmorShopPricesArray_Unused1:
 ;---- Start CDL Unknown Block: Offset 0x1DE0 --
 .byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
 ;---- End CDL Unknown Block: Total Bytes 0x08 ----
 
-
+L_PRG_0x8_ArmorShopPricesArray_Amazones:
 ;---- Start CDL Confirmed Data Block: Offset 0x1DE8 --
 .byte $08,  $07,  $14,  $05,  $D0,  $07,  $28,  $23
 ;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
 
-
+;nadares???
+L_PRG_0x8_ArmorShopPricesArray_Unused2:
 ;---- Start CDL Unknown Block: Offset 0x1DF0 --
 .byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
 ;---- End CDL Unknown Block: Total Bytes 0x08 ----
 
-
+L_PRG_0x8_ArmorShopPricesArray_Portoa:
 ;---- Start CDL Confirmed Data Block: Offset 0x1DF8 --
 .byte $58,  $02,  $D0,  $07,  $DC,  $05,  $00,  $00
 ;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
 
-
+;joel???
+L_PRG_0x8_ArmorShopPricesArray_Unused3:
 ;---- Start CDL Unknown Block: Offset 0x1E00 --
 .byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
 ;---- End CDL Unknown Block: Total Bytes 0x08 ----
 
-
+L_PRG_0x8_ArmorShopPricesArray_Swan:
 ;---- Start CDL Confirmed Data Block: Offset 0x1E08 --
 .byte $B8,  $0B,  $64,  $19,  $C4,  $09,  $70,  $17
 ;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
 
-
+;goa???
+L_PRG_0x8_ArmorShopPricesArray_Unused4:
 ;---- Start CDL Unknown Block: Offset 0x1E10 --
 .byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
 ;---- End CDL Unknown Block: Total Bytes 0x08 ----
 
-
+L_PRG_0x8_ArmorShopPricesArray_Shyron:
 ;---- Start CDL Confirmed Data Block: Offset 0x1E18 --
 .byte $7C,  $15,  $70,  $17,  $88,  $13,  $00,  $00
 ;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
 
-
+;sahara???
+L_PRG_0x8_ArmorShopPricesArray_Unused5:
 ;---- Start CDL Unknown Block: Offset 0x1E20 --
 .byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
 ;---- End CDL Unknown Block: Total Bytes 0x08 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1E28 --
-.byte $1D,  $1E,  $24,  $31,  $1D,  $1E,  $24,  $FF
-.byte $1D,  $1E,  $21,  $FF,  $24,  $1F,  $21,  $FF
-.byte $1D,  $1E,  $21,  $24,  $1D,  $24,  $1F,  $20
-.byte $1D,  $1E,  $21,  $31,  $1D,  $1E,  $24,  $21
-.byte $1D,  $1E,  $1F,  $24,  $1D,  $1E,  $20,  $22
-.byte $1E,  $22,  $23,  $24,  $1E,  $00,  $28,  $00
-.byte $3C,  $00,  $32,  $00,  $23,  $00,  $2D,  $00
-.byte $41,  $00,  $00,  $00,  $32,  $00,  $3C,  $00
-.byte $50,  $00,  $00,  $00,  $64,  $00,  $96,  $00
-.byte $96,  $00,  $00,  $00,  $3C,  $00,  $46,  $00
-.byte $64,  $00,  $50,  $00,  $5A,  $00,  $78,  $00
-.byte $C8,  $00,  $B4,  $00,  $78,  $00,  $96,  $00
-.byte $B4,  $00,  $2C,  $01,  $B4,  $00,  $C8,  $00
-.byte $2C,  $01,  $5E,  $01,  $F4,  $01,  $58,  $02
-.byte $BC,  $02,  $20,  $03,  $B4,  $00,  $C8,  $00
-.byte $2C,  $01,  $20,  $03,  $E8,  $03,  $A0,  $0F
-;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
+
+L_PRG_0x8_ItemShopInventoryIndexArray:
+	L_PRG_0x8_ItemShopInventoryIndexArray_Leaf:
+		.byte $1D,  $1E,  $24,  $31
+
+	L_PRG_0x8_ItemShopInventoryIndexArray_Brynmaer:
+		.byte $1D,  $1E,  $24,  $FF
+
+	L_PRG_0x8_ItemShopInventoryIndexArray_Oak:
+		.byte $1D,  $1E,  $21,  $FF
+
+	L_PRG_0x8_ItemShopInventoryIndexArray_Amazones:
+		.byte $24,  $1F,  $21,  $FF
+
+	L_PRG_0x8_ItemShopInventoryIndexArray_Nadares:
+		.byte $1D,  $1E,  $21,  $24
+
+	L_PRG_0x8_ItemShopInventoryIndexArray_Portoa:
+		.byte $1D,  $24,  $1F,  $20
+
+	L_PRG_0x8_ItemShopInventoryIndexArray_Joel:
+		.byte $1D,  $1E,  $21,  $31
+
+	L_PRG_0x8_ItemShopInventoryIndexArray_Swan:
+		.byte $1D,  $1E,  $24,  $21
+
+	L_PRG_0x8_ItemShopInventoryIndexArray_Goa:
+		.byte $1D,  $1E,  $1F,  $24
+
+	L_PRG_0x8_ItemShopInventoryIndexArray_Shyron:
+		.byte $1D,  $1E,  $20,  $22
+
+	L_PRG_0x8_ItemShopInventoryIndexArray_Sahara:
+		.byte $1E,  $22,  $23,  $24
+
+L_PRG_0x8_ItemShopPricesArray:
+	L_PRG_0x8_ItemShopPricesArray_Leaf:
+		.byte $1E,  $00,  $28,  $00,  $3C,  $00,  $32,  $00
+
+	L_PRG_0x8_ItemShopPricesArray_Brynmaer:
+		.byte $23,  $00,  $2D,  $00,  $41,  $00,  $00,  $00
+
+	L_PRG_0x8_ItemShopPricesArray_Oak:
+		.byte $32,  $00,  $3C,  $00,  $50,  $00,  $00,  $00
+
+	L_PRG_0x8_ItemShopPricesArray_Amazones:
+		.byte $64,  $00,  $96,  $00,  $96,  $00,  $00,  $00
+
+	L_PRG_0x8_ItemShopPricesArray_Nadares:
+		.byte $3C,  $00,  $46,  $00,  $64,  $00,  $50,  $00
+
+	L_PRG_0x8_ItemShopPricesArray_Portoa:
+		.byte $5A,  $00,  $78,  $00,  $C8,  $00,  $B4,  $00
+
+	L_PRG_0x8_ItemShopPricesArray_Joel:
+		.byte $78,  $00,  $96,  $00,  $B4,  $00,  $2C,  $01
+
+	L_PRG_0x8_ItemShopPricesArray_Swan:
+		.byte $B4,  $00,  $C8,  $00,  $2C,  $01,  $5E,  $01
+
+	L_PRG_0x8_ItemShopPricesArray_Goa:
+		.byte $F4,  $01,  $58,  $02,  $BC,  $02,  $20,  $03
+
+	L_PRG_0x8_ItemShopPricesArray_Shyron:
+		.byte $B4,  $00,  $C8,  $00,  $2C,  $01,  $20,  $03
+
+	L_PRG_0x8_ItemShopPricesArray_Sahara:
+		.byte $E8,  $03,  $A0,  $0F,  $B8,  $0B,  $DC,  $05
+;---- End CDL Confirmed Data Block: Total Bytes 0x84 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1EA8 --
-.byte $B8,  $0B,  $DC,  $05,  $10,  $00,  $14,  $00
+.byte $10,  $00,  $14,  $00
 .byte $28,  $00,  $50,  $00,  $32,  $00,  $64,  $00
 .byte $78,  $00,  $96,  $00,  $2C,  $01,  $96,  $00
 .byte $F4,  $01,  $00,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x1C ----
+;---- End CDL Confirmed Data Block: Total Bytes 0x18 ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x1EC4 --
