@@ -2281,11 +2281,7 @@ L_PRG_0x9_0x2420:
 LDA $4B							;Offset: 0x2420, Byte Code: 0xA5 0x4B 
 AND #$10						;Offset: 0x2422, Byte Code: 0x29 0x10
 BEQ L_PRG_0x9_0x2429						;Offset: 0x2424, Byte Code: 0xF0 0x03 (computed address for relative mode instruction 0x2429)
-
-;---- Start CDL Unknown Block: Offset 0x2426 --
-.byte $4C,  $E3,  $A4
-;---- End CDL Unknown Block: Total Bytes 0x03 ----
-
+JMP $A4E3						;Offset: 0x2426, Byte Code: 0x4C 0xE3 0xA4
 
 L_PRG_0x9_0x2429:
 

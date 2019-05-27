@@ -3538,6 +3538,16 @@ BEQ L_PRG_0xD_0x1EEF						;Offset: 0x1E9C, Byte Code: 0xF0 0x51 (computed addres
 L_PRG_0xD_0x1E9E:
 
 LDA $0360, X					;Offset: 0x1E9E, Byte Code: 0xBD 0x60 0x03
+
+;$26 and $49 have the value corresponding to direction ($26 = direction the player is currently facing, and $49 is the direction actually being moved/turned to... if not moving then $49 is set to $FF)
+;this is different than the directional pad codes
+;up = 0
+;up+right = 1
+;right = 2
+;right+down = 3
+;down = 4
+;and so on... so that left+up = 7
+
 STA $26							;Offset: 0x1EA1, Byte Code: 0x85 0x26 
 LDA $49							;Offset: 0x1EA3, Byte Code: 0xA5 0x49 
 BMI L_PRG_0xD_0x1EEF						;Offset: 0x1EA5, Byte Code: 0x30 0x48 (computed address for relative mode instruction 0x1EEF)

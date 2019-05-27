@@ -8268,8 +8268,14 @@ L_PRG_0xF_0x3E82:
 JSR $FF17						;Offset: 0x3E82, Byte Code: 0x20 0x17 0xFF
 LDA $4F							;Offset: 0x3E85, Byte Code: 0xA5 0x4F 
 AND #$0F						;Offset: 0x3E87, Byte Code: 0x29 0x0F
-TAY								;Offset: 0x3E89, Byte Code: 0xA8 
+TAY								;Offset: 0x3E89, Byte Code: 0xA8
+
+;Y = keycode for directional paid
+;$FED0 (offset 0x3ED0 here) = codified movement direction (see PRG bank 0xD, offset 0x1E9E)
 LDA $FED0, Y					;Offset: 0x3E8A, Byte Code: 0xB9 0xD0 0xFE
+
+;some code for handling player movement
+;here, $49 is set to the codified movement direction-- NOT the same as the keycode for the directional paid (see prg bank 0xD, offset 0x1E9E)
 STA $49, X						;Offset: 0x3E8D, Byte Code: 0x95 0x49
 LDA $43, X						;Offset: 0x3E8F, Byte Code: 0xB5 0x43
 EOR #$FF						;Offset: 0x3E91, Byte Code: 0x49 0xFF
@@ -8320,24 +8326,30 @@ DEX								;Offset: 0x3ECC, Byte Code: 0xCA
 BPL L_PRG_0xF_0x3E82						;Offset: 0x3ECD, Byte Code: 0x10 0xB3 (computed address for relative mode instruction 0x3E82)
 RTS								;Offset: 0x3ECF, Byte Code: 0x60 
 
-;---- Start CDL Confirmed Data Block: Offset 0x3ED0 --
-.byte $FF,  $02,  $06,  $FF,  $04,  $03,  $05
-;---- End CDL Confirmed Data Block: Total Bytes 0x07 ----
+;the index used to access this array will be the keycode for the current directional pad button(s) pressed
+;so if nothing is pressed, the result is $FF
+;Button Pressed		Index(Key Code)		Result
+;Right+Up			$9					$1
+;Right				$1					$2
+;Right+Down			$5					$3
+;Down				$4					$4
+;Down+Left			$6					$5
+;Left				$2					$6
+;Left+Up			$A					$7
+;Up					$8					$0
+;Right+Left			$3					$FF
+;Down+Up			$C					$FF
+;Right+Left+Down	$7					$4
+;Right+Left+Up		$B					$0
+;Down+Up+Right		$D					$2
+;Left+Down+Up		$E					$6
+;Left+Down+Up+Right	$F					$FF
 
-
-;---- Start CDL Unknown Block: Offset 0x3ED7 --
-.byte $04
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x3ED8 --
-.byte $00,  $01,  $07,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x04 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x3EDC --
-.byte $FF,  $02,  $06,  $FF
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
+L_PRG_0xF_CodifiedMovementDirectionArray:
+	;---- Start CDL Confirmed Data Block: Offset 0x3ED0 --
+	.byte $FF,  $02,  $06,  $FF,  $04,  $03,  $05,  $04
+	.byte $00,  $01,  $07,  $00,  $FF,  $02,  $06,  $FF
+	;---- End CDL Confirmed Data Block: Total Bytes 0x10 ----
 
 LDX #$01						;Offset: 0x3EE0, Byte Code: 0xA2 0x01
 
@@ -8381,6 +8393,9 @@ L_PRG_0xF_0x3F17:
 
 JSR $FF28						;Offset: 0x3F17, Byte Code: 0x20 0x28 0xFF
 LDA $4F							;Offset: 0x3F1A, Byte Code: 0xA5 0x4F 
+
+;some more code for moving the player sprite
+;here, $49 is set to the keycode for the directional pad
 STA $49, X						;Offset: 0x3F1C, Byte Code: 0x95 0x49
 JSR $FF28						;Offset: 0x3F1E, Byte Code: 0x20 0x28 0xFF
 LDA $4F							;Offset: 0x3F21, Byte Code: 0xA5 0x4F 
