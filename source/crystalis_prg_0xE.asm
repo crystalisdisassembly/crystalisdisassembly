@@ -1996,18 +1996,9 @@ RTS								;Offset: 0x3D7, Byte Code: 0x60
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1B11 --
-.byte $F8,  $07,  $90,  $00,  $F8,  $07,  $91
-;---- End CDL Confirmed Data Block: Total Bytes 0x07 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1B18 --
-.byte $F8
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1B19 --
+.byte $F8,  $07,  $90,  $00,  $F8,  $07,  $91,  $F8
 .byte $20,  $03,  $3E
-;---- End CDL Confirmed Data Block: Total Bytes 0x03 ----
+;---- End CDL Confirmed Data Block: Total Bytes 0x0B ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x1B1C --
@@ -2016,18 +2007,8 @@ RTS								;Offset: 0x3D7, Byte Code: 0x60
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1B1D --
-.byte $20
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1B1E --
-.byte $03
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1B1F --
-.byte $3E,  $F8
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
+.byte $20,  $03,  $3E,  $F8
+;---- End CDL Confirmed Data Block: Total Bytes 0x04 ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x1B21 --

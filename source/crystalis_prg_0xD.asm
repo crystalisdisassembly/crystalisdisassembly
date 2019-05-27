@@ -216,18 +216,8 @@
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x03FF --
-.byte $93
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x0400 --
-.byte $A9
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x0401 --
-.byte $00,  $85,  $20
-;---- End CDL Confirmed Data Block: Total Bytes 0x03 ----
+.byte $93,  $A9,  $00,  $85,  $20
+;---- End CDL Confirmed Data Block: Total Bytes 0x05 ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x0404 --
@@ -2983,22 +2973,11 @@ BCS L_PRG_0xD_0x1AFE						;Offset: 0x1AF5, Byte Code: 0xB0 0x07 (computed addres
 
 L_PRG_0xD_0x1AF7:
 
-;the CDL says data, but the following 7 bytes (1 CDL confirmed data + 6 CDL unknown) would disassemble to:
-;LDA #$1C
-;STA $41
-;PLA
-;PLA
-;RTS
-
-;---- Start CDL Confirmed Data Block: Offset 0x1AF7 --
-.byte $A9
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1AF8 --
-.byte $1C,  $85,  $41,  $68,  $68,  $60
-;---- End CDL Unknown Block: Total Bytes 0x06 ----
-
+LDA #$1C						;Offset: 0x1AF7, Byte Code: 0xA9 0x1C
+STA $41							;Offset: 0x1AF9, Byte Code: 0x85 0x41 
+PLA								;Offset: 0x1AFB, Byte Code: 0x68 
+PLA								;Offset: 0x1AFC, Byte Code: 0x68 
+RTS								;Offset: 0x1AFD, Byte Code: 0x60 
 
 L_PRG_0xD_0x1AFE:
 
@@ -8091,13 +8070,13 @@ LDA #$28						;Offset: 0x3D84, Byte Code: 0xA9 0x28
 JMP $972D						;Offset: 0x3D86, Byte Code: 0x4C 0x2D 0x97
 
 ;---- Start CDL Unknown Block: Offset 0x3D89 --
-.byte $0A,  $09,  $08,  $07,  $07,  $07
-;---- End CDL Unknown Block: Total Bytes 0x06 ----
+.byte $0A,  $09,  $08,  $07,  $07
+;---- End CDL Unknown Block: Total Bytes 0x05 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x3D8F --
-.byte $06
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+;---- Start CDL Confirmed Data Block: Offset 0x3D8E --
+.byte $07,  $06
+;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x3D90 --
@@ -8112,13 +8091,13 @@ JMP $972D						;Offset: 0x3D86, Byte Code: 0x4C 0x2D 0x97
 
 ;---- Start CDL Unknown Block: Offset 0x3D92 --
 .byte $05,  $05,  $05,  $05,  $05,  $05,  $05,  $0A
-.byte $0A,  $0A,  $0A,  $0A,  $0A
-;---- End CDL Unknown Block: Total Bytes 0x0D ----
+.byte $0A,  $0A,  $0A,  $0A
+;---- End CDL Unknown Block: Total Bytes 0x0C ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x3D9F --
-.byte $09
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+;---- Start CDL Confirmed Data Block: Offset 0x3D9E --
+.byte $0A,  $09
+;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x3DA0 --

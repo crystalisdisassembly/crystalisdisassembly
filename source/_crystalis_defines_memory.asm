@@ -2,6 +2,15 @@
 
 .define AddressSpritesPlayerIndex						$1
 
+;XPos increases moving from left to right
+.define AddressPlayerSpriteXPosLo						$0070
+.define AddressPlayerSpriteXPosHi						$0090
+
+;YPos increases moving from north to south
+.define AddressPlayerSpriteYPosLo						$00B0
+.define AddressPlayerSpriteYPosHi						$00D0
+
+
 ;I think that there is a defense array starting at $0400, where $0400 = shield power and $0401 = armor power, but it starts w/ the player sprite unlike fex the level array
 .define AddressSpritesDefensePowerArray					$0400 ;I think only the player has separate defenses for shield and armor
 .define AddressPlayerSpriteShieldPower					$0400
@@ -15,7 +24,6 @@
 
 .define AddressPlayerSpriteMaximumHP					$03C0
 .define AddressPlayerSpriteCurrentHP					$03C1
-
 
 .define AddressPlayerSpriteAttackPower					$03E1
 
@@ -35,3 +43,5 @@
 .define AddressDecrementingCounter_RAM_0x8				$08
 
 .define AddressCurrentKeyPressPlayer1_RAM_0x4B			$4B
+
+.define AddressCurrentAreaIndex							$6C

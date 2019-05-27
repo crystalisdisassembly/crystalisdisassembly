@@ -2,6 +2,13 @@
 .segment "PRG_0x2"
 .org $8000
 
+;PRG banks 0x0-0x4 are all map screen data
+;Per RHDN ROM map:
+;Note: starts at 0x00010 due to the iNES header
+;0x00010 - 0x1000F (10000) (256 sets of 0x100 bytes)
+;(00F0) = Map Screens
+;(0010) = palettes, text, other data
+
 ;---- Start CDL Confirmed Data Block: Offset 0x0000 --
 .byte $80,  $80,  $80,  $80,  $80,  $80,  $80,  $80
 .byte $80,  $80,  $80,  $80,  $80,  $80,  $80,  $80

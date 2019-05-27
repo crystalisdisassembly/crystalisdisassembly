@@ -2857,12 +2857,10 @@ CMP #$0A						;Offset: 0x149A, Byte Code: 0xC9 0x0A
 BNE L_PRG_0xF_0x14AC						;Offset: 0x149C, Byte Code: 0xD0 0x0E (computed address for relative mode instruction 0x14AC)
 LDA $0743						;Offset: 0x149E, Byte Code: 0xAD 0x43 0x07
 BNE L_PRG_0xF_0x14AC						;Offset: 0x14A1, Byte Code: 0xD0 0x09 (computed address for relative mode instruction 0x14AC)
-
-;---- Start CDL Unknown Block: Offset 0x14A3 --
-.byte $E6,  $08,  $A9,  $08,  $85,  $41,  $4C,  $B6
-.byte $CA
-;---- End CDL Unknown Block: Total Bytes 0x09 ----
-
+INC $08							;Offset: 0x14A3, Byte Code: 0xE6 0x08 
+LDA #$08						;Offset: 0x14A5, Byte Code: 0xA9 0x08
+STA $41							;Offset: 0x14A7, Byte Code: 0x85 0x41 
+JMP $CAB6						;Offset: 0x14A9, Byte Code: 0x4C 0xB6 0xCA
 
 L_PRG_0xF_0x14AC:
 
@@ -3953,11 +3951,7 @@ ADC $20							;Offset: 0x1C77, Byte Code: 0x65 0x20
 STA $22							;Offset: 0x1C79, Byte Code: 0x85 0x22 
 CMP #$0B						;Offset: 0x1C7B, Byte Code: 0xC9 0x0B
 BNE L_PRG_0xF_0x1C82						;Offset: 0x1C7D, Byte Code: 0xD0 0x03 (computed address for relative mode instruction 0x1C82)
-
-;---- Start CDL Unknown Block: Offset 0x1C7F --
-.byte $4C,  $AC,  $DB
-;---- End CDL Unknown Block: Total Bytes 0x03 ----
-
+JMP $DBAC						;Offset: 0x1C7F, Byte Code: 0x4C 0xAC 0xDB
 
 L_PRG_0xF_0x1C82:
 
@@ -5319,12 +5313,12 @@ JMP $E44A						;Offset: 0x2600, Byte Code: 0x4C 0x4A 0xE4
 
 L_PRG_0xF_0x2603:
 
-
-;---- Start CDL Unknown Block: Offset 0x2603 --
-.byte $A9,  $08,  $85,  $41,  $A9,  $1A,  $20,  $18
-.byte $C4,  $A9,  $04,  $4C,  $49,  $8C
-;---- End CDL Unknown Block: Total Bytes 0x0E ----
-
+LDA #$08						;Offset: 0x2603, Byte Code: 0xA9 0x08
+STA $41							;Offset: 0x2605, Byte Code: 0x85 0x41 
+LDA #$1A						;Offset: 0x2607, Byte Code: 0xA9 0x1A
+JSR $C418						;Offset: 0x2609, Byte Code: 0x20 0x18 0xC4
+LDA #$04						;Offset: 0x260C, Byte Code: 0xA9 0x04
+JMP $8C49						;Offset: 0x260E, Byte Code: 0x4C 0x49 0x8C
 LDA #$1A						;Offset: 0x2611, Byte Code: 0xA9 0x1A
 JSR $C418						;Offset: 0x2613, Byte Code: 0x20 0x18 0xC4
 LDA #$02						;Offset: 0x2616, Byte Code: 0xA9 0x02
@@ -5337,7 +5331,7 @@ L_PRG_0xF_0x261F:
 STA $04A0, X					;Offset: 0x261F, Byte Code: 0x9D 0xA0 0x04
 INX								;Offset: 0x2622, Byte Code: 0xE8 
 CPX #$1F						;Offset: 0x2623, Byte Code: 0xE0 0x1F
-BNE L_PRG_0xF_0x261F						;Offset: 0x2625, Byte Code: 0xD0 0xF8 (computed address for relative mode instruction 0x261F)
+BNE L_PRG_0xF_0x261F			;Offset: 0x2625, Byte Code: 0xD0 0xF8 (computed address for relative mode instruction 0x261F)
 RTS								;Offset: 0x2627, Byte Code: 0x60 
 LDA #$05						;Offset: 0x2628, Byte Code: 0xA9 0x05
 JSR $C40E						;Offset: 0x262A, Byte Code: 0x20 0x0E 0xC4

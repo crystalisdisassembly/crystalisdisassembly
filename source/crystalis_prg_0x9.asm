@@ -2270,11 +2270,7 @@ JSR $A585						;Offset: 0x2414, Byte Code: 0x20 0x85 0xA5
 LDA $4B							;Offset: 0x2417, Byte Code: 0xA5 0x4B 
 AND #$40						;Offset: 0x2419, Byte Code: 0x29 0x40
 BEQ L_PRG_0x9_0x2420						;Offset: 0x241B, Byte Code: 0xF0 0x03 (computed address for relative mode instruction 0x2420)
-
-;---- Start CDL Unknown Block: Offset 0x241D --
-.byte $4C,  $BF,  $A4
-;---- End CDL Unknown Block: Total Bytes 0x03 ----
-
+JMP $A4BF						;Offset: 0x241D, Byte Code: 0x4C 0xBF 0xA4
 
 L_PRG_0x9_0x2420:
 

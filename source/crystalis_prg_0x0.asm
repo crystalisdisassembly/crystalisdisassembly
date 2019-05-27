@@ -2,6 +2,13 @@
 .segment "PRG_0x0"
 .org $8000
 
+;PRG banks 0x0-0x4 are all map screen data
+;Per RHDN ROM map:
+;Note: starts at 0x00010 due to the iNES header
+;0x00010 - 0x1000F (10000) (256 sets of 0x100 bytes)
+;(00F0) = Map Screens
+;(0010) = palettes, text, other data
+
 ;---- Start CDL Confirmed Data Block: Offset 0x0000 --
 .byte $D9,  $D9,  $D9,  $D9,  $D9,  $D9,  $D9,  $D9
 .byte $C1,  $C1,  $C1,  $C1,  $C1,  $C1,  $C1,  $C1
@@ -1106,24 +1113,24 @@
 
 
 ;---- Start CDL Unknown Block: Offset 0x1590 --
-.byte $C2,  $C1
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
+.byte $C2
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x1592 --
-.byte $C2,  $C2,  $C2,  $C2,  $9B,  $C8,  $F7,  $F7
-.byte $F7,  $F7,  $F8,  $FC,  $FD,  $FC
-;---- End CDL Confirmed Data Block: Total Bytes 0x0E ----
+;---- Start CDL Confirmed Data Block: Offset 0x1591 --
+.byte $C1,  $C2,  $C2,  $C2,  $C2,  $9B,  $C8,  $F7
+.byte $F7,  $F7,  $F7,  $F8,  $FC,  $FD,  $FC
+;---- End CDL Confirmed Data Block: Total Bytes 0x0F ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x15A0 --
-.byte $C1,  $C2
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
+.byte $C1
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x15A2 --
-.byte $C2,  $C2,  $C2,  $C2,  $C2,  $C8,  $F7,  $F7
-.byte $F7,  $FC,  $80,  $80,  $80,  $80
+;---- Start CDL Confirmed Data Block: Offset 0x15A1 --
+.byte $C2,  $C2,  $C2,  $C2,  $C2,  $C2,  $C8,  $F7
+.byte $F7,  $F7,  $FC,  $80,  $80,  $80,  $80
 ;---- End CDL Confirmed Data Block: Total Bytes 0x0E ----
 
 
@@ -2943,9 +2950,19 @@
 ;---- Start CDL Unknown Block: Offset 0x3EF0 --
 .byte $30,  $31,  $32,  $33,  $34,  $35,  $36,  $37
 .byte $30,  $31,  $32,  $33,  $34,  $35,  $36,  $37
-.byte $9B,  $D9,  $D9,  $D9,  $DA,  $D9,  $C2,  $C2
-.byte $C1,  $9B,  $9B,  $9B,  $9A,  $D9,  $DC,  $D9
-;---- End CDL Unknown Block: Total Bytes 0x20 ----
+.byte $9B,  $D9,  $D9,  $D9,  $DA
+;---- End CDL Unknown Block: Total Bytes 0x15 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x3F05 --
+.byte $D9
+;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x3F06 --
+.byte $C2,  $C2,  $C1,  $9B,  $9B,  $9B,  $9A,  $D9
+.byte $DC,  $D9
+;---- End CDL Unknown Block: Total Bytes 0x0A ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x3F10 --
@@ -2954,10 +2971,19 @@
 
 
 ;---- Start CDL Unknown Block: Offset 0x3F14 --
-.byte $D9,  $C2,  $C1,  $C2,  $C2,  $9B,  $9B,  $9A
-.byte $9A,  $DA,  $D9,  $D9
-;---- End CDL Unknown Block: Total Bytes 0x0C ----
+.byte $D9
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
+
+;---- Start CDL Confirmed Data Block: Offset 0x3F15 --
+.byte $C2
+;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x3F16 --
+.byte $C1,  $C2,  $C2,  $9B,  $9B,  $9A,  $9A,  $DA
+.byte $D9,  $D9
+;---- End CDL Unknown Block: Total Bytes 0x0A ----
 
 ;---- Start CDL Confirmed Data Block: Offset 0x3F20 --
 .byte $9B,  $D9,  $DA,  $D9,  $D9,  $C2,  $C1,  $C1

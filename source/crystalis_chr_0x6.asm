@@ -3891,16 +3891,23 @@ PHP								;Offset: 0x13FC, Byte Code: 0x08
 PHP								;Offset: 0x13FD, Byte Code: 0x08 
 PHP								;Offset: 0x13FE, Byte Code: 0x08 
 BRK								;Offset: 0x13FF, Byte Code: 0x00 
+.byte $FF							;Offset: 0x1400, Byte Code: 0xFF .. Illegal Opcode!!
 
-;---- Start CDL Unknown Block: Offset 0x1400 --
-.byte $FF,  $FF
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
+;---- Start CDL Unknown Block: Offset 0x1401 --
+.byte $FF
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 .byte $FF							;Offset: 0x1402, Byte Code: 0xFF .. Illegal Opcode!!
 
 ;---- Start CDL Unknown Block: Offset 0x1403 --
-.byte $FF,  $FF,  $FF,  $FF,  $FF,  $00,  $7E
-;---- End CDL Unknown Block: Total Bytes 0x07 ----
+.byte $FF,  $FF,  $FF,  $FF,  $FF
+;---- End CDL Unknown Block: Total Bytes 0x05 ----
+
+BRK								;Offset: 0x1408, Byte Code: 0x00 
+
+;---- Start CDL Unknown Block: Offset 0x1409 --
+.byte $7E
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 ROR $7E7E, X					;Offset: 0x140A, Byte Code: 0x7E 0x7E 0x7E
 
@@ -4032,14 +4039,26 @@ BRK								;Offset: 0x149A, Byte Code: 0x00
 ;---- Start CDL Unknown Block: Offset 0x149B --
 .byte $00,  $00,  $00,  $00,  $00,  $00,  $06,  $06
 .byte $06,  $06,  $86,  $86,  $7C,  $00,  $00,  $00
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $C2
-;---- End CDL Unknown Block: Total Bytes 0x17 ----
+.byte $00,  $00,  $00,  $00,  $00
+;---- End CDL Unknown Block: Total Bytes 0x15 ----
+
+BRK								;Offset: 0x14B0, Byte Code: 0x00 
+
+;---- Start CDL Unknown Block: Offset 0x14B1 --
+.byte $C2
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 CPY $C8							;Offset: 0x14B2, Byte Code: 0xC4 0xC8 
 
 ;---- Start CDL Unknown Block: Offset 0x14B4 --
-.byte $D0,  $F8,  $CC,  $C6,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x06 ----
+.byte $D0,  $F8,  $CC,  $C6
+;---- End CDL Unknown Block: Total Bytes 0x04 ----
+
+BRK								;Offset: 0x14B8, Byte Code: 0x00 
+
+;---- Start CDL Unknown Block: Offset 0x14B9 --
+.byte $00
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 BRK								;Offset: 0x14BA, Byte Code: 0x00 
 

@@ -1290,12 +1290,13 @@ RTS								;Offset: 0x713, Byte Code: 0x60
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0812 --
 .byte $1F,  $1C,  $35,  $2F,  $2A,  $28,  $11,  $19
-;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
+.byte $16
+;---- End CDL Confirmed Data Block: Total Bytes 0x09 ----
 
 
-;---- Start CDL Unknown Block: Offset 0x081A --
-.byte $16,  $00,  $12,  $10,  $0E,  $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x08 ----
+;---- Start CDL Unknown Block: Offset 0x081B --
+.byte $00,  $12,  $10,  $0E,  $00,  $00,  $00
+;---- End CDL Unknown Block: Total Bytes 0x07 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0822 --
@@ -1732,13 +1733,13 @@ RTS								;Offset: 0x713, Byte Code: 0x60
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0A34 --
-.byte $04
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+.byte $04,  $07
+;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
 
 
-;---- Start CDL Unknown Block: Offset 0x0A35 --
-.byte $07,  $0F,  $FF
-;---- End CDL Unknown Block: Total Bytes 0x03 ----
+;---- Start CDL Unknown Block: Offset 0x0A36 --
+.byte $0F,  $FF
+;---- End CDL Unknown Block: Total Bytes 0x02 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0A38 --
@@ -1930,8 +1931,18 @@ RTS								;Offset: 0x713, Byte Code: 0x60
 
 
 ;---- Start CDL Unknown Block: Offset 0x0A9D --
-.byte $0C,  $0E,  $0C,  $09,  $05
-;---- End CDL Unknown Block: Total Bytes 0x05 ----
+.byte $0C,  $0E,  $0C
+;---- End CDL Unknown Block: Total Bytes 0x03 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x0AA0 --
+.byte $09
+;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x0AA1 --
+.byte $05
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0AA2 --
