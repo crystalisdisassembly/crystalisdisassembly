@@ -1,6 +1,4 @@
 # crystalisdisassembly
-Disassembly of the NES Game Crystalis
-
 This is a reassemblable disassembly of the NES game Crystalis. The goal of this project is to produce a documented and reassemblable disassembly. Target assembler is ca65.
 
 This repo includes my Mesen Code+Data Log (CDL). If you have a more complete CDL, please message me. Current CDL stats:
