@@ -4,7 +4,7 @@ Disassembly of the NES Game Crystalis
 This is a reassemblable disassembly of the NES game Crystalis. The goal of this project is to produce a fully commented and documented, reassemblable disassembly. Target assembler is ca65.
 
 Note: I've included in this repo the Mesen Code+Data Log (CDL) that I used to disassemble the ROM. My CDL has the following stats:
-  * PRG Analysis: 90.01% Complete (18.69% Code, 73.32% Data, 7.99% Unknown)
+  * PRG Analysis: 92.01% Complete (18.69% Code, 73.32% Data, 7.99% Unknown)
   * CHR Analysis: 88.16% Complete (88.16% Drawn, 0.00% Read, 11.84% Unknown)
 
 If you have a more complete CDL, please send me a message.
