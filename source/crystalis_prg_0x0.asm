@@ -236,16 +236,7 @@
 
 ;---- Start CDL Confirmed Data Block: Offset 0x03C0 --
 .byte $80,  $80,  $FD,  $F8,  $9F,  $DF,  $9A,  $9A
-.byte $DC,  $DC,  $9A,  $D9,  $D9,  $DA,  $D9
-;---- End CDL Confirmed Data Block: Total Bytes 0x0F ----
-
-
-;---- Start CDL Unknown Block: Offset 0x03CF --
-.byte $D9
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x03D0 --
+.byte $DC,  $DC,  $9A,  $D9,  $D9,  $DA,  $D9,  $D9
 .byte $80,  $80,  $80,  $80,  $FD,  $9F,  $DD,  $DC
 .byte $DA,  $D9,  $9A,  $D9,  $DA,  $D9,  $D9,  $D9
 .byte $80,  $80,  $80,  $80,  $5D,  $F7,  $94,  $D9
@@ -260,15 +251,15 @@
 .byte $DA,  $D9,  $D9,  $9A,  $D9,  $D9,  $D9,  $D9
 .byte $80,  $80,  $80,  $80,  $FF,  $8F,  $81,  $DA
 .byte $D9,  $9A,  $9A,  $DC,  $D9,  $DC,  $D9,  $D9
-.byte $80,  $80,  $80,  $80,  $FB,  $94,  $DA,  $9A
-.byte $D9,  $87,  $DC,  $D9,  $D9,  $D9,  $D9,  $D9
 ;---- End CDL Confirmed Data Block: Total Bytes 0x80 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x0450 --
+;---- Start CDL Confirmed Data Block: Offset 0x0440 --
+.byte $80,  $80,  $80,  $80,  $FB,  $94,  $DA,  $9A
+.byte $D9,  $87,  $DC,  $D9,  $D9,  $D9,  $D9,  $D9
 .byte $80,  $80,  $80,  $80,  $FB,  $94,  $9A,  $DA
 .byte $DC,  $DC,  $D9,  $D9,  $D9,  $D9
-;---- End CDL Confirmed Data Block: Total Bytes 0x0E ----
+;---- End CDL Confirmed Data Block: Total Bytes 0x1E ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x045E --
@@ -1131,7 +1122,7 @@
 ;---- Start CDL Confirmed Data Block: Offset 0x15A1 --
 .byte $C2,  $C2,  $C2,  $C2,  $C2,  $C2,  $C8,  $F7
 .byte $F7,  $F7,  $FC,  $80,  $80,  $80,  $80
-;---- End CDL Confirmed Data Block: Total Bytes 0x0E ----
+;---- End CDL Confirmed Data Block: Total Bytes 0x0F ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x15B0 --
@@ -2984,6 +2975,7 @@
 .byte $C1,  $C2,  $C2,  $9B,  $9B,  $9A,  $9A,  $DA
 .byte $D9,  $D9
 ;---- End CDL Unknown Block: Total Bytes 0x0A ----
+
 
 ;---- Start CDL Confirmed Data Block: Offset 0x3F20 --
 .byte $9B,  $D9,  $DA,  $D9,  $D9,  $C2,  $C1,  $C1

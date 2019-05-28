@@ -8490,6 +8490,14 @@ JMP $C418						;Offset: 0x3FE0, Byte Code: 0x4C 0x18 0xC4
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x3FFA --
-.byte $B6,  $F3,  $A4,  $F2,  $43,  $F4
+PRG_0xF_InterruptVectorTable:
+PRG_0xF_InterruptVectorTable_NMI:
+.byte $B6,  $F3
+
+PRG_0xF_InterruptVectorTable_Reset:
+.byte $A4,  $F2
+
+PRG_0xF_InterruptVectorTable_IRQ:
+.byte $43,  $F4
 ;---- End CDL Confirmed Data Block: Total Bytes 0x06 ----
 

@@ -3592,8 +3592,18 @@
 
 
 ;---- Start CDL Unknown Block: Offset 0x1083 --
-.byte $16,  $19,  $11,  $7E
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
+.byte $16,  $19
+;---- End CDL Unknown Block: Total Bytes 0x02 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x1085 --
+.byte $11
+;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x1086 --
+.byte $7E
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1087 --
@@ -3859,8 +3869,18 @@
 
 
 ;---- Start CDL Unknown Block: Offset 0x1183 --
-.byte $11,  $11,  $11,  $16
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
+.byte $11,  $11
+;---- End CDL Unknown Block: Total Bytes 0x02 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x1185 --
+.byte $11
+;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x1186 --
+.byte $16
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1187 --
@@ -4137,8 +4157,18 @@
 
 
 ;---- Start CDL Unknown Block: Offset 0x1283 --
-.byte $13,  $1A,  $1A,  $16
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
+.byte $13,  $1A
+;---- End CDL Unknown Block: Total Bytes 0x02 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x1285 --
+.byte $1A
+;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x1286 --
+.byte $16
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1287 --
@@ -4404,8 +4434,18 @@
 
 
 ;---- Start CDL Unknown Block: Offset 0x1383 --
-.byte $16,  $11,  $11,  $15
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
+.byte $16,  $11
+;---- End CDL Unknown Block: Total Bytes 0x02 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x1385 --
+.byte $11
+;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x1386 --
+.byte $15
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1387 --
@@ -11557,13 +11597,13 @@
 
 
 ;---- Start CDL Unknown Block: Offset 0x37BC --
-.byte $16,  $16
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
+.byte $16
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x37BE --
-.byte $16,  $10
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
+;---- Start CDL Confirmed Data Block: Offset 0x37BD --
+.byte $16,  $16,  $10
+;---- End CDL Confirmed Data Block: Total Bytes 0x03 ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x37C0 --
