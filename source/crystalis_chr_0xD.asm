@@ -2554,12 +2554,18 @@ ROR $7E7E, X					;Offset: 0xF53, Byte Code: 0x7E 0x7E 0x7E
 .byte $F7							;Offset: 0xF59, Byte Code: 0xF7 .. Illegal Opcode!!
 ROR $7F7F, X					;Offset: 0xF5A, Byte Code: 0x7E 0x7F 0x7F
 ADC $0F3B, X					;Offset: 0xF5D, Byte Code: 0x7D 0x3B 0x0F
-
-;---- Start CDL Unknown Block: Offset 0x0F60 --
-.byte $3F,  $5F,  $F3,  $F4,  $F7,  $FF,  $9F,  $74
-.byte $E8,  $CD,  $EE,  $8F,  $8E,  $E9,  $89,  $E7
-;---- End CDL Unknown Block: Total Bytes 0x10 ----
-
+.byte $3F							;Offset: 0xF60, Byte Code: 0x3F .. Illegal Opcode!!
+.byte $5F							;Offset: 0xF61, Byte Code: 0x5F .. Illegal Opcode!!
+.byte $F3							;Offset: 0xF62, Byte Code: 0xF3 .. Illegal Opcode!!
+.byte $F4							;Offset: 0xF63, Byte Code: 0xF4 .. Illegal Opcode!!
+.byte $F7							;Offset: 0xF64, Byte Code: 0xF7 .. Illegal Opcode!!
+.byte $FF							;Offset: 0xF65, Byte Code: 0xFF .. Illegal Opcode!!
+.byte $9F							;Offset: 0xF66, Byte Code: 0x9F .. Illegal Opcode!!
+.byte $74							;Offset: 0xF67, Byte Code: 0x74 .. Illegal Opcode!!
+INX								;Offset: 0xF68, Byte Code: 0xE8 
+CMP $8FEE						;Offset: 0xF69, Byte Code: 0xCD 0xEE 0x8F
+STX $89E9						;Offset: 0xF6C, Byte Code: 0x8E 0xE9 0x89
+.byte $E7							;Offset: 0xF6F, Byte Code: 0xE7 .. Illegal Opcode!!
 .byte $3F							;Offset: 0xF70, Byte Code: 0x3F .. Illegal Opcode!!
 .byte $4F							;Offset: 0xF71, Byte Code: 0x4F .. Illegal Opcode!!
 .byte $F7							;Offset: 0xF72, Byte Code: 0xF7 .. Illegal Opcode!!

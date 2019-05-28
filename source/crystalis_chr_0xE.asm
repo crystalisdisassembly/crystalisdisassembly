@@ -1877,19 +1877,11 @@ BRK								;Offset: 0xBF0, Byte Code: 0x00
 ;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 BRK								;Offset: 0xBF2, Byte Code: 0x00 
-
-;---- Start CDL Unknown Block: Offset 0x0BF3 --
-.byte $00
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
+BRK								;Offset: 0xBF3, Byte Code: 0x00 
 BRK								;Offset: 0xBF4, Byte Code: 0x00 
 BRK								;Offset: 0xBF5, Byte Code: 0x00 
 BRK								;Offset: 0xBF6, Byte Code: 0x00 
-
-;---- Start CDL Unknown Block: Offset 0x0BF7 --
-.byte $00
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
+BRK								;Offset: 0xBF7, Byte Code: 0x00 
 BRK								;Offset: 0xBF8, Byte Code: 0x00 
 
 ;---- Start CDL Unknown Block: Offset 0x0BF9 --
@@ -1897,19 +1889,11 @@ BRK								;Offset: 0xBF8, Byte Code: 0x00
 ;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 BRK								;Offset: 0xBFA, Byte Code: 0x00 
-
-;---- Start CDL Unknown Block: Offset 0x0BFB --
-.byte $00
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
+BRK								;Offset: 0xBFB, Byte Code: 0x00 
 BRK								;Offset: 0xBFC, Byte Code: 0x00 
 BRK								;Offset: 0xBFD, Byte Code: 0x00 
 BRK								;Offset: 0xBFE, Byte Code: 0x00 
-
-;---- Start CDL Unknown Block: Offset 0x0BFF --
-.byte $00
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
+BRK								;Offset: 0xBFF, Byte Code: 0x00 
 .byte $03							;Offset: 0xC00, Byte Code: 0x03 .. Illegal Opcode!!
 .byte $0F							;Offset: 0xC01, Byte Code: 0x0F .. Illegal Opcode!!
 .byte $0F							;Offset: 0xC02, Byte Code: 0x0F .. Illegal Opcode!!

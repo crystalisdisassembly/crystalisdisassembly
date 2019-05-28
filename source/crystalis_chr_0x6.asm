@@ -4037,10 +4037,20 @@ BRK								;Offset: 0x1498, Byte Code: 0x00
 BRK								;Offset: 0x149A, Byte Code: 0x00 
 
 ;---- Start CDL Unknown Block: Offset 0x149B --
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $06,  $06
-.byte $06,  $06,  $86,  $86,  $7C,  $00,  $00,  $00
+.byte $00,  $00,  $00,  $00,  $00,  $00,  $06
+;---- End CDL Unknown Block: Total Bytes 0x07 ----
+
+ASL $06							;Offset: 0x14A2, Byte Code: 0x06 0x06 
+
+;---- Start CDL Unknown Block: Offset 0x14A4 --
+.byte $06,  $86,  $86,  $7C,  $00,  $00
+;---- End CDL Unknown Block: Total Bytes 0x06 ----
+
+BRK								;Offset: 0x14AA, Byte Code: 0x00 
+
+;---- Start CDL Unknown Block: Offset 0x14AB --
 .byte $00,  $00,  $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x15 ----
+;---- End CDL Unknown Block: Total Bytes 0x05 ----
 
 BRK								;Offset: 0x14B0, Byte Code: 0x00 
 

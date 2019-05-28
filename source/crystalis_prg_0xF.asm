@@ -3137,9 +3137,18 @@ RTS								;Offset: 0x16A7, Byte Code: 0x60
 
 
 ;---- Start CDL Unknown Block: Offset 0x16AD --
-.byte $A8,  $01,  $78,  $00,  $06,  $A8,  $01,  $78
-.byte $00,  $07,  $FF,  $0F,  $FF,  $0F,  $0F
-;---- End CDL Unknown Block: Total Bytes 0x0F ----
+.byte $A8,  $01,  $78,  $00,  $06
+;---- End CDL Unknown Block: Total Bytes 0x05 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x16B2 --
+.byte $A8,  $01,  $78,  $00,  $07
+;---- End CDL Confirmed Data Block: Total Bytes 0x05 ----
+
+
+;---- Start CDL Unknown Block: Offset 0x16B7 --
+.byte $FF,  $0F,  $FF,  $0F,  $0F
+;---- End CDL Unknown Block: Total Bytes 0x05 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x16BC --
@@ -3149,13 +3158,14 @@ RTS								;Offset: 0x16A7, Byte Code: 0x60
 
 ;---- Start CDL Unknown Block: Offset 0x16C1 --
 .byte $FF,  $0F,  $FF,  $0F,  $0F,  $FF,  $0F,  $FF
-.byte $0F,  $0F,  $F8,  $03,  $D8,  $00,  $09
-;---- End CDL Unknown Block: Total Bytes 0x0F ----
+.byte $0F,  $0F
+;---- End CDL Unknown Block: Total Bytes 0x0A ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x16D0 --
-.byte $E8,  $05,  $B8,  $07,  $05
-;---- End CDL Confirmed Data Block: Total Bytes 0x05 ----
+;---- Start CDL Confirmed Data Block: Offset 0x16CB --
+.byte $F8,  $03,  $D8,  $00,  $09,  $E8,  $05,  $B8
+.byte $07,  $05
+;---- End CDL Confirmed Data Block: Total Bytes 0x0A ----
 
 JMP $E148						;Offset: 0x16D5, Byte Code: 0x4C 0x48 0xE1
 LDA #$46						;Offset: 0x16D8, Byte Code: 0xA9 0x46
@@ -4298,18 +4308,8 @@ STA $11							;Offset: 0x1F09, Byte Code: 0x85 0x11
 JMP ($0010)						;Offset: 0x1F0B, Byte Code: 0x6C 0x10 0x00
 
 ;---- Start CDL Confirmed Data Block: Offset 0x1F0E --
-.byte $2F,  $DF
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1F10 --
-.byte $51,  $DE
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1F12 --
-.byte $51,  $DE
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
+.byte $2F,  $DF,  $51,  $DE,  $51,  $DE
+;---- End CDL Confirmed Data Block: Total Bytes 0x06 ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x1F14 --

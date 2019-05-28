@@ -1473,9 +1473,20 @@ ORA ($44), Y					;Offset: 0x7C6, Byte Code: 0x11 0x44
 .byte $FF							;Offset: 0x7CF, Byte Code: 0xFF .. Illegal Opcode!!
 
 ;---- Start CDL Unknown Block: Offset 0x07D0 --
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-.byte $FF,  $FF,  $FF,  $FF,  $FF,  $FF,  $FF,  $FF
-;---- End CDL Unknown Block: Total Bytes 0x10 ----
+.byte $00,  $00
+;---- End CDL Unknown Block: Total Bytes 0x02 ----
+
+BRK								;Offset: 0x7D2, Byte Code: 0x00 
+
+;---- Start CDL Unknown Block: Offset 0x07D3 --
+.byte $00,  $00,  $00,  $00,  $00,  $FF,  $FF
+;---- End CDL Unknown Block: Total Bytes 0x07 ----
+
+.byte $FF							;Offset: 0x7DA, Byte Code: 0xFF .. Illegal Opcode!!
+
+;---- Start CDL Unknown Block: Offset 0x07DB --
+.byte $FF,  $FF,  $FF,  $FF,  $FF
+;---- End CDL Unknown Block: Total Bytes 0x05 ----
 
 .byte $FF							;Offset: 0x7E0, Byte Code: 0xFF .. Illegal Opcode!!
 .byte $FF							;Offset: 0x7E1, Byte Code: 0xFF .. Illegal Opcode!!

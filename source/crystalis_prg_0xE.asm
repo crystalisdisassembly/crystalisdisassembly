@@ -122,16 +122,7 @@ LDY #$06						;Offset: 0xB9, Byte Code: 0xA0 0x06
 LDA $0381						;Offset: 0xBB, Byte Code: 0xAD 0x81 0x03
 ASL A							;Offset: 0xBE, Byte Code: 0x0A
 BPL L_PRG_0xE_0x00C3						;Offset: 0xBF, Byte Code: 0x10 0x02 (computed address for relative mode instruction 0x00C3)
-
-;---- Start CDL Confirmed Data Block: Offset 0x00C1 --
-.byte $A0
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x00C2 --
-.byte $04
-;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
+LDY #$04						;Offset: 0xC1, Byte Code: 0xA0 0x04
 
 L_PRG_0xE_0x00C3:
 
