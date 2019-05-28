@@ -1,13 +1,13 @@
 # crystalisdisassembly
 Disassembly of the NES Game Crystalis
 
-This is a reassemblable disassembly of the NES game Crystalis. The goal of this project is to produce a fully documented, reassemblable disassembly. Target assembler is ca65.
+This is a reassemblable disassembly of the NES game Crystalis. The goal of this project is to produce a documented and reassemblable disassembly. Target assembler is ca65.
 
-This repo includes my Mesen Code+Data Log (CDL). I use this CDL and a custom disassembler to produce the disassembly in this repo. If you have a more complete CDL, please message me. Current CDL stats:
+This repo includes my Mesen Code+Data Log (CDL). If you have a more complete CDL, please message me. Current CDL stats:
   * PRG Analysis: 92.05% Complete (18.72% Code, 73.33% Data, 7.95% Unknown)
   * CHR Analysis: 88.16% Complete (88.16% Drawn, 0.00% Read, 11.84% Unknown)
 
-To assemble, you can run the included _cryasm.bat file (make sure _cryasm.bat, crystalis.cfg, ca65.exe and ld65.exe are in the same directory as all of the .asm files). If you put an original copy of the ROM in this directory, the .bat file will compare for any differences.
+To assemble, run the included _cryasm.bat file. Make sure _cryasm.bat, crystalis.cfg, ca65.exe and ld65.exe are in the same directory as all of the .asm files). If you put an original copy of the ROM in this directory, the .bat file will check for any differences.
 
 _crystalis_master.asm is the master file that contains the iNES header and references each separate PRG and CHR bank.
 
