@@ -7,10 +7,7 @@ This repo includes my Mesen Code+Data Log (CDL). I use this CDL and a custom dis
   * PRG Analysis: 92.05% Complete (18.72% Code, 73.33% Data, 7.95% Unknown)
   * CHR Analysis: 88.16% Complete (88.16% Drawn, 0.00% Read, 11.84% Unknown)
 
-To assemble:
-
-  1. ca65 _crystalis_master.asm
-  2. ld65 _crystalis_master.o -C crystalis.cfg -o crystalis.nes
+To assemble, you can run the included _cryasm.bat file (make sure _cryasm.bat, crystalis.cfg, ca65.exe and ld65.exe are in the same directory as all of the .asm files). If you put an original copy of the ROM in this directory, the .bat file will compare for any differences.
 
 _crystalis_master.asm is the master file that contains the iNES header and references each separate PRG and CHR bank.
 
