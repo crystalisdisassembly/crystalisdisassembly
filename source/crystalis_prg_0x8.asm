@@ -3509,159 +3509,185 @@ L_PRG_0x8_ItemShopPricesArray:
 	L_PRG_0x8_ItemShopPricesArray_Sahara:
 		.byte $E8,  $03,  $A0,  $0F,  $B8,  $0B,  $DC,  $05
 
-
-;---- Start CDL Confirmed Data Block: Offset 0x1EAC --
-L_PRG_0x8_InnPricesArray:
+L_PRG_0x8_InnPriceArray:
 	L_PRG_0x8_InnPrice_Leaf:
 		.byte $10,  $00
-	L_PRG_0x8_InnPriceBrynmaer:
+	L_PRG_0x8_InnPrice_Brynmaer:
 		.byte $14,  $00
+	L_PRG_0x8_InnPrice_Oak:
 		.byte $28,  $00
+	L_PRG_0x8_InnPrice_Amazones:
 		.byte $50,  $00
+	L_PRG_0x8_InnPrice_Nadares:
 		.byte $32,  $00
+	L_PRG_0x8_InnPrice_Portoa:
 		.byte $64,  $00
+	L_PRG_0x8_InnPrice_Joel:
 		.byte $78,  $00
+	L_PRG_0x8_InnPrice_Swan:
 		.byte $96,  $00
+	L_PRG_0x8_InnPrice_Goa:
 		.byte $2C,  $01
+	L_PRG_0x8_InnPrice_Shyron:
 		.byte $96,  $00
+	L_PRG_0x8_InnPrice_Sahara:
 		.byte $F4,  $01
+
+L_PRG_0x8_PawnShopPricesArray:
+	L_PRG_0x8_PawnShopPricesArray_SwordOfWind:
 		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_SwordOfFire:
 		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_SwordOfWater:
 		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_SwordOfThunder:
 		.byte $00,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x1E ----
+	L_PRG_0x8_PawnShopPricesArray_Crystalis:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_BallOfWind:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_TornadoBracelet:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_BallOfFire:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_FlameBracelet:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_BallOfWater:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_BlizzardBracelet:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_BallOfThunder:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_StormBracelet:
+		.byte $00,  $00
 
+	L_PRG_0x8_PawnShopPricesArray_CarapaceShield:
+		.byte $28,  $00
+	L_PRG_0x8_PawnShopPricesArray_BronzeShield:
+		.byte $6E,  $00
+	L_PRG_0x8_PawnShopPricesArray_PlatinumShield:
+		.byte $EE,  $02
+	L_PRG_0x8_PawnShopPricesArray_MirroredShield:
+		.byte $EE,  $02
+	L_PRG_0x8_PawnShopPricesArray_CeramicShield:
+		.byte $E2,  $04
+	L_PRG_0x8_PawnShopPricesArray_SacredShield:
+		.byte $B8,  $0B
+	L_PRG_0x8_PawnShopPricesArray_BattleShield:
+		.byte $B8,  $0B
+	L_PRG_0x8_PawnShopPricesArray_PsychoShield:
+		.byte $00,  $00
+	
+	L_PRG_0x8_PawnShopPricesArray_TannedHide:
+		.byte $32,  $00
+	L_PRG_0x8_PawnShopPricesArray_LeatherArmor:
+		.byte $46,  $00
+	L_PRG_0x8_PawnShopPricesArray_BronzeArmor:
+		.byte $2C,  $01
+	L_PRG_0x8_PawnShopPricesArray_PlatinumArmor:
+		.byte $E8,  $03
+	L_PRG_0x8_PawnShopPricesArray_SoldierSuit:
+		.byte $DC,  $05
+	L_PRG_0x8_PawnShopPricesArray_CeramicSuit:
+		.byte $B2,  $0C
+	L_PRG_0x8_PawnShopPricesArray_BattleArmor:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_PsychoArmor:
+		.byte $00,  $00
 
-;---- Start CDL Unknown Block: Offset 0x1ECA --
-.byte $00,  $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1ECE --
-.byte $00,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1ED0 --
-.byte $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1ED2 --
-.byte $00,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1ED4 --
-.byte $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1ED6 --
-.byte $00,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1ED8 --
-.byte $00,  $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1EDC --
-.byte $28,  $00,  $6E,  $00,  $EE,  $02
-;---- End CDL Confirmed Data Block: Total Bytes 0x06 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1EE2 --
-.byte $EE,  $02,  $E2,  $04
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1EE6 --
-.byte $B8,  $0B
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1EE8 --
-.byte $B8,  $0B
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1EEA --
-.byte $00,  $00,  $32,  $00,  $46,  $00,  $2C,  $01
-.byte $E8,  $03
-;---- End CDL Confirmed Data Block: Total Bytes 0x0A ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1EF4 --
-.byte $DC,  $05,  $B2,  $0C
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1EF8 --
-.byte $00,  $00,  $00,  $00
-
-	L_PRG_0x8_PawnShopPricesArray_Master_MedicalHerb:
+	L_PRG_0x8_PawnShopPricesArray_MedicalHerb:
 		.byte $0A,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x06 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1EFE --
-	L_PRG_0x8_PawnShopPricesArray_Master_Antidote:
+	L_PRG_0x8_PawnShopPricesArray_Antidote:
 		.byte $14,  $00
-		
-.byte $5F,  $00,  $5A,  $00,  $41,  $00
-;---- End CDL Unknown Block: Total Bytes 0x08 ----
+	L_PRG_0x8_PawnShopPricesArray_LysisPlant:	
+		.byte $5F,  $00
+	L_PRG_0x8_PawnShopPricesArray_FruitOfLime:
+		.byte $5A,  $00
+	L_PRG_0x8_PawnShopPricesArray_FruitOfPower:
+		.byte $41,  $00
+	L_PRG_0x8_PawnShopPricesArray_MagicRing:
+		.byte $F4,  $01
+	L_PRG_0x8_PawnShopPricesArray_FruitOfRepun:
+		.byte $E8,  $03
+	L_PRG_0x8_PawnShopPricesArray_WarpBoots:
+		.byte $1E,  $00
+	L_PRG_0x8_PawnShopPricesArray_StatueOfOnyx:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_OpelStatue:
+		.byte $2C,  $01
+	L_PRG_0x8_PawnShopPricesArray_InsectFlute:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_FluteOfLime:
+		.byte $00,  $00
 
+	L_PRG_0x8_PawnShopPricesArray_GasMask:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_PowerRing:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_WarriorRing:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_IronNecklace:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_DeosPendant:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_RabbitBoots:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_LeatherBoots:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_ShieldRing:
+		.byte $00,  $00
 
-;---- Start CDL Confirmed Data Block: Offset 0x1F06 --
-.byte $F4,  $01,  $E8,  $03
-;---- End CDL Confirmed Data Block: Total Bytes 0x04 ----
+	L_PRG_0x8_PawnShopPricesArray_AlarmFlute:
+		.byte $19,  $00
+	L_PRG_0x8_PawnShopPricesArray_WindmillKey:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_KeyToPrison:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_KeyToStyx:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_FogLamp:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_ShellFlute:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_EyeGlasses:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_BrokenStatue:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_GlowingLamp:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_StatueOfGold:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_LovePendant:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_KirisaPlant:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_IvoryStatue:	
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_BowOfMoon:	
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_BowOfSun:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_BowOfTruth:
+		.byte $00,  $00
 
+	L_PRG_0x8_PawnShopPricesArray_Refresh:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_Paralysis:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_Telepathy:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_Teleport:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_Recover:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_Barrier:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_Change:
+		.byte $00,  $00
+	L_PRG_0x8_PawnShopPricesArray_Flight:
+		.byte $00,  $00
 
-;---- Start CDL Unknown Block: Offset 0x1F0A --
-.byte $1E,  $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1F0E --
-.byte $2C,  $01
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1F10 --
-.byte $00,  $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x04 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1F14 --
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x10 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1F24 --
-.byte $19,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-.byte $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x0A ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1F2E --
-.byte $00,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x1F30 --
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-.byte $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x12 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x1F42 --
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-.byte $00,  $00,  $C4,  $C3,  $C2,  $C5,  $C9,  $CB
+.byte $C4,  $C3,  $C2,  $C5,  $C9,  $CB
 .byte $C8,  $C7,  $CF,  $D0,  $D3,  $D2,  $D1,  $3D
 .byte $3C,  $DA,  $DD,  $DC,  $D9,  $E5,  $E7,  $EE
 .byte $EB,  $ED,  $F0,  $BC,  $BE,  $F5,  $F6,  $F7

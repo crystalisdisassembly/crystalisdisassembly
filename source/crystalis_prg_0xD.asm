@@ -748,18 +748,8 @@ PRG_0xD_GoldDropAmountsArray:
 .byte $01,  $00,  $02,  $00,  $04,  $00,  $08,  $00
 .byte $10,  $00,  $1E,  $00,  $32,  $00,  $64,  $00
 .byte $C8,  $00,  $90,  $01,  $32,  $00,  $64,  $00
-.byte $C8,  $00
-;---- End CDL Confirmed Data Block: Total Bytes 0x1A ----
-
-
-;---- Start CDL Unknown Block: Offset 0x0BFA --
-.byte $90,  $01
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x0BFC --
-.byte $F4,  $01
-;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
+.byte $C8,  $00,  $90,  $01,  $F4,  $01
+;---- End CDL Confirmed Data Block: Total Bytes 0x1E ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x0BFE --

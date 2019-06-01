@@ -1091,8 +1091,18 @@ RTS								;Offset: 0x713, Byte Code: 0x60
 
 
 ;---- Start CDL Unknown Block: Offset 0x0726 --
-.byte $04,  $00,  $FC,  $FF,  $08,  $00
-;---- End CDL Unknown Block: Total Bytes 0x06 ----
+.byte $04
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
+
+
+;---- Start CDL Confirmed Data Block: Offset 0x0727 --
+.byte $00
+;---- End CDL Confirmed Data Block: Total Bytes 0x01 ---
+
+
+;---- Start CDL Unknown Block: Offset 0x0728 --
+.byte $FC,  $FF,  $08,  $00
+;---- End CDL Unknown Block: Total Bytes 0x04 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x072C --
