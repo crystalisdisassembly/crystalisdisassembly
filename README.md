@@ -5,6 +5,10 @@ This repo includes my Mesen Code+Data Log (CDL). If you have a more complete CDL
   * PRG Analysis: 92.07% Complete (18.72% Code, 73.35% Data, 7.93% Unknown)
   * CHR Analysis: 88.16% Complete (88.16% Drawn, 0.00% Read, 11.84% Unknown)
 
+Note: I manually updated the CDL for known areas of the ROM that won't be accessed during a game. For example, towns without armor shops actually have unused inventory and price data in the ROM. My adjusted CDL stats are:
+  * PRG Analysis: 92.09% Complete (18.72% Code, 73.37% Data, 7.91% Unknown)
+  * CHR Analysis: 88.16% Complete (88.16% Drawn, 0.00% Read, 11.84% Unknown)
+
 To assemble, run the included _cryasm.bat file. Make sure _cryasm.bat, crystalis.cfg, ca65.exe and ld65.exe are in the same directory as all of the .asm files). If you put an original copy of the ROM in this directory, the .bat file will check for any differences.
 
 _crystalis_master.asm is the master file that contains the iNES header and references each separate PRG and CHR bank.
