@@ -2,6 +2,8 @@
 .segment "PRG_0xF"
 .org $C000
 
+;PRG 0xF seems to always be at address $C000 and looks to be the main PRG bank for the game
+
 ;List of identified subroutines in this PRG bank:
 ;SUB_PRG_0xF_UpdatePlayerEquipmentStats						0x0008
 ;SUB_PRG_0xF_UnknownSub_0xC169								0x0169

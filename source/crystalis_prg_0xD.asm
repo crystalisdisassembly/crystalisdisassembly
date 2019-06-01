@@ -2004,10 +2004,10 @@ LDA $8BDF, X					;Offset: 0x1480, Byte Code: 0xBD 0xDF 0x8B
 ADC $0703						;Offset: 0x1483, Byte Code: 0x6D 0x03 0x07
 STA $0703						;Offset: 0x1486, Byte Code: 0x8D 0x03 0x07
 BCC L_PRG_0xD_0x1493						;Offset: 0x1489, Byte Code: 0x90 0x08 (computed address for relative mode instruction 0x1493)
-
-;---- Start CDL Unknown Block: Offset 0x148B --
-.byte $A9,  $FF,  $8D,  $02,  $07,  $8D,  $03,  $07
-;---- End CDL Unknown Block: Total Bytes 0x08 ----
+;these 3 instructions set gold to max (low & hi bytes both set to #$FF) if the player gets gold beyond the maximum (#$FFFF)
+LDA #$FF						;Offset: 0x148B, Byte Code: 0xA9 0xFF
+STA $0702						;Offset: 0x148D, Byte Code: 0x8D 0x02 0x07
+STA $0703						;Offset: 0x1490, Byte Code: 0x8D 0x03 0x07
 
 
 L_PRG_0xD_0x1493:

@@ -1463,14 +1463,14 @@
 
 
 ;---- Start CDL Unknown Block: Offset 0x2304 --
-.byte $9E,  $9E,  $9E
-;---- End CDL Unknown Block: Total Bytes 0x03 ----
+.byte $9E,  $9E
+;---- End CDL Unknown Block: Total Bytes 0x02 ----
 
 
-;---- Start CDL Confirmed Data Block: Offset 0x2307 --
+;---- Start CDL Confirmed Data Block: Offset 0x2306 --
 .byte $9E,  $9E,  $9E,  $9E,  $9E,  $9E,  $9E,  $9E
-.byte $9E,  $67
-;---- End CDL Confirmed Data Block: Total Bytes 0x0A ----
+.byte $9E,  $9E,  $67
+;---- End CDL Confirmed Data Block: Total Bytes 0x0B ----
 
 
 ;---- Start CDL Unknown Block: Offset 0x2311 --
