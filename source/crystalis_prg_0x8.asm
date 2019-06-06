@@ -167,8 +167,8 @@ JMP $8171						;Offset: 0x116, Byte Code: 0x4C 0x71 0x81
 
 L_PRG_0x8_0x0119:
 
-LDA $4B							;Offset: 0x119, Byte Code: 0xA5 0x4B 
-AND #$02						;Offset: 0x11B, Byte Code: 0x29 0x02
+LDA AddressCurrentKeyPressPlayer1_RAM_0x4B							;Offset: 0x119, Byte Code: 0xA5 0x4B 
+AND #ControllerButton_Left						;Offset: 0x11B, Byte Code: 0x29 0x02
 BEQ L_PRG_0x8_0x012A						;Offset: 0x11D, Byte Code: 0xF0 0x0B (computed address for relative mode instruction 0x012A)
 DEC $2A							;Offset: 0x11F, Byte Code: 0xC6 0x2A 
 BPL L_PRG_0x8_0x0127						;Offset: 0x121, Byte Code: 0x10 0x04 (computed address for relative mode instruction 0x0127)
@@ -181,8 +181,8 @@ JMP $8171						;Offset: 0x127, Byte Code: 0x4C 0x71 0x81
 
 L_PRG_0x8_0x012A:
 
-LDA $4B							;Offset: 0x12A, Byte Code: 0xA5 0x4B 
-AND #$01						;Offset: 0x12C, Byte Code: 0x29 0x01
+LDA AddressCurrentKeyPressPlayer1_RAM_0x4B							;Offset: 0x12A, Byte Code: 0xA5 0x4B 
+AND #ControllerButton_Right						;Offset: 0x12C, Byte Code: 0x29 0x01
 BEQ L_PRG_0x8_0x0140						;Offset: 0x12E, Byte Code: 0xF0 0x10 (computed address for relative mode instruction 0x0140)
 LDX $2A							;Offset: 0x130, Byte Code: 0xA6 0x2A 
 INC $2A							;Offset: 0x132, Byte Code: 0xE6 0x2A 
@@ -197,15 +197,15 @@ JMP $8171						;Offset: 0x13D, Byte Code: 0x4C 0x71 0x81
 
 L_PRG_0x8_0x0140:
 
-LDA $4B							;Offset: 0x140, Byte Code: 0xA5 0x4B 
-AND #$20						;Offset: 0x142, Byte Code: 0x29 0x20
+LDA AddressCurrentKeyPressPlayer1_RAM_0x4B							;Offset: 0x140, Byte Code: 0xA5 0x4B 
+AND #ControllerButton_Select						;Offset: 0x142, Byte Code: 0x29 0x20
 BEQ L_PRG_0x8_0x0149						;Offset: 0x144, Byte Code: 0xF0 0x03 (computed address for relative mode instruction 0x0149)
 JMP $81EC						;Offset: 0x146, Byte Code: 0x4C 0xEC 0x81
 
 L_PRG_0x8_0x0149:
 
-LDA $4B							;Offset: 0x149, Byte Code: 0xA5 0x4B 
-AND #$10						;Offset: 0x14B, Byte Code: 0x29 0x10
+LDA AddressCurrentKeyPressPlayer1_RAM_0x4B							;Offset: 0x149, Byte Code: 0xA5 0x4B 
+AND #ControllerButton_Start						;Offset: 0x14B, Byte Code: 0x29 0x10
 BEQ L_PRG_0x8_0x015C						;Offset: 0x14D, Byte Code: 0xF0 0x0D (computed address for relative mode instruction 0x015C)
 LDA $07DD						;Offset: 0x14F, Byte Code: 0xAD 0xDD 0x07
 BNE L_PRG_0x8_0x015C						;Offset: 0x152, Byte Code: 0xD0 0x08 (computed address for relative mode instruction 0x015C)
@@ -215,21 +215,26 @@ JMP $9AEE						;Offset: 0x159, Byte Code: 0x4C 0xEE 0x9A
 
 L_PRG_0x8_0x015C:
 
-LDA $4B							;Offset: 0x15C, Byte Code: 0xA5 0x4B 
-AND #$80						;Offset: 0x15E, Byte Code: 0x29 0x80
+LDA AddressCurrentKeyPressPlayer1_RAM_0x4B							;Offset: 0x15C, Byte Code: 0xA5 0x4B 
+AND #ControllerButton_A						;Offset: 0x15E, Byte Code: 0x29 0x80
 BEQ L_PRG_0x8_0x0165						;Offset: 0x160, Byte Code: 0xF0 0x03 (computed address for relative mode instruction 0x0165)
 JSR $82B7						;Offset: 0x162, Byte Code: 0x20 0xB7 0x82
 
 L_PRG_0x8_0x0165:
 
-LDA $4B							;Offset: 0x165, Byte Code: 0xA5 0x4B 
-AND #$40						;Offset: 0x167, Byte Code: 0x29 0x40
+LDA AddressCurrentKeyPressPlayer1_RAM_0x4B							;Offset: 0x165, Byte Code: 0xA5 0x4B 
+AND #ControllerButton_B						;Offset: 0x167, Byte Code: 0x29 0x40
 BEQ L_PRG_0x8_0x016E						;Offset: 0x169, Byte Code: 0xF0 0x03 (computed address for relative mode instruction 0x016E)
 JSR $8342						;Offset: 0x16B, Byte Code: 0x20 0x42 0x83
 
 L_PRG_0x8_0x016E:
 
 JMP $80D1						;Offset: 0x16E, Byte Code: 0x4C 0xD1 0x80
+
+;Jumped to when a new item is hovered over in the pawn shop (and when first entering pawn shop, for the default hovered item)
+;5 instances of a jump to here ($8171) found in mesen debugger
+;I think 4 of them are for the direction on the control pad and the 5th is for the default and when the inventory page is switched
+;$80CE, $80F4, $8116, $8127, $813D
 JSR $85E6						;Offset: 0x171, Byte Code: 0x20 0xE6 0x85
 STA $646E						;Offset: 0x174, Byte Code: 0x8D 0x6E 0x64
 LDA #$4B						;Offset: 0x177, Byte Code: 0xA9 0x4B
@@ -240,7 +245,7 @@ LDA $2B							;Offset: 0x181, Byte Code: 0xA5 0x2B
 ASL A							;Offset: 0x183, Byte Code: 0x0A
 ASL A							;Offset: 0x184, Byte Code: 0x0A
 CLC								;Offset: 0x185, Byte Code: 0x18 
-ADC $2A							;Offset: 0x186, Byte Code: 0x65 0x2A 
+ADC $2A							;Offset: 0x186, Byte Code: 0x65 0x2A
 JMP $8193						;Offset: 0x188, Byte Code: 0x4C 0x93 0x81
 
 L_PRG_0x8_0x018B:
@@ -264,6 +269,7 @@ BNE L_PRG_0x8_0x01B4						;Offset: 0x1AA, Byte Code: 0xD0 0x08 (computed address
 LDA #$06						;Offset: 0x1AC, Byte Code: 0xA9 0x06
 JSR $8933						;Offset: 0x1AE, Byte Code: 0x20 0x33 0x89
 JMP $815C						;Offset: 0x1B1, Byte Code: 0x4C 0x5C 0x81
+
 
 L_PRG_0x8_0x01B4:
 
@@ -713,6 +719,7 @@ LDA #$0D						;Offset: 0x4D5, Byte Code: 0xA9 0x0D
 JMP $8613						;Offset: 0x4D7, Byte Code: 0x4C 0x13 0x86
 
 SUB_PRG_0x8_GUI_EVENT_INN_PREPARE_DIALOGUE_CHECK_LOOP:
+;note::: this is also called in the pawn shop at the yes/no diaglogue
 CMP #$41						;Offset: 0x4DA, Byte Code: 0xC9 0x41
 BNE L_PRG_0x8_0x04E0						;Offset: 0x4DC, Byte Code: 0xD0 0x02 (computed address for relative mode instruction 0x04E0)
 LDA #$49						;Offset: 0x4DE, Byte Code: 0xA9 0x49
@@ -2225,10 +2232,14 @@ LDA #$29						;Offset: 0x15C6, Byte Code: 0xA9 0x29
 JSR $8933						;Offset: 0x15C8, Byte Code: 0x20 0x33 0x89
 LDA $646D						;Offset: 0x15CB, Byte Code: 0xAD 0x6D 0x64
 ASL A							;Offset: 0x15CE, Byte Code: 0x0A
-TAX								;Offset: 0x15CF, Byte Code: 0xAA 
-LDA $9EAC, X					;Offset: 0x15D0, Byte Code: 0xBD 0xAC 0x9E
+TAX								;Offset: 0x15CF, Byte Code: 0xAA
+
+;price of the current town's inn
+;lo byte
+LDA L_PRG_0x8_InnPriceArray, X					;Offset: 0x15D0, Byte Code: 0xBD 0xAC 0x9E
 STA $6474						;Offset: 0x15D3, Byte Code: 0x8D 0x74 0x64
-LDA $9EAD, X					;Offset: 0x15D6, Byte Code: 0xBD 0xAD 0x9E
+;hi byte
+LDA L_PRG_0x8_InnPriceArray+1, X					;Offset: 0x15D6, Byte Code: 0xBD 0xAD 0x9E
 STA $6475						;Offset: 0x15D9, Byte Code: 0x8D 0x75 0x64
 LDA #$0C						;Offset: 0x15DC, Byte Code: 0xA9 0x0C
 JSR $8613						;Offset: 0x15DE, Byte Code: 0x20 0x13 0x86
@@ -3509,6 +3520,7 @@ L_PRG_0x8_ItemShopPricesArray:
 	L_PRG_0x8_ItemShopPricesArray_Sahara:
 		.byte $E8,  $03,  $A0,  $0F,  $B8,  $0B,  $DC,  $05
 
+;0x1EAC
 L_PRG_0x8_InnPriceArray:
 	L_PRG_0x8_InnPrice_Leaf:
 		.byte $10,  $00

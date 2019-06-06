@@ -102,7 +102,7 @@ L_PRG_0xF_0x008A:
 		ORA #$00												;Offset: 0xA5, Byte Code: 0x09 0x00
 		STA $0301												;Offset: 0xA7, Byte Code: 0x8D 0x01 0x03
 		LDA #$0C												;Offset: 0xAA, Byte Code: 0xA9 0x0C
-		LDY $0714												;Offset: 0xAC, Byte Code: 0xAC 0x14 0x07
+		LDY AddressIndexEquippedShield												;Offset: 0xAC, Byte Code: 0xAC 0x14 0x07
 		BNE L_PRG_0xF_0x00B3									;Offset: 0xAF, Byte Code: 0xD0 0x02 (computed address for relative mode instruction 0x00B3)
 			LDA #$08												;Offset: 0xB1, Byte Code: 0xA9 0x08
 
@@ -721,28 +721,32 @@ JSR $C427						;Offset: 0x413, Byte Code: 0x20 0x27 0xC4
 LDA $6E							;Offset: 0x416, Byte Code: 0xA5 0x6E
 
 SUB_PRG_0xF_0x0418:
-STA $6E							;Offset: 0x418, Byte Code: 0x85 0x6E 
-LDA #$06						;Offset: 0x41A, Byte Code: 0xA9 0x06
-STA $50							;Offset: 0x41C, Byte Code: 0x85 0x50 
-STA $8000						;Offset: 0x41E, Byte Code: 0x8D 0x00 0x80
-LDA $6E							;Offset: 0x421, Byte Code: 0xA5 0x6E 
-STA $8001						;Offset: 0x423, Byte Code: 0x8D 0x01 0x80
-RTS								;Offset: 0x426, Byte Code: 0x60 
-STA $6F							;Offset: 0x427, Byte Code: 0x85 0x6F 
-LDA #$07						;Offset: 0x429, Byte Code: 0xA9 0x07
-STA $50							;Offset: 0x42B, Byte Code: 0x85 0x50 
-STA $8000						;Offset: 0x42D, Byte Code: 0x8D 0x00 0x80
-LDA $6F							;Offset: 0x430, Byte Code: 0xA5 0x6F 
-STA $8001						;Offset: 0x432, Byte Code: 0x8D 0x01 0x80
-RTS								;Offset: 0x435, Byte Code: 0x60 
-LDA $00							;Offset: 0x436, Byte Code: 0xA5 0x00 
-ORA #$80						;Offset: 0x438, Byte Code: 0x09 0x80
-STA $2000						;Offset: 0x43A, Byte Code: 0x8D 0x00 0x20
-RTS								;Offset: 0x43D, Byte Code: 0x60 
-LDA $00							;Offset: 0x43E, Byte Code: 0xA5 0x00 
-AND #$7F						;Offset: 0x440, Byte Code: 0x29 0x7F
-STA $2000						;Offset: 0x442, Byte Code: 0x8D 0x00 0x20
-RTS								;Offset: 0x445, Byte Code: 0x60 
+	STA $6E							;Offset: 0x418, Byte Code: 0x85 0x6E 
+	LDA #$06						;Offset: 0x41A, Byte Code: 0xA9 0x06
+	STA $50							;Offset: 0x41C, Byte Code: 0x85 0x50 
+	STA $8000						;Offset: 0x41E, Byte Code: 0x8D 0x00 0x80
+	LDA $6E							;Offset: 0x421, Byte Code: 0xA5 0x6E 
+	STA $8001						;Offset: 0x423, Byte Code: 0x8D 0x01 0x80
+	RTS								;Offset: 0x426, Byte Code: 0x60
+
+SUB_PRG_0xF_0x0427:
+	STA $6F							;Offset: 0x427, Byte Code: 0x85 0x6F 
+	LDA #$07						;Offset: 0x429, Byte Code: 0xA9 0x07
+	STA $50							;Offset: 0x42B, Byte Code: 0x85 0x50 
+	STA $8000						;Offset: 0x42D, Byte Code: 0x8D 0x00 0x80
+	LDA $6F							;Offset: 0x430, Byte Code: 0xA5 0x6F 
+	STA $8001						;Offset: 0x432, Byte Code: 0x8D 0x01 0x80
+	RTS								;Offset: 0x435, Byte Code: 0x60
+
+SUB_PRG_0xF_0x0436:
+	LDA $00							;Offset: 0x436, Byte Code: 0xA5 0x00 
+	ORA #$80						;Offset: 0x438, Byte Code: 0x09 0x80
+	STA $2000						;Offset: 0x43A, Byte Code: 0x8D 0x00 0x20
+	RTS								;Offset: 0x43D, Byte Code: 0x60 
+	LDA $00							;Offset: 0x43E, Byte Code: 0xA5 0x00 
+	AND #$7F						;Offset: 0x440, Byte Code: 0x29 0x7F
+	STA $2000						;Offset: 0x442, Byte Code: 0x8D 0x00 0x20
+	RTS								;Offset: 0x445, Byte Code: 0x60 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0446 --
 .byte $A5
@@ -1314,24 +1318,29 @@ RTS								;Offset: 0x8BF, Byte Code: 0x60
 ;---- End CDL Unknown Block: Total Bytes 0x40 ----
 
 
+;0x900 ($C900)
+;this loop is suspended while inside of shops (I think there is a child loop inside it that runs)
+L_PRG_0xF_MainGameLoop:
 L_PRG_0xF_0x0900:
+	LDA $09							;Offset: 0x900, Byte Code: 0xA5 0x09 
+	BEQ L_PRG_0xF_MainGameLoop						;Offset: 0x902, Byte Code: 0xF0 0xFC (computed address for relative mode instruction 0x0900)
+	LDA $40							;Offset: 0x904, Byte Code: 0xA5 0x40 
+	ASL A							;Offset: 0x906, Byte Code: 0x0A
+	TAX								;Offset: 0x907, Byte Code: 0xAA 
+	LDA #$4C						;Offset: 0x908, Byte Code: 0xA9 0x4C
+	STA $10							;Offset: 0x90A, Byte Code: 0x85 0x10 
+	LDA $C91F, X					;Offset: 0x90C, Byte Code: 0xBD 0x1F 0xC9
+	STA $11							;Offset: 0x90F, Byte Code: 0x85 0x11 
+	LDA $C920, X					;Offset: 0x911, Byte Code: 0xBD 0x20 0xC9
+	STA $12							;Offset: 0x914, Byte Code: 0x85 0x12
+	;$10 will be #$4C, the opcode for JMP
+	;$11+$12 will be the address to jump to
+	JSR a:$0010						;Offset: 0x916, Byte Code: 0x20 0x10 0x00
+	LDA #$00						;Offset: 0x919, Byte Code: 0xA9 0x00
+	STA $09							;Offset: 0x91B, Byte Code: 0x85 0x09 
+	BEQ L_PRG_0xF_MainGameLoop						;Offset: 0x91D, Byte Code: 0xF0 0xE1 (computed address for relative mode instruction 0x0900)
 
-LDA $09							;Offset: 0x900, Byte Code: 0xA5 0x09 
-BEQ L_PRG_0xF_0x0900						;Offset: 0x902, Byte Code: 0xF0 0xFC (computed address for relative mode instruction 0x0900)
-LDA $40							;Offset: 0x904, Byte Code: 0xA5 0x40 
-ASL A							;Offset: 0x906, Byte Code: 0x0A
-TAX								;Offset: 0x907, Byte Code: 0xAA 
-LDA #$4C						;Offset: 0x908, Byte Code: 0xA9 0x4C
-STA $10							;Offset: 0x90A, Byte Code: 0x85 0x10 
-LDA $C91F, X					;Offset: 0x90C, Byte Code: 0xBD 0x1F 0xC9
-STA $11							;Offset: 0x90F, Byte Code: 0x85 0x11 
-LDA $C920, X					;Offset: 0x911, Byte Code: 0xBD 0x20 0xC9
-STA $12							;Offset: 0x914, Byte Code: 0x85 0x12 
-JSR a:$0010						;Offset: 0x916, Byte Code: 0x20 0x10 0x00
-LDA #$00						;Offset: 0x919, Byte Code: 0xA9 0x00
-STA $09							;Offset: 0x91B, Byte Code: 0x85 0x09 
-BEQ L_PRG_0xF_0x0900						;Offset: 0x91D, Byte Code: 0xF0 0xE1 (computed address for relative mode instruction 0x0900)
-
+;looks like event handlers here:
 ;---- Start CDL Confirmed Data Block: Offset 0x091F --
 .byte $57,  $C9,  $B6,  $CA,  $31,  $C9,  $39,  $C9
 .byte $44,  $C9,  $4C,  $C9
@@ -1417,14 +1426,14 @@ STA $51							;Offset: 0x9CC, Byte Code: 0x85 0x51
 LDA #$22						;Offset: 0x9CE, Byte Code: 0xA9 0x22
 STA $0708						;Offset: 0x9D0, Byte Code: 0x8D 0x08 0x07
 STA $0709						;Offset: 0x9D3, Byte Code: 0x8D 0x09 0x07
-JSR $C008						;Offset: 0x9D6, Byte Code: 0x20 0x08 0xC0
+JSR SUB_PRG_0xF_UpdatePlayerEquipmentStats						;Offset: 0x9D6, Byte Code: 0x20 0x08 0xC0
 RTS								;Offset: 0x9D9, Byte Code: 0x60 
 JSR $C9FF						;Offset: 0x9DA, Byte Code: 0x20 0xFF 0xC9
 LDA #$17						;Offset: 0x9DD, Byte Code: 0xA9 0x17
 JSR $C427						;Offset: 0x9DF, Byte Code: 0x20 0x27 0xC4
 JSR $BC06						;Offset: 0x9E2, Byte Code: 0x20 0x06 0xBC
 JSR $C676						;Offset: 0x9E5, Byte Code: 0x20 0x76 0xC6
-JSR $C008						;Offset: 0x9E8, Byte Code: 0x20 0x08 0xC0
+JSR SUB_PRG_0xF_UpdatePlayerEquipmentStats						;Offset: 0x9E8, Byte Code: 0x20 0x08 0xC0
 LDA #$09						;Offset: 0x9EB, Byte Code: 0xA9 0x09
 JSR $C40E						;Offset: 0x9ED, Byte Code: 0x20 0x0E 0xC4
 JSR $BA65						;Offset: 0x9F0, Byte Code: 0x20 0x65 0xBA
@@ -1464,6 +1473,8 @@ RTS								;Offset: 0xA25, Byte Code: 0x60
 .byte $01,  $04,  $02,  $05,  $00,  $06,  $03,  $0A
 ;---- End CDL Confirmed Data Block: Total Bytes 0x08 ----
 
+;I think this is called to initialize a new scene when the player enters/leaves a building or new area of the map
+;see info at 0xADB
 JSR $E3E9						;Offset: 0xA2E, Byte Code: 0x20 0xE9 0xE3
 LDA #$1A						;Offset: 0xA31, Byte Code: 0xA9 0x1A
 JSR $C418						;Offset: 0xA33, Byte Code: 0x20 0x18 0xC4
@@ -1547,6 +1558,29 @@ STA $11							;Offset: 0xAD1, Byte Code: 0x85 0x11
 LDX $41							;Offset: 0xAD3, Byte Code: 0xA6 0x41 
 LDA $CB2E, X					;Offset: 0xAD5, Byte Code: 0xBD 0x2E 0xCB
 JSR $C40E						;Offset: 0xAD8, Byte Code: 0x20 0x0E 0xC4
+
+;part of the main game loop
+;Analysis for documenting the pawn shop loading code:
+;jumps to CB62 just sitting in brynmaer
+;jumps to CA2E when stepping on the square to enter the pawn shop
+;jumps to CB62 after enter the pawn shop and after the screen switches (after the basic scene is drawn but before the text dialogue shows up)
+;then jumps to D9AD
+;then nothing at this address until leaving the pawn shop (there's got to be a child loop somewhere running while inside the shop)
+;when leaving the shop, jumps to CA2E
+;then when back outside jumps to CB62 and keeps looping
+;when entering the tavern, it's CB62->CA2E->CB62 just like above, but there's no jump to D9AD and CB62 keeps looping... when leaving it's CA2E->CB62 just like above
+;when entering the inn, everything is like the pawn shop except instead of D9AD, there's D997
+;when entering the armor shop, it's D985 instead of D9AD
+;item shop = D98E instead of D9AD
+;when one to a few body witdths from the exit from brynmaer, it alternates 1-to-1 between calling CB62 and D3EB, but once you get closer to the exit, it stops and is just CB62
+;when exiting brynmaer it's CB62->CA2E and then you leave the town and it loops with just CB62 (just like the tavern)
+;So far it seems like CB62 = main function to call (if you're in a shop then it just gets called once and then theres a child loop in a called sub), CA2E = general stuff to draw a new scene, and the rest are specific to whatever shop you're in
+;armor shop in leaf has same behavior as brynmaer
+;elders house in leaf is just like brynmaer tavern
+;so i think all shops of a single type are the same and all other buildings are a 'general building' category
+;the weird behavior near the brynmaer exit does not seem to happen with the leaf exit to the north, but it DOES happen near the exit to the cryochamber path
+
+;summary: Main loop CB62 -> Initialize New Scene = CA2E -> CB62 (1 time for shops, otherwise keeps looping CB62) -> Shop type function (D997 = inn D9AD = pawn, D98E = item, D985 = armor)
 JMP ($0010)						;Offset: 0xADB, Byte Code: 0x6C 0x10 0x00
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0ADE --
@@ -2580,9 +2614,9 @@ LDX #$00						;Offset: 0x128F, Byte Code: 0xA2 0x00
 JSR $9897						;Offset: 0x1291, Byte Code: 0x20 0x97 0x98
 INX								;Offset: 0x1294, Byte Code: 0xE8 
 JSR $9897						;Offset: 0x1295, Byte Code: 0x20 0x97 0x98
-LDA $0710						;Offset: 0x1298, Byte Code: 0xAD 0x10 0x07
+LDA AddressPlayerCondition						;Offset: 0x1298, Byte Code: 0xAD 0x10 0x07
 ORA #$40						;Offset: 0x129B, Byte Code: 0x09 0x40
-STA $0710						;Offset: 0x129D, Byte Code: 0x8D 0x10 0x07
+STA AddressPlayerCondition						;Offset: 0x129D, Byte Code: 0x8D 0x10 0x07
 LDA #$02						;Offset: 0x12A0, Byte Code: 0xA9 0x02
 STA $0561						;Offset: 0x12A2, Byte Code: 0x8D 0x61 0x05
 STA $0641						;Offset: 0x12A5, Byte Code: 0x8D 0x41 0x06
@@ -2871,7 +2905,7 @@ STA $0743						;Offset: 0x14AE, Byte Code: 0x8D 0x43 0x07
 LDA $0715						;Offset: 0x14B1, Byte Code: 0xAD 0x15 0x07
 CMP #$20						;Offset: 0x14B4, Byte Code: 0xC9 0x20
 BNE L_PRG_0xF_0x14C8						;Offset: 0x14B6, Byte Code: 0xD0 0x10 (computed address for relative mode instruction 0x14C8)
-LDA $0710						;Offset: 0x14B8, Byte Code: 0xAD 0x10 0x07
+LDA AddressPlayerCondition						;Offset: 0x14B8, Byte Code: 0xAD 0x10 0x07
 BPL L_PRG_0xF_0x14C3						;Offset: 0x14BB, Byte Code: 0x10 0x06 (computed address for relative mode instruction 0x14C3)
 AND #$30						;Offset: 0x14BD, Byte Code: 0x29 0x30
 CMP #$20						;Offset: 0x14BF, Byte Code: 0xC9 0x20
@@ -2888,7 +2922,7 @@ L_PRG_0xF_0x14C8:
 LDA $0715						;Offset: 0x14C8, Byte Code: 0xAD 0x15 0x07
 CMP #$08						;Offset: 0x14CB, Byte Code: 0xC9 0x08
 BNE L_PRG_0xF_0x14F2						;Offset: 0x14CD, Byte Code: 0xD0 0x23 (computed address for relative mode instruction 0x14F2)
-BIT $0710						;Offset: 0x14CF, Byte Code: 0x2C 0x10 0x07
+BIT AddressPlayerCondition						;Offset: 0x14CF, Byte Code: 0x2C 0x10 0x07
 BPL L_PRG_0xF_0x14D9						;Offset: 0x14D2, Byte Code: 0x10 0x05 (computed address for relative mode instruction 0x14D9)
 
 ;---- Start CDL Unknown Block: Offset 0x14D4 --
@@ -3089,7 +3123,7 @@ RTS								;Offset: 0x1652, Byte Code: 0x60
 RTS								;Offset: 0x1653, Byte Code: 0x60 
 LDA #$42						;Offset: 0x1654, Byte Code: 0xA9 0x42
 JMP $D22B						;Offset: 0x1656, Byte Code: 0x4C 0x2B 0xD2
-BIT $0710						;Offset: 0x1659, Byte Code: 0x2C 0x10 0x07
+BIT AddressPlayerCondition						;Offset: 0x1659, Byte Code: 0x2C 0x10 0x07
 BVS L_PRG_0xF_0x16A7						;Offset: 0x165C, Byte Code: 0x70 0x49 (computed address for relative mode instruction 0x16A7)
 LDA $04BE						;Offset: 0x165E, Byte Code: 0xAD 0xBE 0x04
 BNE L_PRG_0xF_0x16A7						;Offset: 0x1661, Byte Code: 0xD0 0x44 (computed address for relative mode instruction 0x16A7)
@@ -3385,7 +3419,7 @@ JSR $C89E						;Offset: 0x1869, Byte Code: 0x20 0x9E 0xC8
 LDA #$29						;Offset: 0x186C, Byte Code: 0xA9 0x29
 JSR $C125						;Offset: 0x186E, Byte Code: 0x20 0x25 0xC1
 JSR $D347						;Offset: 0x1871, Byte Code: 0x20 0x47 0xD3
-JSR $C008						;Offset: 0x1874, Byte Code: 0x20 0x08 0xC0
+JSR SUB_PRG_0xF_UpdatePlayerEquipmentStats						;Offset: 0x1874, Byte Code: 0x20 0x08 0xC0
 JSR $C8A9						;Offset: 0x1877, Byte Code: 0x20 0xA9 0xC8
 PLA								;Offset: 0x187A, Byte Code: 0x68 
 STA $23							;Offset: 0x187B, Byte Code: 0x85 0x23 
@@ -3487,7 +3521,7 @@ JSR $DADA						;Offset: 0x1915, Byte Code: 0x20 0xDA 0xDA
 LDA $7000						;Offset: 0x1918, Byte Code: 0xAD 0x00 0x70
 CMP #$FA						;Offset: 0x191B, Byte Code: 0xC9 0xFA
 BEQ L_PRG_0xF_0x1930						;Offset: 0x191D, Byte Code: 0xF0 0x11 (computed address for relative mode instruction 0x1930)
-JSR $C008						;Offset: 0x191F, Byte Code: 0x20 0x08 0xC0
+JSR SUB_PRG_0xF_UpdatePlayerEquipmentStats						;Offset: 0x191F, Byte Code: 0x20 0x08 0xC0
 JSR $FF8C						;Offset: 0x1922, Byte Code: 0x20 0x8C 0xFF
 LDA #$1A						;Offset: 0x1925, Byte Code: 0xA9 0x1A
 JSR $C418						;Offset: 0x1927, Byte Code: 0x20 0x18 0xC4
@@ -3526,7 +3560,7 @@ PLA								;Offset: 0x1968, Byte Code: 0x68
 STA $0421						;Offset: 0x1969, Byte Code: 0x8D 0x21 0x04
 LDA #$00						;Offset: 0x196C, Byte Code: 0xA9 0x00
 STA $07E8						;Offset: 0x196E, Byte Code: 0x8D 0xE8 0x07
-JSR $C008						;Offset: 0x1971, Byte Code: 0x20 0x08 0xC0
+JSR SUB_PRG_0xF_UpdatePlayerEquipmentStats						;Offset: 0x1971, Byte Code: 0x20 0x08 0xC0
 LDA #$09						;Offset: 0x1974, Byte Code: 0xA9 0x09
 JSR $C40E						;Offset: 0x1976, Byte Code: 0x20 0x0E 0xC4
 JSR $BA65						;Offset: 0x1979, Byte Code: 0x20 0x65 0xBA
@@ -3549,6 +3583,8 @@ LDA #$04						;Offset: 0x19A2, Byte Code: 0xA9 0x04
 JSR $8E46						;Offset: 0x19A4, Byte Code: 0x20 0x46 0x8E
 JSR $8CC0						;Offset: 0x19A7, Byte Code: 0x20 0xC0 0x8C
 JMP $DA72						;Offset: 0x19AA, Byte Code: 0x4C 0x72 0xDA
+
+;part of the code chain to initialize the shop Yes/No dialogue when entering
 JSR $DA0C						;Offset: 0x19AD, Byte Code: 0x20 0x0C 0xDA
 JSR $9509						;Offset: 0x19B0, Byte Code: 0x20 0x09 0x95
 JMP $DA72						;Offset: 0x19B3, Byte Code: 0x4C 0x72 0xDA
@@ -3765,9 +3801,9 @@ LDA $6C							;Offset: 0x1B32, Byte Code: 0xA5 0x6C
 AND #$F8						;Offset: 0x1B34, Byte Code: 0x29 0xF8
 CMP #$58						;Offset: 0x1B36, Byte Code: 0xC9 0x58
 BEQ L_PRG_0xF_0x1B45						;Offset: 0x1B38, Byte Code: 0xF0 0x0B (computed address for relative mode instruction 0x1B45)
-LDA $0710						;Offset: 0x1B3A, Byte Code: 0xAD 0x10 0x07
+LDA AddressPlayerCondition						;Offset: 0x1B3A, Byte Code: 0xAD 0x10 0x07
 AND #$0F						;Offset: 0x1B3D, Byte Code: 0x29 0x0F
-CMP #$04						;Offset: 0x1B3F, Byte Code: 0xC9 0x04
+CMP #PlayerCondition_Mutated						;Offset: 0x1B3F, Byte Code: 0xC9 0x04
 BEQ L_PRG_0xF_0x1B45						;Offset: 0x1B41, Byte Code: 0xF0 0x02 (computed address for relative mode instruction 0x1B45)
 BNE L_PRG_0xF_0x1B4F						;Offset: 0x1B43, Byte Code: 0xD0 0x0A (computed address for relative mode instruction 0x1B4F)
 
@@ -4055,7 +4091,7 @@ PLA								;Offset: 0x1D28, Byte Code: 0x68
 STA $0581						;Offset: 0x1D29, Byte Code: 0x8D 0x81 0x05
 PLA								;Offset: 0x1D2C, Byte Code: 0x68 
 STA $0301						;Offset: 0x1D2D, Byte Code: 0x8D 0x01 0x03
-JSR $C008						;Offset: 0x1D30, Byte Code: 0x20 0x08 0xC0
+JSR SUB_PRG_0xF_UpdatePlayerEquipmentStats						;Offset: 0x1D30, Byte Code: 0x20 0x08 0xC0
 JMP $FF8C						;Offset: 0x1D33, Byte Code: 0x4C 0x8C 0xFF
 LDX #$12						;Offset: 0x1D36, Byte Code: 0xA2 0x12
 LDA #$10						;Offset: 0x1D38, Byte Code: 0xA9 0x10
@@ -4228,7 +4264,7 @@ JSR $C418						;Offset: 0x1E5B, Byte Code: 0x20 0x18 0xC4
 JSR $8C0E						;Offset: 0x1E5E, Byte Code: 0x20 0x0E 0x8C
 JSR $C739						;Offset: 0x1E61, Byte Code: 0x20 0x39 0xC7
 JSR $C169						;Offset: 0x1E64, Byte Code: 0x20 0x69 0xC1
-JSR $C008						;Offset: 0x1E67, Byte Code: 0x20 0x08 0xC0
+JSR SUB_PRG_0xF_UpdatePlayerEquipmentStats						;Offset: 0x1E67, Byte Code: 0x20 0x08 0xC0
 PLA								;Offset: 0x1E6A, Byte Code: 0x68 
 STA $51							;Offset: 0x1E6B, Byte Code: 0x85 0x51 
 LDA #$08						;Offset: 0x1E6D, Byte Code: 0xA9 0x08
@@ -4375,9 +4411,9 @@ ASL A							;Offset: 0x1F76, Byte Code: 0x0A
 ASL A							;Offset: 0x1F77, Byte Code: 0x0A
 ASL A							;Offset: 0x1F78, Byte Code: 0x0A
 ASL A							;Offset: 0x1F79, Byte Code: 0x0A
-ORA $0710						;Offset: 0x1F7A, Byte Code: 0x0D 0x10 0x07
+ORA AddressPlayerCondition						;Offset: 0x1F7A, Byte Code: 0x0D 0x10 0x07
 ORA #$80						;Offset: 0x1F7D, Byte Code: 0x09 0x80
-STA $0710						;Offset: 0x1F7F, Byte Code: 0x8D 0x10 0x07
+STA AddressPlayerCondition						;Offset: 0x1F7F, Byte Code: 0x8D 0x10 0x07
 LDA #$1A						;Offset: 0x1F82, Byte Code: 0xA9 0x1A
 JSR $C418						;Offset: 0x1F84, Byte Code: 0x20 0x18 0xC4
 LDA #$14						;Offset: 0x1F87, Byte Code: 0xA9 0x14
@@ -5055,14 +5091,14 @@ JMP ($0010)						;Offset: 0x2419, Byte Code: 0x6C 0x10 0x00
 JSR $E61B						;Offset: 0x241C, Byte Code: 0x20 0x1B 0xE6
 JMP $E439						;Offset: 0x241F, Byte Code: 0x4C 0x39 0xE4
 JSR $E611						;Offset: 0x2422, Byte Code: 0x20 0x11 0xE6
-LDA $0710						;Offset: 0x2425, Byte Code: 0xAD 0x10 0x07
+LDA AddressPlayerCondition						;Offset: 0x2425, Byte Code: 0xAD 0x10 0x07
 AND #$0F						;Offset: 0x2428, Byte Code: 0x29 0x0F
-CMP #$04						;Offset: 0x242A, Byte Code: 0xC9 0x04
+CMP #PlayerCondition_Mutated						;Offset: 0x242A, Byte Code: 0xC9 0x04
 BNE L_PRG_0xF_0x2439						;Offset: 0x242C, Byte Code: 0xD0 0x0B (computed address for relative mode instruction 0x2439)
-LDA $0710						;Offset: 0x242E, Byte Code: 0xAD 0x10 0x07
+LDA AddressPlayerCondition						;Offset: 0x242E, Byte Code: 0xAD 0x10 0x07
 AND #$F0						;Offset: 0x2431, Byte Code: 0x29 0xF0
-STA $0710						;Offset: 0x2433, Byte Code: 0x8D 0x10 0x07
-JSR $C008						;Offset: 0x2436, Byte Code: 0x20 0x08 0xC0
+STA AddressPlayerCondition						;Offset: 0x2433, Byte Code: 0x8D 0x10 0x07
+JSR SUB_PRG_0xF_UpdatePlayerEquipmentStats						;Offset: 0x2436, Byte Code: 0x20 0x08 0xC0
 
 L_PRG_0xF_0x2439:
 
@@ -5133,7 +5169,9 @@ LDA #$80						;Offset: 0x24A9, Byte Code: 0xA9 0x80
 STA $51							;Offset: 0x24AB, Byte Code: 0x85 0x51 
 LDA $01							;Offset: 0x24AD, Byte Code: 0xA5 0x01 
 AND #$06						;Offset: 0x24AF, Byte Code: 0x29 0x06
-STA $01							;Offset: 0x24B1, Byte Code: 0x85 0x01 
+STA $01							;Offset: 0x24B1, Byte Code: 0x85 0x01
+
+;this sub (C169) seems to finish the fade to black when entering a shop or new scene
 JSR $C169						;Offset: 0x24B3, Byte Code: 0x20 0x69 0xC1
 JSR $C676						;Offset: 0x24B6, Byte Code: 0x20 0x76 0xC6
 LDA #$01						;Offset: 0x24B9, Byte Code: 0xA9 0x01
@@ -5287,14 +5325,14 @@ STA $90							;Offset: 0x25C7, Byte Code: 0x85 0x90
 STA $91							;Offset: 0x25C9, Byte Code: 0x85 0x91 
 LDA $20							;Offset: 0x25CB, Byte Code: 0xA5 0x20 
 PHA								;Offset: 0x25CD, Byte Code: 0x48 
-LDA $0710						;Offset: 0x25CE, Byte Code: 0xAD 0x10 0x07
+LDA AddressPlayerCondition						;Offset: 0x25CE, Byte Code: 0xAD 0x10 0x07
 AND #$0F						;Offset: 0x25D1, Byte Code: 0x29 0x0F
-CMP #$04						;Offset: 0x25D3, Byte Code: 0xC9 0x04
+CMP #PlayerCondition_Mutated						;Offset: 0x25D3, Byte Code: 0xC9 0x04
 BNE L_PRG_0xF_0x25E2						;Offset: 0x25D5, Byte Code: 0xD0 0x0B (computed address for relative mode instruction 0x25E2)
-LDA $0710						;Offset: 0x25D7, Byte Code: 0xAD 0x10 0x07
+LDA AddressPlayerCondition						;Offset: 0x25D7, Byte Code: 0xAD 0x10 0x07
 AND #$F0						;Offset: 0x25DA, Byte Code: 0x29 0xF0
-STA $0710						;Offset: 0x25DC, Byte Code: 0x8D 0x10 0x07
-JSR $C008						;Offset: 0x25DF, Byte Code: 0x20 0x08 0xC0
+STA AddressPlayerCondition						;Offset: 0x25DC, Byte Code: 0x8D 0x10 0x07
+JSR SUB_PRG_0xF_UpdatePlayerEquipmentStats						;Offset: 0x25DF, Byte Code: 0x20 0x08 0xC0
 
 L_PRG_0xF_0x25E2:
 
@@ -5321,6 +5359,9 @@ LDA #$1A						;Offset: 0x2607, Byte Code: 0xA9 0x1A
 JSR $C418						;Offset: 0x2609, Byte Code: 0x20 0x18 0xC4
 LDA #$04						;Offset: 0x260C, Byte Code: 0xA9 0x04
 JMP $8C49						;Offset: 0x260E, Byte Code: 0x4C 0x49 0x8C
+
+
+;called from sub at 0xA2E, seems to fade screen to black when entering a building/changing scenes
 LDA #$1A						;Offset: 0x2611, Byte Code: 0xA9 0x1A
 JSR $C418						;Offset: 0x2613, Byte Code: 0x20 0x18 0xC4
 LDA #$02						;Offset: 0x2616, Byte Code: 0xA9 0x02
@@ -7186,7 +7227,7 @@ JMP $F1C7						;Offset: 0x323A, Byte Code: 0x4C 0xC7 0xF1
 .byte $D0,  $F0,  $60,  $71,  $74,  $74,  $71,  $77
 .byte $7A,  $7A,  $77,  $7D,  $7D,  $7D,  $7D
 ;---- End CDL Unknown Block: Total Bytes 0x67 ----
-
+PRG_0xF_HardwareHandler_Reset:
 SEI								;Offset: 0x32A4, Byte Code: 0x78 
 CLD								;Offset: 0x32A5, Byte Code: 0xD8 
 LDX #$FF						;Offset: 0x32A6, Byte Code: 0xA2 0xFF
@@ -8497,7 +8538,7 @@ PRG_0xF_InterruptVectorTable_NMI:
 .byte $B6,  $F3
 
 PRG_0xF_InterruptVectorTable_Reset:
-.byte $A4,  $F2
+.word PRG_0xF_HardwareHandler_Reset
 
 PRG_0xF_InterruptVectorTable_IRQ:
 .byte $43,  $F4

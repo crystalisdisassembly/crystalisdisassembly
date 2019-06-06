@@ -29,6 +29,8 @@
 
 .define AddressPlayerSpriteCurrentSwordCharge			$06C0 ;the overall charge (0x0-0x18, where 0x8 = level 1 shot, 0x10 = level 2 shot and 0x18 = level 3 shot)
 
+.define AddressPlayerNextLevelExperienceLoByte			$0706
+.define AddressPlayerNextLevelExperienceHiByte			$0707
 .define AddressPlayerCurrentMP							$0708
 .define AddressPlayerMaximumMP							$0709
 .define AddressPlayerCondition							$0710

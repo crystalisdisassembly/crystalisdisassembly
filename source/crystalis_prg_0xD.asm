@@ -687,7 +687,7 @@ RTS								;Offset: 0x4BB, Byte Code: 0x60
 ;---- Start CDL Unknown Block: Offset 0x0B7C --
 .byte $69,  $6E,  $64
 ;---- End CDL Unknown Block: Total Bytes 0x03 ----
-;note: the $00 byte at the start of this array is actually a CDL unknown, but the code at 0x118E puts the start of the array here
+
 
 PRG_0xD_MaximumHPLevelArray:
 .byte $00
@@ -699,13 +699,14 @@ PRG_0xD_MaximumHPLevelArray:
 PRG_0xD_MaximumMPLevelArray:
 .byte $FF
 .byte $22,  $22,  $33,  $44,  $55,  $66,  $77,  $88
-.byte $99,  $AA,  $BB,  $CC,  $DD,  $EE,  $FF,  $FF
-;---- End CDL Confirmed Data Block: Total Bytes 0x20 ----
+.byte $99,  $AA,  $BB,  $CC,  $DD,  $EE
 
+;this is also the last 2 bytes of the MaximumMPLevelArray but accessing level experience uses level*2 as an index so starting from 0xB9E at level 1 gives 0xBA0 (30 exp)
+PRG_0xD_LevelExperienceArray: ;0xB9E
+.byte $FF,  $FF
 
-;---- Start CDL Unknown Block: Offset 0x0BA0 --
 .byte $1E,  $00
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
+
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x0BA2 --
@@ -1589,24 +1590,29 @@ LDA PRG_0xD_MaximumMPLevelArray, Y					;Offset: 0x1194, Byte Code: 0xB9 0x8F 0x8
 STA AddressPlayerMaximumMP		;Offset: 0x1197, Byte Code: 0x8D 0x09 0x07
 
 SEC								;Offset: 0x119A, Byte Code: 0x38 
-LDA $8B7F, Y					;Offset: 0x119B, Byte Code: 0xB9 0x7F 0x8B
-SBC $8B7E, Y					;Offset: 0x119E, Byte Code: 0xF9 0x7E 0x8B
-CLC								;Offset: 0x11A1, Byte Code: 0x18 
-ADC $03C1						;Offset: 0x11A2, Byte Code: 0x6D 0xC1 0x03
-STA $03C1						;Offset: 0x11A5, Byte Code: 0x8D 0xC1 0x03
+LDA PRG_0xD_MaximumHPLevelArray, Y					;Offset: 0x119B, Byte Code: 0xB9 0x7F 0x8B
+;compare to previous level max hp
+SBC PRG_0xD_MaximumHPLevelArray-1, Y					;Offset: 0x119E, Byte Code: 0xF9 0x7E 0x8B
+CLC								;Offset: 0x11A1, Byte Code: 0x18
+;increase current hp by the change from previous level
+ADC AddressPlayerSpriteCurrentHP						;Offset: 0x11A2, Byte Code: 0x6D 0xC1 0x03
+STA AddressPlayerSpriteCurrentHP						;Offset: 0x11A5, Byte Code: 0x8D 0xC1 0x03
 SEC								;Offset: 0x11A8, Byte Code: 0x38 
-LDA $8B8F, Y					;Offset: 0x11A9, Byte Code: 0xB9 0x8F 0x8B
-SBC $8B8E, Y					;Offset: 0x11AC, Byte Code: 0xF9 0x8E 0x8B
-CLC								;Offset: 0x11AF, Byte Code: 0x18 
-ADC $0708						;Offset: 0x11B0, Byte Code: 0x6D 0x08 0x07
-STA $0708						;Offset: 0x11B3, Byte Code: 0x8D 0x08 0x07
-LDA $0421						;Offset: 0x11B6, Byte Code: 0xAD 0x21 0x04
+LDA PRG_0xD_MaximumMPLevelArray, Y					;Offset: 0x11A9, Byte Code: 0xB9 0x8F 0x8B
+SBC PRG_0xD_MaximumMPLevelArray-1, Y					;Offset: 0x11AC, Byte Code: 0xF9 0x8E 0x8B
+CLC								;Offset: 0x11AF, Byte Code: 0x18
+;increase current mp by change from previous level
+ADC AddressPlayerCurrentMP						;Offset: 0x11B0, Byte Code: 0x6D 0x08 0x07
+STA AddressPlayerCurrentMP						;Offset: 0x11B3, Byte Code: 0x8D 0x08 0x07
+LDA AddressPlayerSpriteLevel						;Offset: 0x11B6, Byte Code: 0xAD 0x21 0x04
 ASL A							;Offset: 0x11B9, Byte Code: 0x0A
 TAY								;Offset: 0x11BA, Byte Code: 0xA8 
-LDA $8B9E, Y					;Offset: 0x11BB, Byte Code: 0xB9 0x9E 0x8B
-STA $0706						;Offset: 0x11BE, Byte Code: 0x8D 0x06 0x07
-LDA $8B9F, Y					;Offset: 0x11C1, Byte Code: 0xB9 0x9F 0x8B
-STA $0707						;Offset: 0x11C4, Byte Code: 0x8D 0x07 0x07
+;lo byte
+LDA PRG_0xD_LevelExperienceArray, Y					;Offset: 0x11BB, Byte Code: 0xB9 0x9E 0x8B
+STA AddressPlayerNextLevelExperienceLoByte						;Offset: 0x11BE, Byte Code: 0x8D 0x06 0x07
+;hi byte
+LDA PRG_0xD_LevelExperienceArray+1, Y					;Offset: 0x11C1, Byte Code: 0xB9 0x9F 0x8B
+STA AddressPlayerNextLevelExperienceHiByte						;Offset: 0x11C4, Byte Code: 0x8D 0x07 0x07
 JSR $8CC0						;Offset: 0x11C7, Byte Code: 0x20 0xC0 0x8C
 LDA #$00						;Offset: 0x11CA, Byte Code: 0xA9 0x00
 JSR $8E46						;Offset: 0x11CC, Byte Code: 0x20 0x46 0x8E
@@ -1650,8 +1656,8 @@ STA $05A0, Y					;Offset: 0x1220, Byte Code: 0x99 0xA0 0x05
 LDA #$0B						;Offset: 0x1223, Byte Code: 0xA9 0x0B
 STA $04C0, Y					;Offset: 0x1225, Byte Code: 0x99 0xC0 0x04
 RTS								;Offset: 0x1228, Byte Code: 0x60 
-LDA $0711						;Offset: 0x1229, Byte Code: 0xAD 0x11 0x07
-CMP #$04						;Offset: 0x122C, Byte Code: 0xC9 0x04
+LDA AddressIndexEquippedSword						;Offset: 0x1229, Byte Code: 0xAD 0x11 0x07
+CMP #SwordIndex_SwordOfThunder						;Offset: 0x122C, Byte Code: 0xC9 0x04
 BNE L_PRG_0xD_0x124A						;Offset: 0x122E, Byte Code: 0xD0 0x1A (computed address for relative mode instruction 0x124A)
 LDA $0540, Y					;Offset: 0x1230, Byte Code: 0xB9 0x40 0x05
 BNE L_PRG_0xD_0x124A						;Offset: 0x1233, Byte Code: 0xD0 0x15 (computed address for relative mode instruction 0x124A)
