@@ -1,4 +1,6 @@
 # crystalisdisassembly
+Note: I don't have time to actively maintain this repo, so please by all means take/use/steal anything here, no need to credit me or anything. If you find something interesting I'd appreciate a message.
+
 This is a reassemblable disassembly of the NES game Crystalis. The goal of this project is to produce a documented and reassemblable disassembly. Target assembler is ca65.
 
 This repo includes my Mesen Code+Data Log (CDL). If you have a more complete CDL, please message me. Current CDL stats:
@@ -10,7 +12,7 @@ To assemble, run the included _cryasm.bat file. Make sure _cryasm.bat, crystalis
 _crystalis_master.asm is the master file that contains the iNES header and references each separate PRG and CHR bank.
 
 Notes:
- 1. I wrote a custom disassembler and use a Mesen CDL to guide disassembly between code and data, but this is only an approximation. Mesen flags certain areas of the ROM as both code and data and I'm not sure if this is always accurate. There's a fair amount of poorly legible output including quite a few "invalid opcode" comments in the .asm files, which is a consequence of the ambiguous CDL.
+ 1. I wrote a custom disassembler (https://github.com/crystalisdisassembly/LDASM) and use a Mesen CDL to guide disassembly between code and data, but this is only an approximation. Mesen flags certain areas of the ROM as both code and data and I'm not sure if this is always accurate. There's a fair amount of poorly legible output including quite a few "invalid opcode" comments in the .asm files, which is a consequence of the ambiguous CDL.
  2. The above issue prevents the CHR banks from reassembling. My disassembler therefore treats all ambiguous bytes in the CHR (anything marked as both code and data in the CDL) as data and outputs it via ".byte" commands.
  3. There's also ambiguous data in the PRG banks but this doesn't interfere with reassembly and is therefore treated as code.
  4. There's a single problem instruction in PRG bank 0x8. Offset 0x29B7 disassembles into "BCC #$01", a branch to 0x29BA. However, this isn't aligned with the disassembly, as offset 0x29B9 contains the instruction JMP $A9C9 and the BCC would move the program counter to the operand, rather than the JMP instruction itself. I don't understand the behavior of this code to understand why it's written this way but regardless, ca65 won't accept an immediate operand for the BCC instruction. Therefore the BCC #$01 is emitted as ".byte $90, $01".
