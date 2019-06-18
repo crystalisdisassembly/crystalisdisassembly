@@ -17,7 +17,7 @@ fc crystalis.nes crystalis-original.nes
 @echo asm error!
 @GOTO endbuild
 
-:linkererror
+:linkerfailure
 @echo.
 @echo linker error!
 @GOTO endbuild
