@@ -1299,6 +1299,14 @@ STA $22							;Offset: 0xFAA, Byte Code: 0x85 0x22
 JSR $95F8						;Offset: 0xFAC, Byte Code: 0x20 0xF8 0x95
 BCC L_PRG_0xD_0x0FB4						;Offset: 0xFAF, Byte Code: 0x90 0x03 (computed address for relative mode instruction 0x0FB4)
 JSR a:$0020						;Offset: 0xFB1, Byte Code: 0x20 0x20 0x00
+;	where $0020 is the address of a collision handler function (so far all seem to be in this bank):
+;
+;	Player sprite with:
+;		$9357 = enemy, enemy projectile (?), gold, ??? (seems to be called constantly around town exits, not sure if all or just some)
+;		$94B0 = NPC, enemy projectile (?)
+;
+;	Sword projectile sprite with:
+;		$90AA = enemy
 
 L_PRG_0xD_0x0FB4:
 

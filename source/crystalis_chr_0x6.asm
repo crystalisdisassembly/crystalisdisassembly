@@ -4520,14 +4520,26 @@ ROR $7E7E, X					;Offset: 0x16DA, Byte Code: 0x7E 0x7E 0x7E
 ROR $7E7E, X					;Offset: 0x16EA, Byte Code: 0x7E 0x7E 0x7E
 
 ;---- Start CDL Unknown Block: Offset 0x16ED --
-.byte $7E,  $7E,  $00,  $FF,  $FF
-;---- End CDL Unknown Block: Total Bytes 0x05 ----
+.byte $7E,  $7E,  $00
+;---- End CDL Unknown Block: Total Bytes 0x03 ----
+
+.byte $FF							;Offset: 0x16F0, Byte Code: 0xFF .. Illegal Opcode!!
+
+;---- Start CDL Unknown Block: Offset 0x16F1 --
+.byte $FF
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 .byte $FF							;Offset: 0x16F2, Byte Code: 0xFF .. Illegal Opcode!!
 
 ;---- Start CDL Unknown Block: Offset 0x16F3 --
-.byte $FF,  $FF,  $FF,  $FF,  $FF,  $00,  $7E
-;---- End CDL Unknown Block: Total Bytes 0x07 ----
+.byte $FF,  $FF,  $FF,  $FF,  $FF
+;---- End CDL Unknown Block: Total Bytes 0x05 ----
+
+BRK								;Offset: 0x16F8, Byte Code: 0x00 
+
+;---- Start CDL Unknown Block: Offset 0x16F9 --
+.byte $7E
+;---- End CDL Unknown Block: Total Bytes 0x01 ----
 
 ROR $7E7E, X					;Offset: 0x16FA, Byte Code: 0x7E 0x7E 0x7E
 

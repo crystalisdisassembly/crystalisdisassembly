@@ -1448,23 +1448,13 @@
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x2301 --
-.byte $A0
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
+.byte $A0, $9F, $9E, $9E
+;---- End CDL Confirmed Data Block: Total Bytes 0x04 ----
 
 
-;---- Start CDL Unknown Block: Offset 0x2302 --
-.byte $9F
+;---- Start CDL Unknown Block: Offset 0x2305 --
+.byte  $9E
 ;---- End CDL Unknown Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Confirmed Data Block: Offset 0x2303 --
-.byte $9E
-;---- End CDL Confirmed Data Block: Total Bytes 0x01 ----
-
-
-;---- Start CDL Unknown Block: Offset 0x2304 --
-.byte $9E,  $9E
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x2306 --

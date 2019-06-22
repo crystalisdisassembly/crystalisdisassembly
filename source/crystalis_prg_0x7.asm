@@ -777,7 +777,9 @@ STY $2F							;Offset: 0x4FD, Byte Code: 0x84 0x2F
 LDA #$25						;Offset: 0x4FF, Byte Code: 0xA9 0x25
 JSR $C125						;Offset: 0x501, Byte Code: 0x20 0x25 0xC1
 LDY $2F							;Offset: 0x504, Byte Code: 0xA4 0x2F 
-RTS								;Offset: 0x506, Byte Code: 0x60 
+RTS								;Offset: 0x506, Byte Code: 0x60
+
+;called when fruit of power used
 CLC								;Offset: 0x507, Byte Code: 0x18 
 LDA $0708						;Offset: 0x508, Byte Code: 0xAD 0x08 0x07
 ADC #$20						;Offset: 0x50B, Byte Code: 0x69 0x20
@@ -803,12 +805,12 @@ STA $0708						;Offset: 0x520, Byte Code: 0x8D 0x08 0x07
 RTS								;Offset: 0x523, Byte Code: 0x60 
 LDA $0710						;Offset: 0x524, Byte Code: 0xAD 0x10 0x07
 AND #$0F						;Offset: 0x527, Byte Code: 0x29 0x0F
-CMP #$03						;Offset: 0x529, Byte Code: 0xC9 0x03
+CMP #PlayerCondition_Poison						;Offset: 0x529, Byte Code: 0xC9 0x03
 BNE L_PRG_0x7_0x04DB						;Offset: 0x52B, Byte Code: 0xD0 0xAE (computed address for relative mode instruction 0x04DB)
 BEQ L_PRG_0x7_0x0553						;Offset: 0x52D, Byte Code: 0xF0 0x24 (computed address for relative mode instruction 0x0553)
 LDA $0710						;Offset: 0x52F, Byte Code: 0xAD 0x10 0x07
 AND #$0F						;Offset: 0x532, Byte Code: 0x29 0x0F
-CMP #$01						;Offset: 0x534, Byte Code: 0xC9 0x01
+CMP #PlayerCondition_Paralyzed						;Offset: 0x534, Byte Code: 0xC9 0x01
 BNE L_PRG_0x7_0x04DB						;Offset: 0x536, Byte Code: 0xD0 0xA3 (computed address for relative mode instruction 0x04DB)
 
 ;---- Start CDL Unknown Block: Offset 0x0538 --
@@ -817,7 +819,7 @@ BNE L_PRG_0x7_0x04DB						;Offset: 0x536, Byte Code: 0xD0 0xA3 (computed address
 
 LDA $0710						;Offset: 0x53A, Byte Code: 0xAD 0x10 0x07
 AND #$0F						;Offset: 0x53D, Byte Code: 0x29 0x0F
-CMP #$02						;Offset: 0x53F, Byte Code: 0xC9 0x02
+CMP #PlayerCondition_Stone						;Offset: 0x53F, Byte Code: 0xC9 0x02
 BNE L_PRG_0x7_0x04DB						;Offset: 0x541, Byte Code: 0xD0 0x98 (computed address for relative mode instruction 0x04DB)
 
 ;---- Start CDL Unknown Block: Offset 0x0543 --
@@ -2842,10 +2844,16 @@ RTS								;Offset: 0x5DE, Byte Code: 0x60
 
 
 ;---- Start CDL Unknown Block: Offset 0x18F4 --
+.byte $00,  $00
+;---- End CDL Confirmed Data Block: Total Bytes 0x02 ----
+
+.byte $00
+
+;---- Start CDL Unknown Block: Offset 0x18F7 --
+.byte $00,  $00,  $00,  $00,  $00
 .byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
 .byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-.byte $00,  $00,  $00,  $00,  $00,  $00,  $00,  $00
-;---- End CDL Unknown Block: Total Bytes 0x18 ----
+;---- End CDL Unknown Block: Total Bytes 0x15 ----
 
 
 ;---- Start CDL Confirmed Data Block: Offset 0x190C --

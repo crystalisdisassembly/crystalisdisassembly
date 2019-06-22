@@ -2139,23 +2139,91 @@ BRK								;Offset: 0xB3C, Byte Code: 0x00
 BRK								;Offset: 0xB3D, Byte Code: 0x00 
 BRK								;Offset: 0xB3E, Byte Code: 0x00 
 BRK								;Offset: 0xB3F, Byte Code: 0x00 
-
-;---- Start CDL Unknown Block: Offset 0x0B40 --
-.byte $00,  $00,  $00,  $00,  $00,  $07,  $18,  $20
-.byte $00,  $00,  $00,  $00,  $07,  $18,  $27,  $58
-.byte $04,  $04,  $08,  $08,  $08,  $08,  $08,  $08
-.byte $0A,  $0A,  $14,  $14,  $14,  $14,  $14,  $14
-.byte $08,  $08,  $08,  $08,  $08,  $08,  $08,  $08
-.byte $14,  $14,  $14,  $14,  $14,  $14,  $14,  $14
-.byte $00,  $00,  $00,  $03,  $1C,  $21,  $2E,  $D0
-.byte $00,  $00,  $00,  $00,  $03,  $1F,  $1E,  $30
-.byte $11,  $16,  $14,  $28,  $28,  $14,  $14,  $0A
-.byte $0F,  $0E,  $0C,  $18,  $18,  $0C,  $0C,  $06
-.byte $0A,  $14,  $14,  $28,  $28,  $14,  $14,  $0A
-.byte $06,  $0C,  $0C,  $18,  $18,  $0C,  $0C,  $06
-;---- End CDL Unknown Block: Total Bytes 0x60 ----
-
-.byte $07							;Offset: 0xBA0, Byte Code: 0x07 .. Illegal Opcode!!
+BRK								;Offset: 0xB40, Byte Code: 0x00 
+BRK								;Offset: 0xB41, Byte Code: 0x00 
+BRK								;Offset: 0xB42, Byte Code: 0x00 
+BRK								;Offset: 0xB43, Byte Code: 0x00 
+BRK								;Offset: 0xB44, Byte Code: 0x00 
+.byte $07							;Offset: 0xB45, Byte Code: 0x07 .. Illegal Opcode!!
+CLC								;Offset: 0xB46, Byte Code: 0x18 
+JSR a:$0000						;Offset: 0xB47, Byte Code: 0x20 0x00 0x00
+BRK								;Offset: 0xB4A, Byte Code: 0x00 
+BRK								;Offset: 0xB4B, Byte Code: 0x00 
+.byte $07							;Offset: 0xB4C, Byte Code: 0x07 .. Illegal Opcode!!
+CLC								;Offset: 0xB4D, Byte Code: 0x18 
+.byte $27							;Offset: 0xB4E, Byte Code: 0x27 .. Illegal Opcode!!
+CLI								;Offset: 0xB4F, Byte Code: 0x58 
+.byte $04							;Offset: 0xB50, Byte Code: 0x04 .. Illegal Opcode!!
+.byte $04							;Offset: 0xB51, Byte Code: 0x04 .. Illegal Opcode!!
+PHP								;Offset: 0xB52, Byte Code: 0x08 
+PHP								;Offset: 0xB53, Byte Code: 0x08 
+PHP								;Offset: 0xB54, Byte Code: 0x08 
+PHP								;Offset: 0xB55, Byte Code: 0x08 
+PHP								;Offset: 0xB56, Byte Code: 0x08 
+PHP								;Offset: 0xB57, Byte Code: 0x08 
+ASL A							;Offset: 0xB58, Byte Code: 0x0A
+ASL A							;Offset: 0xB59, Byte Code: 0x0A
+.byte $14							;Offset: 0xB5A, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB5B, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB5C, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB5D, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB5E, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB5F, Byte Code: 0x14 .. Illegal Opcode!!
+PHP								;Offset: 0xB60, Byte Code: 0x08 
+PHP								;Offset: 0xB61, Byte Code: 0x08 
+PHP								;Offset: 0xB62, Byte Code: 0x08 
+PHP								;Offset: 0xB63, Byte Code: 0x08 
+PHP								;Offset: 0xB64, Byte Code: 0x08 
+PHP								;Offset: 0xB65, Byte Code: 0x08 
+PHP								;Offset: 0xB66, Byte Code: 0x08 
+PHP								;Offset: 0xB67, Byte Code: 0x08 
+.byte $14							;Offset: 0xB68, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB69, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB6A, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB6B, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB6C, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB6D, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB6E, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB6F, Byte Code: 0x14 .. Illegal Opcode!!
+BRK								;Offset: 0xB70, Byte Code: 0x00 
+BRK								;Offset: 0xB71, Byte Code: 0x00 
+BRK								;Offset: 0xB72, Byte Code: 0x00 
+.byte $03							;Offset: 0xB73, Byte Code: 0x03 .. Illegal Opcode!!
+.byte $1C							;Offset: 0xB74, Byte Code: 0x1C .. Illegal Opcode!!
+AND ($2E, X)					;Offset: 0xB75, Byte Code: 0x21 0x2E
+.byte $D0, $00						;BNE $00			;Offset: 0xB77, Byte Code: 0xD0 0x00 (computed address for relative mode instruction 0x0B79)
+BRK								;Offset: 0xB79, Byte Code: 0x00 
+BRK								;Offset: 0xB7A, Byte Code: 0x00 
+BRK								;Offset: 0xB7B, Byte Code: 0x00 
+.byte $03							;Offset: 0xB7C, Byte Code: 0x03 .. Illegal Opcode!!
+.byte $1F							;Offset: 0xB7D, Byte Code: 0x1F .. Illegal Opcode!!
+ASL $1130, X					;Offset: 0xB7E, Byte Code: 0x1E 0x30 0x11
+ASL $14, X						;Offset: 0xB81, Byte Code: 0x16 0x14
+PLP								;Offset: 0xB83, Byte Code: 0x28 
+PLP								;Offset: 0xB84, Byte Code: 0x28 
+.byte $14							;Offset: 0xB85, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB86, Byte Code: 0x14 .. Illegal Opcode!!
+ASL A							;Offset: 0xB87, Byte Code: 0x0A
+.byte $0F							;Offset: 0xB88, Byte Code: 0x0F .. Illegal Opcode!!
+ASL $180C						;Offset: 0xB89, Byte Code: 0x0E 0x0C 0x18
+CLC								;Offset: 0xB8C, Byte Code: 0x18 
+.byte $0C							;Offset: 0xB8D, Byte Code: 0x0C .. Illegal Opcode!!
+.byte $0C							;Offset: 0xB8E, Byte Code: 0x0C .. Illegal Opcode!!
+ASL $0A							;Offset: 0xB8F, Byte Code: 0x06 0x0A 
+.byte $14							;Offset: 0xB91, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB92, Byte Code: 0x14 .. Illegal Opcode!!
+PLP								;Offset: 0xB93, Byte Code: 0x28 
+PLP								;Offset: 0xB94, Byte Code: 0x28 
+.byte $14							;Offset: 0xB95, Byte Code: 0x14 .. Illegal Opcode!!
+.byte $14							;Offset: 0xB96, Byte Code: 0x14 .. Illegal Opcode!!
+ASL A							;Offset: 0xB97, Byte Code: 0x0A
+ASL $0C							;Offset: 0xB98, Byte Code: 0x06 0x0C 
+.byte $0C							;Offset: 0xB9A, Byte Code: 0x0C .. Illegal Opcode!!
+CLC								;Offset: 0xB9B, Byte Code: 0x18 
+CLC								;Offset: 0xB9C, Byte Code: 0x18 
+.byte $0C							;Offset: 0xB9D, Byte Code: 0x0C .. Illegal Opcode!!
+.byte $0C							;Offset: 0xB9E, Byte Code: 0x0C .. Illegal Opcode!!
+ASL $07							;Offset: 0xB9F, Byte Code: 0x06 0x07 
 SEC								;Offset: 0xBA1, Byte Code: 0x38 
 RTS								;Offset: 0xBA2, Byte Code: 0x60 
 EOR $20							;Offset: 0xBA3, Byte Code: 0x45 0x20 
