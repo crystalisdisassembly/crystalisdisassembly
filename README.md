@@ -1,10 +1,10 @@
 # crystalisdisassembly
-Note: I don't have time to actively maintain this repo, so please by all means take/use/steal anything here, no need to credit me or anything. If you find something interesting I'd appreciate a message.
+Note: I don't have time to actively maintain this repo, so please by all means use anything here, no need to credit me or anything. If you find something interesting I'd appreciate a message though.
 
 This is a reassemblable disassembly of the NES game Crystalis. The goal of this project is to produce a documented and reassemblable disassembly. Target assembler is ca65.
 
-This repo includes my Mesen Code+Data Log (CDL). If you have a more complete CDL, please message me. Current CDL stats:
-  * PRG Analysis: 92.15% Complete (18.74% Code, 73.41% Data, 7.85% Unknown)
+This repo includes my Mesen Code+Data Log (CDL). If you have a more complete CDL, please message me. I've updated portions of my CDL manually (such as areas of jump tables that will never be reached in an actual game) Current CDL stats:
+  * PRG Analysis: 92.19% Complete (18.74% Code, 73.45% Data, 7.81% Unknown)
   * CHR Analysis: 88.16% Complete (88.24% Drawn, 0.00% Read, 11.76% Unknown)
 
 To assemble, run the included _cryasm.bat file. Make sure _cryasm.bat, crystalis.cfg, ca65.exe and ld65.exe are in the same directory as all of the .asm files). If you put an original copy of the ROM in this directory, the .bat file will check for any differences.
