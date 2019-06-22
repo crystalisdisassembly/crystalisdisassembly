@@ -562,7 +562,9 @@ JMP ($0026)						;Offset: 0x351, Byte Code: 0x6C 0x26 0x00
 ;the jmp here seems to jump to an event handler for the consumable item that was used
 ;$0026 contains the address of the handler sub that will be jumped to
 ;there's a pointer table to these functions at 0x3D3 (ROM 0x1C3E3, address in this bank: $83D3)
-;it actually starts at $8399 but up until $83D3 looks like markers for item indices that don't have a consumable item function?
+;it actually starts at $8399 but up until $83D3 looks like markers for item indices that don't have a consumable item function
+;the index used for the pointer table is the master item index ("_crystalis_defines_constants_items_masteritemindex.asm")
+;for example, antidote is #$1E, lysis plant is #$1F, alarm flute is #$31
 ;0x84A9 = alarm flute
 ;0x84E0 = medical herb
 ;0x8507 = fruit of power
