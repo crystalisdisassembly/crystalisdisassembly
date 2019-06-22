@@ -541,6 +541,7 @@ STA $26							;Offset: 0x32F, Byte Code: 0x85 0x26
 LDA $839A, X					;Offset: 0x331, Byte Code: 0xBD 0x9A 0x83
 STA $27							;Offset: 0x334, Byte Code: 0x85 0x27 
 LDY #$00						;Offset: 0x336, Byte Code: 0xA0 0x00
+
 JSR $8351						;Offset: 0x338, Byte Code: 0x20 0x51 0x83
 LDA $23							;Offset: 0x33B, Byte Code: 0xA5 0x23 
 CMP #$FF						;Offset: 0x33D, Byte Code: 0xC9 0xFF
@@ -554,8 +555,26 @@ JSR $8354						;Offset: 0x34D, Byte Code: 0x20 0x54 0x83
 
 L_PRG_0x7_0x0350:
 
-RTS								;Offset: 0x350, Byte Code: 0x60 
+RTS								;Offset: 0x350, Byte Code: 0x60
+
+SUB_PRG_0x7_ProcessConsumableItemUse:
 JMP ($0026)						;Offset: 0x351, Byte Code: 0x6C 0x26 0x00
+;the jmp here seems to jump to an event handler for the consumable item that was used
+;$0026 contains the address of the handler sub that will be jumped to
+;there's a pointer table to these functions at 0x3D3 (ROM 0x1C3E3, address in this bank: $83D3)
+;it actually starts at $8399 but up until $83D3 looks like markers for item indices that don't have a consumable item function?
+;0x84A9 = alarm flute
+;0x84E0 = medical herb
+;0x8507 = fruit of power
+;0x851D = magic ring
+;0x8524 = antidote
+;0x852F = lysis plant
+;0x853A = fruit of lime
+;0x854A = fruit of repun
+;0x8564 = warp boots (note that this function is called just before the player sprite is redrawn, but AFTER the screen switches to the new town) -- seems like there's an earlier handler??
+;			but other items, the handler called here seems to actually do the action i.e. for the medical herb it increases hp
+ENDSUB_PRG_0x7_ProcessConsumableItemUse:
+
 LDA $23							;Offset: 0x354, Byte Code: 0xA5 0x23 
 ASL A							;Offset: 0x356, Byte Code: 0x0A
 TAX								;Offset: 0x357, Byte Code: 0xAA 
@@ -617,36 +636,24 @@ RTS								;Offset: 0x398, Byte Code: 0x60
 .byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
 .byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
 .byte $DB,  $84
-;---- End CDL Unknown Block: Total Bytes 0x3A ----
 
-
-;---- Start CDL Confirmed Data Block: Offset 0x03D3 --
 .byte $E0,  $84,  $24,  $85,  $2F,  $85,  $3A,  $85
 .byte $07,  $85,  $1D,  $85,  $4A,  $85,  $64,  $85
 .byte $65,  $85,  $50,  $84,  $B3,  $84,  $9E,  $85
-;---- End CDL Confirmed Data Block: Total Bytes 0x18 ----
 
-
-;---- Start CDL Unknown Block: Offset 0x03EB --
 .byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
 .byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-;---- End CDL Unknown Block: Total Bytes 0x10 ----
 
-
-;---- Start CDL Confirmed Data Block: Offset 0x03FB --
 .byte $A9,  $84,  $5F,  $84,  $91,  $84,  $91,  $84
 .byte $91,  $84,  $6B,  $85,  $5F,  $84,  $DB,  $84
 .byte $85,  $85,  $D0,  $84,  $39,  $84,  $91,  $84
 .byte $91,  $84,  $51,  $84,  $51,  $84,  $42,  $84
-;---- End CDL Confirmed Data Block: Total Bytes 0x20 ----
 
-
-;---- Start CDL Unknown Block: Offset 0x041B --
 .byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
 .byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
 .byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
 .byte $DB,  $84,  $DB,  $84,  $DB,  $84
-;---- End CDL Unknown Block: Total Bytes 0x1E ----
+;---- End CDL Confirmed Data Block: Total Bytes 0xA0 ----
 
 LDA $6C							;Offset: 0x439, Byte Code: 0xA5 0x6C 
 CMP #$62						;Offset: 0x43B, Byte Code: 0xC9 0x62
@@ -750,7 +757,9 @@ L_PRG_0x7_0x04DB:
 
 LDA #$FF						;Offset: 0x4DB, Byte Code: 0xA9 0xFF
 STA $23							;Offset: 0x4DD, Byte Code: 0x85 0x23 
-RTS								;Offset: 0x4DF, Byte Code: 0x60 
+RTS								;Offset: 0x4DF, Byte Code: 0x60
+
+L_ConsumableItemHandler_MedicalHerb:
 JSR $8497						;Offset: 0x4E0, Byte Code: 0x20 0x97 0x84
 BNE L_PRG_0x7_0x04E6						;Offset: 0x4E3, Byte Code: 0xD0 0x01 (computed address for relative mode instruction 0x04E6)
 RTS								;Offset: 0x4E5, Byte Code: 0x60 
