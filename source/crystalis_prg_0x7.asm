@@ -629,33 +629,34 @@ LDA #$00						;Offset: 0x393, Byte Code: 0xA9 0x00
 STA $0715						;Offset: 0x395, Byte Code: 0x8D 0x15 0x07
 RTS								;Offset: 0x398, Byte Code: 0x60 
 
-;---- Start CDL Unknown Block: Offset 0x0399 --
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $91,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $DB,  $84
+L_PRG_0x7_JumpTable_ConsumableItemUseHandlers:
+	;---- Start CDL Confirmed Data Block: Offset 0x0399 --
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $91,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84
 
-.byte $E0,  $84,  $24,  $85,  $2F,  $85,  $3A,  $85
-.byte $07,  $85,  $1D,  $85,  $4A,  $85,  $64,  $85
-.byte $65,  $85,  $50,  $84,  $B3,  $84,  $9E,  $85
+	.byte $E0,  $84,  $24,  $85,  $2F,  $85,  $3A,  $85
+	.byte $07,  $85,  $1D,  $85,  $4A,  $85,  $64,  $85
+	.byte $65,  $85,  $50,  $84,  $B3,  $84,  $9E,  $85
 
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
 
-.byte $A9,  $84,  $5F,  $84,  $91,  $84,  $91,  $84
-.byte $91,  $84,  $6B,  $85,  $5F,  $84,  $DB,  $84
-.byte $85,  $85,  $D0,  $84,  $39,  $84,  $91,  $84
-.byte $91,  $84,  $51,  $84,  $51,  $84,  $42,  $84
+	.byte $A9,  $84,  $5F,  $84,  $91,  $84,  $91,  $84
+	.byte $91,  $84,  $6B,  $85,  $5F,  $84,  $DB,  $84
+	.byte $85,  $85,  $D0,  $84,  $39,  $84,  $91,  $84
+	.byte $91,  $84,  $51,  $84,  $51,  $84,  $42,  $84
 
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
-.byte $DB,  $84,  $DB,  $84,  $DB,  $84
-;---- End CDL Confirmed Data Block: Total Bytes 0xA0 ----
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84,  $DB,  $84
+	.byte $DB,  $84,  $DB,  $84,  $DB,  $84
+	;---- End CDL Confirmed Data Block: Total Bytes 0xA0 ----
 
 LDA $6C							;Offset: 0x439, Byte Code: 0xA5 0x6C 
 CMP #$62						;Offset: 0x43B, Byte Code: 0xC9 0x62
@@ -761,45 +762,42 @@ LDA #$FF						;Offset: 0x4DB, Byte Code: 0xA9 0xFF
 STA $23							;Offset: 0x4DD, Byte Code: 0x85 0x23 
 RTS								;Offset: 0x4DF, Byte Code: 0x60
 
-L_ConsumableItemHandler_MedicalHerb:
-JSR $8497						;Offset: 0x4E0, Byte Code: 0x20 0x97 0x84
-BNE L_PRG_0x7_0x04E6						;Offset: 0x4E3, Byte Code: 0xD0 0x01 (computed address for relative mode instruction 0x04E6)
-RTS								;Offset: 0x4E5, Byte Code: 0x60 
+L_PRG_0x7_ConsumableItemHandler_MedicalHerb_Start:
+	JSR $8497						;Offset: 0x4E0, Byte Code: 0x20 0x97 0x84
+	BNE L_PRG_0x7_0x04E6						;Offset: 0x4E3, Byte Code: 0xD0 0x01 (computed address for relative mode instruction 0x04E6)
+	RTS								;Offset: 0x4E5, Byte Code: 0x60 
 
-L_PRG_0x7_0x04E6:
+	L_PRG_0x7_0x04E6:
 
-LDY #$06						;Offset: 0x4E6, Byte Code: 0xA0 0x06
-CLC								;Offset: 0x4E8, Byte Code: 0x18 
-LDA #$20						;Offset: 0x4E9, Byte Code: 0xA9 0x20
-ADC $03C1						;Offset: 0x4EB, Byte Code: 0x6D 0xC1 0x03
-BCC L_PRG_0x7_0x04F2						;Offset: 0x4EE, Byte Code: 0x90 0x02 (computed address for relative mode instruction 0x04F2)
-LDA #$FF						;Offset: 0x4F0, Byte Code: 0xA9 0xFF
+	LDY #$06						;Offset: 0x4E6, Byte Code: 0xA0 0x06
+	CLC								;Offset: 0x4E8, Byte Code: 0x18 
+	LDA #$20						;Offset: 0x4E9, Byte Code: 0xA9 0x20
+	ADC $03C1						;Offset: 0x4EB, Byte Code: 0x6D 0xC1 0x03
+	BCC L_PRG_0x7_0x04F2						;Offset: 0x4EE, Byte Code: 0x90 0x02 (computed address for relative mode instruction 0x04F2)
+	LDA #$FF						;Offset: 0x4F0, Byte Code: 0xA9 0xFF
 
-L_PRG_0x7_0x04F2:
+	L_PRG_0x7_0x04F2:
 
-CMP $03C0						;Offset: 0x4F2, Byte Code: 0xCD 0xC0 0x03
-BCC L_PRG_0x7_0x04FA						;Offset: 0x4F5, Byte Code: 0x90 0x03 (computed address for relative mode instruction 0x04FA)
-LDA $03C0						;Offset: 0x4F7, Byte Code: 0xAD 0xC0 0x03
+	CMP $03C0						;Offset: 0x4F2, Byte Code: 0xCD 0xC0 0x03
+	BCC L_PRG_0x7_0x04FA						;Offset: 0x4F5, Byte Code: 0x90 0x03 (computed address for relative mode instruction 0x04FA)
+	LDA $03C0						;Offset: 0x4F7, Byte Code: 0xAD 0xC0 0x03
 
-L_PRG_0x7_0x04FA:
+	L_PRG_0x7_0x04FA:
 
-STA $03C1						;Offset: 0x4FA, Byte Code: 0x8D 0xC1 0x03
-STY $2F							;Offset: 0x4FD, Byte Code: 0x84 0x2F 
-LDA #$25						;Offset: 0x4FF, Byte Code: 0xA9 0x25
-JSR $C125						;Offset: 0x501, Byte Code: 0x20 0x25 0xC1
-LDY $2F							;Offset: 0x504, Byte Code: 0xA4 0x2F 
-RTS								;Offset: 0x506, Byte Code: 0x60
+	STA $03C1						;Offset: 0x4FA, Byte Code: 0x8D 0xC1 0x03
+	STY $2F							;Offset: 0x4FD, Byte Code: 0x84 0x2F 
+	LDA #$25						;Offset: 0x4FF, Byte Code: 0xA9 0x25
+	JSR $C125						;Offset: 0x501, Byte Code: 0x20 0x25 0xC1
+	LDY $2F							;Offset: 0x504, Byte Code: 0xA4 0x2F 
+	RTS								;Offset: 0x506, Byte Code: 0x60
+L_PRG_0x7_ConsumableItemHandler_MedicalHerb_End:
 
 ;called when fruit of power used
 CLC								;Offset: 0x507, Byte Code: 0x18 
 LDA $0708						;Offset: 0x508, Byte Code: 0xAD 0x08 0x07
 ADC #$20						;Offset: 0x50B, Byte Code: 0x69 0x20
 BCC L_PRG_0x7_0x0511						;Offset: 0x50D, Byte Code: 0x90 0x02 (computed address for relative mode instruction 0x0511)
-
-;---- Start CDL Unknown Block: Offset 0x050F --
-.byte $A9,  $FF
-;---- End CDL Unknown Block: Total Bytes 0x02 ----
-
+LDA #$FF						;Offset: 0x50F, Byte Code: 0xA9 0xFF
 
 L_PRG_0x7_0x0511:
 
